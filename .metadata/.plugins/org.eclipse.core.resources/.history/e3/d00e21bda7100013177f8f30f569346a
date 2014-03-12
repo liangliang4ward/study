@@ -1,0 +1,10 @@
+import java.io.Serializable;
+
+
+public class Children extends Persion implements Serializable{
+
+	
+	public void play(){
+		System.out.println("play");
+	}
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 18 elements from project &apos;LuceneTest1&apos;&#x0D;&#x0A;- Original project: &apos;LuceneTest1&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     doc&#x0D;&#x0A;     apache1.0.txt&#x0D;&#x0A;     apache1.1.txt&#x0D;&#x0A;     apache2.0.txt&#x0D;&#x0A;     cpl1.0.txt&#x0D;&#x0A;     epl1.0.txt&#x0D;&#x0A;     freebsd.txt&#x0D;&#x0A;     gpl1.0.txt&#x0D;&#x0A;     gpl2.0.txt&#x0D;&#x0A;     gpl3.0.txt&#x0D;&#x0A;     lgpl2.1.txt&#x0D;&#x0A;     lgpl3.txt&#x0D;&#x0A;     lpgl2.0.txt&#x0D;&#x0A;     mit.txt&#x0D;&#x0A;     mozilla_eula_firefox3.txt&#x0D;&#x0A;     mozilla_eula_thunderbird2.txt&#x0D;&#x0A;     mozilla1.1.txt&#x0D;&#x0A;     readme.txt" description="Delete elements" element1="doc" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="1" stamp="1381728204443" subPackages="false" version="1.0"/>
+</session>

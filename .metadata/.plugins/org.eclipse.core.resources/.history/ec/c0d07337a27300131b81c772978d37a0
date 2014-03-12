@@ -1,0 +1,41 @@
+package server;
+
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.channels.ServerSocketChannel;
+import java.nio.channels.SocketChannel;
+
+public class Client {
+	SocketChannel sc;
+	ServerSocketChannel ssc;
+	ByteBuffer buffer = ByteBuffer.allocate(1024);
+	public Client(SocketChannel sc, ServerSocketChannel ssc) {
+		this.sc=sc;
+		this.ssc = ssc;
+	}
+	
+	public void start(){
+		while(sc!=null){
+			int n=0 ;
+			try {
+				n= sc.read(buffer);
+				
+				buffer.flip();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			if(n<0){
+				System.out.println("a");
+			}
+			
+			while(buffer.hasRemaining()){
+				System.out.print(buffer.get()+"\t");
+			}
+			if( buffer.hasRemaining() )
+				buffer.compact();
+			else
+				buffer.clear();			
+		}
+	}
+
+}

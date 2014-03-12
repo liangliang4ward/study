@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;comm.jar&apos; to &apos;lib&apos;&#x0D;&#x0A;- Original project: &apos;SMS&apos;&#x0D;&#x0A;- Destination element: &apos;lib&apos;&#x0D;&#x0A;- Original element: &apos;comm.jar&apos;" description="Copy file" element1="lib/comm.jar" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1358921920945" target="/Comm/lib" units="0" version="1.0"/>
+</session>

@@ -1,0 +1,29 @@
+package server;
+
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.channels.ServerSocketChannel;
+import java.nio.channels.SocketChannel;
+
+public class Client {
+	SocketChannel sc;
+	ServerSocketChannel ssc;
+	ByteBuffer buffer = ByteBuffer.allocate(1024);
+	public Client(SocketChannel sc, ServerSocketChannel ssc) {
+		this.sc=sc;
+		this.ssc = ssc;
+	}
+	
+	public void start(){
+		while(true){
+			
+			try {
+				int n = sc.read(buffer);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+}

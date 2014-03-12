@@ -1,0 +1,27 @@
+package test.codeconvert;
+
+public class TranslateConvert {
+	public static void main(String[] args) {
+		
+		
+		ConverterTranslator xlat =
+                new ConverterTranslator();
+            ClassPool pool = ClassPool.getDefault(xlat);
+            CodeConverter convert = new CodeConverter();
+            CtMethod smeth = pool.get(args[0]).
+                getDeclaredMethod(args[1]);
+            CtMethod pmeth = pool.get("TranslateConvert").
+                getDeclaredMethod("reportSet");
+            convert.insertBeforeMethod(smeth, pmeth);
+            xlat.setConverter(convert);
+            Loader loader = new Loader(pool);
+            
+            // invoke "main" method of application class
+            String[] pargs = new String[args.length-3];
+            System.arraycopy(args, 3, pargs, 0, pargs.length);
+            loader.run(args[2], pargs);
+		
+		
+		
+	}
+}

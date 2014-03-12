@@ -1,0 +1,41 @@
+package client;
+
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
+import java.nio.channels.SocketChannel;
+
+public class ClientNIO {
+
+	private SocketChannel channel;
+	private Selector selector;
+	public ClientNIO(int port,String ip) {
+		try {
+			channel = SocketChannel.open();
+			channel.configureBlocking(false);
+			selector = Selector.open();
+			channel.connect(new InetSocketAddress(ip, port));
+			channel.register(selector, SelectionKey.OP_CONNECT);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void listen(){
+		
+		while(true){
+			try {
+				selector.select(10);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		new ClientNIO(3333, "localhost");
+	}
+
+}

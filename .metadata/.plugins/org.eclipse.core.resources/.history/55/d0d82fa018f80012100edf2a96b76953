@@ -1,0 +1,17 @@
+package _thread;
+
+public class TestConcurrentCount {
+
+	public int count=0;
+	
+	public  int compute(){
+		while(count++<Integer.MAX_VALUE);
+		return count;
+	}
+	
+	
+	
+	
+	
+	
+}

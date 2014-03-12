@@ -1,0 +1,8 @@
+----------------------------------------------------------------
+2013-12-11 03:48:22.777 GMT:
+ 正在使用类加载器 sun.misc.Launcher$AppClassLoader@601bb1 引导数据库
+目录 E:\study\AI\myDatabase  中的 Derby 版本 The Apache Software Foundation - Apache Derby - 10.6.2.1 - (999685) 实例 a816c00e-0142-dfc5-0c62-0000000fb558
+
+java.vendor=Sun Microsystems Inc.
+java.runtime.version=1.6.0_17-b04
+数据库类装入器已启动 － derby.database.classpath=“”

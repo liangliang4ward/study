@@ -1,0 +1,16 @@
+
+public class TestVolate {
+
+	int b = 5;
+	
+	
+	public TestVolate(){
+		
+	}
+	
+	class Thread1 extends Thread{
+		
+	}
+	
+}
+

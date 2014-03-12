@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>.org.eclipse.jdt.core.external.folders</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>.link0</name>
+			<type>2</type>
+			<location>C:/Users/Administrator/Desktop/lucene_/IK Analyzer 2012_u6_source/src</location>
+		</link>
+		<link>
+			<name>.link2</name>
+			<type>2</type>
+			<location>D:/c_Resource/资料/lucene/lucene-3.6.2-src/lucene-3.6.2/core</location>
+		</link>
+	</linkedResources>
+</projectDescription>

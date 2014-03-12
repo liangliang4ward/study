@@ -1,0 +1,44 @@
+package server;
+
+import java.io.IOException;
+import java.nio.channels.ServerSocketChannel;
+
+public class Server {
+	
+	private int port;
+	
+	public Server(int port){
+		this.port = port;
+		init();
+	}
+	
+	ServerSocketChannel ssc ;
+	
+	private void init() {
+		try {
+			ssc = ServerSocketChannel.open();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+
+
+	class AcceptThread extends Thread{
+		
+		@Override
+		public void run(){
+			
+			
+			
+			
+			
+			
+			
+		}
+	}
+	
+	
+	
+}

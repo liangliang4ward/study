@@ -1,0 +1,892 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x6d9aff92, pid=13948, tid=11232
+#
+# JRE version: 6.0_17-b04
+# Java VM: Java HotSpot(TM) Client VM (14.3-b01 mixed mode windows-x86 )
+# Problematic frame:
+# V  [jvm.dll+0xfff92]
+#
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00199c00):  JavaThread "main" [_thread_in_vm, id=11232, stack(0x01810000,0x01860000)]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x00000000
+
+Registers:
+EAX=0x00000000, EBX=0x6daf4b00, ECX=0x00000000, EDX=0x00000001
+ESP=0x0185f2b8, EBP=0x0185f2d4, ESI=0x00000022, EDI=0x00199c00
+EIP=0x6d9aff92, EFLAGS=0x00010246
+
+Top of Stack: (sp=0x0185f2b8)
+0x0185f2b8:   00199c00 00000006 00000000 00199d10
+0x0185f2c8:   6daf4bd8 00000000 0185f310 0185f308
+0x0185f2d8:   6d6e29c6 00199d10 00000000 00000022
+0x0185f2e8:   7f000001 03e4e348 00199c00 079dfc90
+0x0185f2f8:   7aff0002 0100007f 00000000 00000000
+0x0185f308:   0185f338 01a57606 00000010 0185f324
+0x0185f318:   0185f328 0185f340 0185f344 03e4a4f8
+0x0185f328:   03e4a578 03edadf8 03e99868 03de0000 
+
+Instructions: (pc=0x6d9aff92)
+0x6d9aff82:   8a 11 f0 ff 8b 4d 0c 8b 75 10 8a 1d 75 0d b0 6d
+0x6d9aff92:   8b 01 8b 50 04 83 c4 08 c1 ee 02 84 db 74 1e 8b 
+
+
+Stack: [0x01810000,0x01860000],  sp=0x0185f2b8,  free space=316k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0xfff92]
+C  [nio.dll+0x29c6]
+J  sun.nio.ch.ServerSocketChannelImpl.accept0(Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;[Ljava/net/InetSocketAddress;)I
+J  sun.nio.ch.ServerSocketChannelImpl.accept()Ljava/nio/channels/SocketChannel;
+J  sun.nio.ch.PipeImpl$Initializer.run()Ljava/lang/Object;
+v  ~StubRoutines::call_stub
+V  [jvm.dll+0xecf9c]
+V  [jvm.dll+0x1741d1]
+V  [jvm.dll+0xed01d]
+V  [jvm.dll+0x11c2bf]
+C  [java.dll+0x1047]
+J  sun.nio.ch.SelectorProviderImpl.openPipe()Ljava/nio/channels/Pipe;
+J  sun.nio.ch.WindowsSelectorImpl.<init>(Ljava/nio/channels/spi/SelectorProvider;)V
+J  sun.nio.ch.WindowsSelectorProvider.openSelector()Ljava/nio/channels/spi/AbstractSelector;
+J  io.netty.channel.nio.NioEventLoop.openSelector()Ljava/nio/channels/Selector;
+J  io.netty.channel.nio.NioEventLoop.<init>(Lio/netty/channel/nio/NioEventLoopGroup;Ljava/util/concurrent/ThreadFactory;Ljava/nio/channels/spi/SelectorProvider;)V
+J  io.netty.channel.nio.NioEventLoopGroup.newChild(Ljava/util/concurrent/ThreadFactory;[Ljava/lang/Object;)Lio/netty/util/concurrent/EventExecutor;
+J  io.netty.util.concurrent.MultithreadEventExecutorGroup.<init>(ILjava/util/concurrent/ThreadFactory;[Ljava/lang/Object;)V
+j  io.netty.channel.MultithreadEventLoopGroup.<init>(ILjava/util/concurrent/ThreadFactory;[Ljava/lang/Object;)V+14
+j  io.netty.channel.nio.NioEventLoopGroup.<init>(ILjava/util/concurrent/ThreadFactory;Ljava/nio/channels/spi/SelectorProvider;)V+11
+j  io.netty.channel.nio.NioEventLoopGroup.<init>(ILjava/util/concurrent/ThreadFactory;)V+6
+j  io.netty.channel.nio.NioEventLoopGroup.<init>(I)V+3
+j  io.netty.channel.nio.NioEventLoopGroup.<init>()V+2
+j  cn.hexing.meter.mock.MockerClient.configureBootstrap(Lio/netty/bootstrap/Bootstrap;)Lio/netty/bootstrap/Bootstrap;+6
+j  cn.hexing.meter.mock.MockerClient.run()V+8
+j  cn.hexing.meter.mock.BootStrap.main([Ljava/lang/String;)V+110
+v  ~StubRoutines::call_stub
+V  [jvm.dll+0xecf9c]
+V  [jvm.dll+0x1741d1]
+V  [jvm.dll+0xed01d]
+V  [jvm.dll+0xf5be5]
+V  [jvm.dll+0xfd83d]
+C  [javaw.exe+0x2155]
+C  [javaw.exe+0x833e]
+C  [kernel32.dll+0x4ed6c]
+C  [ntdll.dll+0x6377b]
+C  [ntdll.dll+0x6374e]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+J  sun.nio.ch.ServerSocketChannelImpl.accept0(Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;[Ljava/net/InetSocketAddress;)I
+J  sun.nio.ch.ServerSocketChannelImpl.accept()Ljava/nio/channels/SocketChannel;
+J  sun.nio.ch.PipeImpl$Initializer.run()Ljava/lang/Object;
+v  ~StubRoutines::call_stub
+J  java.security.AccessController.doPrivileged(Ljava/security/PrivilegedExceptionAction;)Ljava/lang/Object;
+J  sun.nio.ch.SelectorProviderImpl.openPipe()Ljava/nio/channels/Pipe;
+J  sun.nio.ch.WindowsSelectorImpl.<init>(Ljava/nio/channels/spi/SelectorProvider;)V
+J  sun.nio.ch.WindowsSelectorProvider.openSelector()Ljava/nio/channels/spi/AbstractSelector;
+J  io.netty.channel.nio.NioEventLoop.openSelector()Ljava/nio/channels/Selector;
+J  io.netty.channel.nio.NioEventLoop.<init>(Lio/netty/channel/nio/NioEventLoopGroup;Ljava/util/concurrent/ThreadFactory;Ljava/nio/channels/spi/SelectorProvider;)V
+J  io.netty.channel.nio.NioEventLoopGroup.newChild(Ljava/util/concurrent/ThreadFactory;[Ljava/lang/Object;)Lio/netty/util/concurrent/EventExecutor;
+J  io.netty.util.concurrent.MultithreadEventExecutorGroup.<init>(ILjava/util/concurrent/ThreadFactory;[Ljava/lang/Object;)V
+j  io.netty.channel.MultithreadEventLoopGroup.<init>(ILjava/util/concurrent/ThreadFactory;[Ljava/lang/Object;)V+14
+j  io.netty.channel.nio.NioEventLoopGroup.<init>(ILjava/util/concurrent/ThreadFactory;Ljava/nio/channels/spi/SelectorProvider;)V+11
+j  io.netty.channel.nio.NioEventLoopGroup.<init>(ILjava/util/concurrent/ThreadFactory;)V+6
+j  io.netty.channel.nio.NioEventLoopGroup.<init>(I)V+3
+j  io.netty.channel.nio.NioEventLoopGroup.<init>()V+2
+j  cn.hexing.meter.mock.MockerClient.configureBootstrap(Lio/netty/bootstrap/Bootstrap;)Lio/netty/bootstrap/Bootstrap;+6
+j  cn.hexing.meter.mock.MockerClient.run()V+8
+j  cn.hexing.meter.mock.BootStrap.main([Ljava/lang/String;)V+110
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x17020000 JavaThread "nioEventLoopGroup-678-1" [_thread_blocked, id=15624, stack(0x1b750000,0x1b7a0000)]
+  0x1701f800 JavaThread "nioEventLoopGroup-677-1" [_thread_blocked, id=16036, stack(0x1b700000,0x1b750000)]
+  0x1701f400 JavaThread "nioEventLoopGroup-676-1" [_thread_blocked, id=12544, stack(0x1b6b0000,0x1b700000)]
+  0x1701ec00 JavaThread "nioEventLoopGroup-675-1" [_thread_blocked, id=10648, stack(0x1b660000,0x1b6b0000)]
+  0x1701e800 JavaThread "nioEventLoopGroup-674-1" [_thread_blocked, id=8300, stack(0x1b610000,0x1b660000)]
+  0x1701e000 JavaThread "nioEventLoopGroup-673-1" [_thread_blocked, id=14680, stack(0x1b5c0000,0x1b610000)]
+  0x1701dc00 JavaThread "nioEventLoopGroup-672-1" [_thread_blocked, id=12568, stack(0x1b570000,0x1b5c0000)]
+  0x1701d400 JavaThread "nioEventLoopGroup-671-1" [_thread_blocked, id=3272, stack(0x1b520000,0x1b570000)]
+  0x1701d000 JavaThread "nioEventLoopGroup-670-1" [_thread_blocked, id=6576, stack(0x1b4d0000,0x1b520000)]
+  0x1701c800 JavaThread "nioEventLoopGroup-669-1" [_thread_blocked, id=14000, stack(0x1b480000,0x1b4d0000)]
+  0x1701c400 JavaThread "nioEventLoopGroup-668-1" [_thread_blocked, id=12496, stack(0x1b430000,0x1b480000)]
+  0x1701bc00 JavaThread "nioEventLoopGroup-667-1" [_thread_blocked, id=10316, stack(0x1b3e0000,0x1b430000)]
+  0x1701b800 JavaThread "nioEventLoopGroup-666-1" [_thread_blocked, id=6260, stack(0x1b390000,0x1b3e0000)]
+  0x1701b000 JavaThread "nioEventLoopGroup-665-1" [_thread_blocked, id=15792, stack(0x1b340000,0x1b390000)]
+  0x1701ac00 JavaThread "nioEventLoopGroup-664-1" [_thread_blocked, id=4672, stack(0x1b2f0000,0x1b340000)]
+  0x16e92400 JavaThread "nioEventLoopGroup-663-1" [_thread_blocked, id=9720, stack(0x1b2a0000,0x1b2f0000)]
+  0x16e92000 JavaThread "nioEventLoopGroup-662-1" [_thread_blocked, id=11280, stack(0x1b250000,0x1b2a0000)]
+  0x16e91800 JavaThread "nioEventLoopGroup-661-1" [_thread_blocked, id=11484, stack(0x1b200000,0x1b250000)]
+  0x16e91400 JavaThread "nioEventLoopGroup-660-1" [_thread_blocked, id=3248, stack(0x1b1b0000,0x1b200000)]
+  0x16e90c00 JavaThread "nioEventLoopGroup-659-1" [_thread_blocked, id=10780, stack(0x1b160000,0x1b1b0000)]
+  0x16e90800 JavaThread "nioEventLoopGroup-658-1" [_thread_blocked, id=14168, stack(0x1b010000,0x1b060000)]
+  0x16e90000 JavaThread "nioEventLoopGroup-657-1" [_thread_blocked, id=2860, stack(0x1afc0000,0x1b010000)]
+  0x16e8fc00 JavaThread "nioEventLoopGroup-656-1" [_thread_blocked, id=5232, stack(0x1af70000,0x1afc0000)]
+  0x16e8f400 JavaThread "nioEventLoopGroup-655-1" [_thread_blocked, id=9092, stack(0x1af20000,0x1af70000)]
+  0x16e8f000 JavaThread "nioEventLoopGroup-654-1" [_thread_blocked, id=4400, stack(0x1aed0000,0x1af20000)]
+  0x16e8e800 JavaThread "nioEventLoopGroup-653-1" [_thread_blocked, id=12084, stack(0x1ae80000,0x1aed0000)]
+  0x16e8e400 JavaThread "nioEventLoopGroup-652-1" [_thread_blocked, id=14420, stack(0x1ae30000,0x1ae80000)]
+  0x16e8dc00 JavaThread "nioEventLoopGroup-651-1" [_thread_blocked, id=1968, stack(0x1ade0000,0x1ae30000)]
+  0x16e8d800 JavaThread "nioEventLoopGroup-650-1" [_thread_blocked, id=6296, stack(0x1ad90000,0x1ade0000)]
+  0x16e8d000 JavaThread "nioEventLoopGroup-649-1" [_thread_blocked, id=15972, stack(0x1ad40000,0x1ad90000)]
+  0x16e8cc00 JavaThread "nioEventLoopGroup-648-1" [_thread_blocked, id=16244, stack(0x1acf0000,0x1ad40000)]
+  0x16e8c400 JavaThread "nioEventLoopGroup-647-1" [_thread_blocked, id=16120, stack(0x1aca0000,0x1acf0000)]
+  0x16e8c000 JavaThread "nioEventLoopGroup-646-1" [_thread_blocked, id=12640, stack(0x1ac50000,0x1aca0000)]
+  0x16e8b800 JavaThread "nioEventLoopGroup-645-1" [_thread_blocked, id=16232, stack(0x1ac00000,0x1ac50000)]
+  0x16e8b400 JavaThread "nioEventLoopGroup-644-1" [_thread_blocked, id=3500, stack(0x1abb0000,0x1ac00000)]
+  0x16e8ac00 JavaThread "nioEventLoopGroup-643-1" [_thread_blocked, id=7016, stack(0x1ab60000,0x1abb0000)]
+  0x16e8a800 JavaThread "nioEventLoopGroup-642-1" [_thread_blocked, id=9772, stack(0x1ab10000,0x1ab60000)]
+  0x16e8a000 JavaThread "nioEventLoopGroup-641-1" [_thread_blocked, id=9444, stack(0x1aac0000,0x1ab10000)]
+  0x16e89c00 JavaThread "nioEventLoopGroup-640-1" [_thread_blocked, id=10952, stack(0x1aa70000,0x1aac0000)]
+  0x16e89400 JavaThread "nioEventLoopGroup-639-1" [_thread_blocked, id=10000, stack(0x1aa20000,0x1aa70000)]
+  0x16e89000 JavaThread "nioEventLoopGroup-638-1" [_thread_blocked, id=11276, stack(0x1a9d0000,0x1aa20000)]
+  0x16e88800 JavaThread "nioEventLoopGroup-637-1" [_thread_blocked, id=13164, stack(0x1a980000,0x1a9d0000)]
+  0x16e88400 JavaThread "nioEventLoopGroup-636-1" [_thread_blocked, id=12036, stack(0x1a930000,0x1a980000)]
+  0x16e87c00 JavaThread "nioEventLoopGroup-635-1" [_thread_blocked, id=4748, stack(0x1a8e0000,0x1a930000)]
+  0x16e87800 JavaThread "nioEventLoopGroup-634-1" [_thread_blocked, id=11984, stack(0x1a890000,0x1a8e0000)]
+  0x16e87000 JavaThread "nioEventLoopGroup-633-1" [_thread_blocked, id=13552, stack(0x1a840000,0x1a890000)]
+  0x16e86c00 JavaThread "nioEventLoopGroup-632-1" [_thread_blocked, id=14272, stack(0x1a7f0000,0x1a840000)]
+  0x16e86400 JavaThread "nioEventLoopGroup-631-1" [_thread_blocked, id=7124, stack(0x1a7a0000,0x1a7f0000)]
+  0x16e86000 JavaThread "nioEventLoopGroup-630-1" [_thread_blocked, id=15244, stack(0x1a750000,0x1a7a0000)]
+  0x16e85800 JavaThread "nioEventLoopGroup-629-1" [_thread_blocked, id=14588, stack(0x1a700000,0x1a750000)]
+  0x16e85400 JavaThread "nioEventLoopGroup-628-1" [_thread_blocked, id=7708, stack(0x1a6b0000,0x1a700000)]
+  0x16e84c00 JavaThread "nioEventLoopGroup-627-1" [_thread_blocked, id=13144, stack(0x1a660000,0x1a6b0000)]
+  0x16e84800 JavaThread "nioEventLoopGroup-626-1" [_thread_blocked, id=15164, stack(0x1a610000,0x1a660000)]
+  0x16e84000 JavaThread "nioEventLoopGroup-625-1" [_thread_blocked, id=14360, stack(0x1a5c0000,0x1a610000)]
+  0x16e83c00 JavaThread "nioEventLoopGroup-624-1" [_thread_blocked, id=15516, stack(0x1a570000,0x1a5c0000)]
+  0x16e83400 JavaThread "nioEventLoopGroup-623-1" [_thread_blocked, id=12144, stack(0x1a520000,0x1a570000)]
+  0x16e83000 JavaThread "nioEventLoopGroup-622-1" [_thread_blocked, id=9312, stack(0x1a4d0000,0x1a520000)]
+  0x16d9bc00 JavaThread "nioEventLoopGroup-621-1" [_thread_blocked, id=15272, stack(0x1a480000,0x1a4d0000)]
+  0x16d9b800 JavaThread "nioEventLoopGroup-620-1" [_thread_blocked, id=15392, stack(0x1a430000,0x1a480000)]
+  0x16d9b000 JavaThread "nioEventLoopGroup-619-1" [_thread_blocked, id=13416, stack(0x1a3e0000,0x1a430000)]
+  0x16d9ac00 JavaThread "nioEventLoopGroup-618-1" [_thread_blocked, id=8004, stack(0x1a390000,0x1a3e0000)]
+  0x16d9a400 JavaThread "nioEventLoopGroup-617-1" [_thread_blocked, id=11504, stack(0x1a340000,0x1a390000)]
+  0x16d9a000 JavaThread "nioEventLoopGroup-616-1" [_thread_blocked, id=8544, stack(0x1a2f0000,0x1a340000)]
+  0x16d99800 JavaThread "nioEventLoopGroup-615-1" [_thread_blocked, id=14840, stack(0x1a2a0000,0x1a2f0000)]
+  0x16d99400 JavaThread "nioEventLoopGroup-614-1" [_thread_blocked, id=8116, stack(0x1a250000,0x1a2a0000)]
+  0x16d98c00 JavaThread "nioEventLoopGroup-613-1" [_thread_blocked, id=15628, stack(0x1a200000,0x1a250000)]
+  0x16d98800 JavaThread "nioEventLoopGroup-612-1" [_thread_blocked, id=8640, stack(0x1a1b0000,0x1a200000)]
+  0x16d98000 JavaThread "nioEventLoopGroup-611-1" [_thread_blocked, id=15736, stack(0x1a160000,0x1a1b0000)]
+  0x16d97c00 JavaThread "nioEventLoopGroup-610-1" [_thread_blocked, id=15300, stack(0x1a110000,0x1a160000)]
+  0x16d97400 JavaThread "nioEventLoopGroup-609-1" [_thread_blocked, id=11256, stack(0x1a0c0000,0x1a110000)]
+  0x16d97000 JavaThread "nioEventLoopGroup-608-1" [_thread_blocked, id=12644, stack(0x1a070000,0x1a0c0000)]
+  0x16d96800 JavaThread "nioEventLoopGroup-607-1" [_thread_blocked, id=15372, stack(0x1a020000,0x1a070000)]
+  0x16d96400 JavaThread "nioEventLoopGroup-606-1" [_thread_blocked, id=14072, stack(0x19fd0000,0x1a020000)]
+  0x16d95c00 JavaThread "nioEventLoopGroup-605-1" [_thread_blocked, id=15100, stack(0x19f80000,0x19fd0000)]
+  0x16d95800 JavaThread "nioEventLoopGroup-604-1" [_thread_blocked, id=7776, stack(0x19f30000,0x19f80000)]
+  0x16d95000 JavaThread "nioEventLoopGroup-603-1" [_thread_blocked, id=14400, stack(0x19ee0000,0x19f30000)]
+  0x16d94c00 JavaThread "nioEventLoopGroup-602-1" [_thread_blocked, id=9468, stack(0x19e90000,0x19ee0000)]
+  0x16d94400 JavaThread "nioEventLoopGroup-601-1" [_thread_blocked, id=9156, stack(0x19e40000,0x19e90000)]
+  0x16d94000 JavaThread "nioEventLoopGroup-600-1" [_thread_blocked, id=13612, stack(0x19df0000,0x19e40000)]
+  0x16d93800 JavaThread "nioEventLoopGroup-599-1" [_thread_blocked, id=10188, stack(0x19da0000,0x19df0000)]
+  0x16d93400 JavaThread "nioEventLoopGroup-598-1" [_thread_blocked, id=6648, stack(0x19d50000,0x19da0000)]
+  0x16d92c00 JavaThread "nioEventLoopGroup-597-1" [_thread_blocked, id=8048, stack(0x19d00000,0x19d50000)]
+  0x16d92800 JavaThread "nioEventLoopGroup-596-1" [_thread_blocked, id=15960, stack(0x19cb0000,0x19d00000)]
+  0x16d92000 JavaThread "nioEventLoopGroup-595-1" [_thread_blocked, id=12812, stack(0x19c60000,0x19cb0000)]
+  0x16d91c00 JavaThread "nioEventLoopGroup-594-1" [_thread_blocked, id=10244, stack(0x19c10000,0x19c60000)]
+  0x16d91400 JavaThread "nioEventLoopGroup-593-1" [_thread_blocked, id=13104, stack(0x19bc0000,0x19c10000)]
+  0x16d91000 JavaThread "nioEventLoopGroup-592-1" [_thread_blocked, id=15860, stack(0x19b70000,0x19bc0000)]
+  0x16d90800 JavaThread "nioEventLoopGroup-591-1" [_thread_blocked, id=9640, stack(0x19b20000,0x19b70000)]
+  0x16d90400 JavaThread "nioEventLoopGroup-590-1" [_thread_blocked, id=11716, stack(0x19ad0000,0x19b20000)]
+  0x16d8fc00 JavaThread "nioEventLoopGroup-589-1" [_thread_blocked, id=668, stack(0x19a80000,0x19ad0000)]
+  0x16d8f800 JavaThread "nioEventLoopGroup-588-1" [_thread_blocked, id=9524, stack(0x19a30000,0x19a80000)]
+  0x16d8f000 JavaThread "nioEventLoopGroup-587-1" [_thread_blocked, id=12572, stack(0x199e0000,0x19a30000)]
+  0x16d8ec00 JavaThread "nioEventLoopGroup-586-1" [_thread_blocked, id=10756, stack(0x19990000,0x199e0000)]
+  0x16d8e400 JavaThread "nioEventLoopGroup-585-1" [_thread_blocked, id=12432, stack(0x19940000,0x19990000)]
+  0x16d8e000 JavaThread "nioEventLoopGroup-584-1" [_thread_blocked, id=15172, stack(0x198f0000,0x19940000)]
+  0x16d8d800 JavaThread "nioEventLoopGroup-583-1" [_thread_blocked, id=8296, stack(0x198a0000,0x198f0000)]
+  0x16d8d400 JavaThread "nioEventLoopGroup-582-1" [_thread_blocked, id=14880, stack(0x19850000,0x198a0000)]
+  0x16d8cc00 JavaThread "nioEventLoopGroup-581-1" [_thread_blocked, id=11772, stack(0x19800000,0x19850000)]
+  0x16d8c800 JavaThread "nioEventLoopGroup-580-1" [_thread_blocked, id=14368, stack(0x197b0000,0x19800000)]
+  0x16cbf800 JavaThread "nioEventLoopGroup-579-1" [_thread_blocked, id=10536, stack(0x19760000,0x197b0000)]
+  0x16cbf400 JavaThread "nioEventLoopGroup-578-1" [_thread_blocked, id=3424, stack(0x19710000,0x19760000)]
+  0x16cbec00 JavaThread "nioEventLoopGroup-577-1" [_thread_blocked, id=10384, stack(0x196c0000,0x19710000)]
+  0x16cbe800 JavaThread "nioEventLoopGroup-576-1" [_thread_blocked, id=15208, stack(0x19670000,0x196c0000)]
+  0x16cbe000 JavaThread "nioEventLoopGroup-575-1" [_thread_blocked, id=7216, stack(0x19620000,0x19670000)]
+  0x16cbdc00 JavaThread "nioEventLoopGroup-574-1" [_thread_blocked, id=6988, stack(0x195d0000,0x19620000)]
+  0x16cbd400 JavaThread "nioEventLoopGroup-573-1" [_thread_blocked, id=11540, stack(0x19580000,0x195d0000)]
+  0x16cbd000 JavaThread "nioEventLoopGroup-572-1" [_thread_blocked, id=3268, stack(0x19530000,0x19580000)]
+  0x16cbc800 JavaThread "nioEventLoopGroup-571-1" [_thread_blocked, id=13516, stack(0x194e0000,0x19530000)]
+  0x16cbc400 JavaThread "nioEventLoopGroup-570-1" [_thread_blocked, id=11320, stack(0x19490000,0x194e0000)]
+  0x16cbbc00 JavaThread "nioEventLoopGroup-569-1" [_thread_blocked, id=16044, stack(0x19440000,0x19490000)]
+  0x16cbb800 JavaThread "nioEventLoopGroup-568-1" [_thread_blocked, id=13012, stack(0x193f0000,0x19440000)]
+  0x16cbb000 JavaThread "nioEventLoopGroup-567-1" [_thread_blocked, id=10004, stack(0x193a0000,0x193f0000)]
+  0x16cbac00 JavaThread "nioEventLoopGroup-566-1" [_thread_blocked, id=6176, stack(0x19350000,0x193a0000)]
+  0x16cba400 JavaThread "nioEventLoopGroup-565-1" [_thread_blocked, id=9888, stack(0x19300000,0x19350000)]
+  0x16cba000 JavaThread "nioEventLoopGroup-564-1" [_thread_blocked, id=2424, stack(0x192b0000,0x19300000)]
+  0x16cb9800 JavaThread "nioEventLoopGroup-563-1" [_thread_blocked, id=11048, stack(0x19260000,0x192b0000)]
+  0x16cb9400 JavaThread "nioEventLoopGroup-562-1" [_thread_blocked, id=4052, stack(0x19210000,0x19260000)]
+  0x16cb8c00 JavaThread "nioEventLoopGroup-561-1" [_thread_blocked, id=6048, stack(0x191c0000,0x19210000)]
+  0x16cb8800 JavaThread "nioEventLoopGroup-560-1" [_thread_blocked, id=2940, stack(0x19170000,0x191c0000)]
+  0x16cb8000 JavaThread "nioEventLoopGroup-559-1" [_thread_blocked, id=16348, stack(0x19120000,0x19170000)]
+  0x16cb7c00 JavaThread "nioEventLoopGroup-558-1" [_thread_blocked, id=15740, stack(0x190d0000,0x19120000)]
+  0x16cb7400 JavaThread "nioEventLoopGroup-557-1" [_thread_blocked, id=8340, stack(0x19080000,0x190d0000)]
+  0x16cb7000 JavaThread "nioEventLoopGroup-556-1" [_thread_blocked, id=10560, stack(0x19030000,0x19080000)]
+  0x16cb6800 JavaThread "nioEventLoopGroup-555-1" [_thread_blocked, id=12900, stack(0x18fe0000,0x19030000)]
+  0x16cb6400 JavaThread "nioEventLoopGroup-554-1" [_thread_blocked, id=13952, stack(0x18f90000,0x18fe0000)]
+  0x16cb5c00 JavaThread "nioEventLoopGroup-553-1" [_thread_blocked, id=14292, stack(0x18f40000,0x18f90000)]
+  0x16cb5800 JavaThread "nioEventLoopGroup-552-1" [_thread_blocked, id=7744, stack(0x18ef0000,0x18f40000)]
+  0x16cb5000 JavaThread "nioEventLoopGroup-551-1" [_thread_blocked, id=8416, stack(0x18ea0000,0x18ef0000)]
+  0x16cb4c00 JavaThread "nioEventLoopGroup-550-1" [_thread_blocked, id=14920, stack(0x18c50000,0x18ca0000)]
+  0x16cb4400 JavaThread "nioEventLoopGroup-549-1" [_thread_blocked, id=14136, stack(0x18c00000,0x18c50000)]
+  0x16cb4000 JavaThread "nioEventLoopGroup-548-1" [_thread_blocked, id=10792, stack(0x18bb0000,0x18c00000)]
+  0x16cb3800 JavaThread "nioEventLoopGroup-547-1" [_thread_blocked, id=4644, stack(0x18b60000,0x18bb0000)]
+  0x16cb3400 JavaThread "nioEventLoopGroup-546-1" [_thread_blocked, id=7284, stack(0x18b10000,0x18b60000)]
+  0x16cb2c00 JavaThread "nioEventLoopGroup-545-1" [_thread_blocked, id=14440, stack(0x18ac0000,0x18b10000)]
+  0x16cb2800 JavaThread "nioEventLoopGroup-544-1" [_thread_blocked, id=11064, stack(0x18a70000,0x18ac0000)]
+  0x16cb2000 JavaThread "nioEventLoopGroup-543-1" [_thread_blocked, id=12736, stack(0x18a20000,0x18a70000)]
+  0x16cb1c00 JavaThread "nioEventLoopGroup-542-1" [_thread_blocked, id=13720, stack(0x189d0000,0x18a20000)]
+  0x16cb1400 JavaThread "nioEventLoopGroup-541-1" [_thread_blocked, id=13460, stack(0x18980000,0x189d0000)]
+  0x16cb1000 JavaThread "nioEventLoopGroup-540-1" [_thread_blocked, id=7804, stack(0x18930000,0x18980000)]
+  0x16cb0800 JavaThread "nioEventLoopGroup-539-1" [_thread_blocked, id=3344, stack(0x188e0000,0x18930000)]
+  0x16cb0400 JavaThread "nioEventLoopGroup-538-1" [_thread_blocked, id=13936, stack(0x18890000,0x188e0000)]
+  0x16baf800 JavaThread "nioEventLoopGroup-537-1" [_thread_blocked, id=9088, stack(0x18840000,0x18890000)]
+  0x16baf400 JavaThread "nioEventLoopGroup-536-1" [_thread_blocked, id=16268, stack(0x187f0000,0x18840000)]
+  0x16baec00 JavaThread "nioEventLoopGroup-535-1" [_thread_blocked, id=10588, stack(0x187a0000,0x187f0000)]
+  0x16bae800 JavaThread "nioEventLoopGroup-534-1" [_thread_blocked, id=12408, stack(0x18750000,0x187a0000)]
+  0x16bae000 JavaThread "nioEventLoopGroup-533-1" [_thread_blocked, id=13464, stack(0x18700000,0x18750000)]
+  0x16badc00 JavaThread "nioEventLoopGroup-532-1" [_thread_blocked, id=10140, stack(0x186b0000,0x18700000)]
+  0x16bad400 JavaThread "nioEventLoopGroup-531-1" [_thread_blocked, id=15492, stack(0x18660000,0x186b0000)]
+  0x16bad000 JavaThread "nioEventLoopGroup-530-1" [_thread_blocked, id=16136, stack(0x18610000,0x18660000)]
+  0x16bac800 JavaThread "nioEventLoopGroup-529-1" [_thread_blocked, id=15036, stack(0x185c0000,0x18610000)]
+  0x16bac400 JavaThread "nioEventLoopGroup-528-1" [_thread_blocked, id=1128, stack(0x18570000,0x185c0000)]
+  0x16babc00 JavaThread "nioEventLoopGroup-527-1" [_thread_blocked, id=11072, stack(0x18520000,0x18570000)]
+  0x16bab800 JavaThread "nioEventLoopGroup-526-1" [_thread_blocked, id=7876, stack(0x184d0000,0x18520000)]
+  0x16bab000 JavaThread "nioEventLoopGroup-525-1" [_thread_blocked, id=15408, stack(0x18480000,0x184d0000)]
+  0x16baac00 JavaThread "nioEventLoopGroup-524-1" [_thread_blocked, id=16124, stack(0x18430000,0x18480000)]
+  0x16baa400 JavaThread "nioEventLoopGroup-523-1" [_thread_blocked, id=8292, stack(0x183e0000,0x18430000)]
+  0x16baa000 JavaThread "nioEventLoopGroup-522-1" [_thread_blocked, id=10284, stack(0x18390000,0x183e0000)]
+  0x16ba9800 JavaThread "nioEventLoopGroup-521-1" [_thread_blocked, id=7464, stack(0x18340000,0x18390000)]
+  0x16ba9400 JavaThread "nioEventLoopGroup-520-1" [_thread_blocked, id=5760, stack(0x182f0000,0x18340000)]
+  0x16ba8c00 JavaThread "nioEventLoopGroup-519-1" [_thread_blocked, id=11332, stack(0x182a0000,0x182f0000)]
+  0x16ba8800 JavaThread "nioEventLoopGroup-518-1" [_thread_blocked, id=3756, stack(0x18250000,0x182a0000)]
+  0x16ba8000 JavaThread "nioEventLoopGroup-517-1" [_thread_blocked, id=13980, stack(0x18200000,0x18250000)]
+  0x16ba7c00 JavaThread "nioEventLoopGroup-516-1" [_thread_blocked, id=13548, stack(0x181b0000,0x18200000)]
+  0x16ba7400 JavaThread "nioEventLoopGroup-515-1" [_thread_blocked, id=14796, stack(0x18160000,0x181b0000)]
+  0x16ba7000 JavaThread "nioEventLoopGroup-514-1" [_thread_blocked, id=10604, stack(0x18110000,0x18160000)]
+  0x16ba6800 JavaThread "nioEventLoopGroup-513-1" [_thread_blocked, id=6272, stack(0x180c0000,0x18110000)]
+  0x16ba6400 JavaThread "nioEventLoopGroup-512-1" [_thread_blocked, id=11448, stack(0x18070000,0x180c0000)]
+  0x16ba5c00 JavaThread "nioEventLoopGroup-511-1" [_thread_blocked, id=14328, stack(0x18020000,0x18070000)]
+  0x16ba5800 JavaThread "nioEventLoopGroup-510-1" [_thread_blocked, id=3832, stack(0x17fd0000,0x18020000)]
+  0x16ba5000 JavaThread "nioEventLoopGroup-509-1" [_thread_blocked, id=16000, stack(0x17f80000,0x17fd0000)]
+  0x16ba4c00 JavaThread "nioEventLoopGroup-508-1" [_thread_blocked, id=9528, stack(0x17f30000,0x17f80000)]
+  0x16ba4400 JavaThread "nioEventLoopGroup-507-1" [_thread_blocked, id=10844, stack(0x17ee0000,0x17f30000)]
+  0x16ba4000 JavaThread "nioEventLoopGroup-506-1" [_thread_blocked, id=8476, stack(0x17e90000,0x17ee0000)]
+  0x16ba3800 JavaThread "nioEventLoopGroup-505-1" [_thread_blocked, id=13776, stack(0x17e40000,0x17e90000)]
+  0x16ba3400 JavaThread "nioEventLoopGroup-504-1" [_thread_blocked, id=13956, stack(0x17df0000,0x17e40000)]
+  0x16ba2c00 JavaThread "nioEventLoopGroup-503-1" [_thread_blocked, id=10732, stack(0x17da0000,0x17df0000)]
+  0x16ba2800 JavaThread "nioEventLoopGroup-502-1" [_thread_blocked, id=15488, stack(0x17d50000,0x17da0000)]
+  0x16ba2000 JavaThread "nioEventLoopGroup-501-1" [_thread_blocked, id=14992, stack(0x17d00000,0x17d50000)]
+  0x16ba1c00 JavaThread "nioEventLoopGroup-500-1" [_thread_blocked, id=7232, stack(0x17cb0000,0x17d00000)]
+  0x16ba1400 JavaThread "nioEventLoopGroup-499-1" [_thread_blocked, id=15424, stack(0x17c60000,0x17cb0000)]
+  0x16ba1000 JavaThread "nioEventLoopGroup-498-1" [_thread_blocked, id=11608, stack(0x17c10000,0x17c60000)]
+  0x16ba0800 JavaThread "nioEventLoopGroup-497-1" [_thread_blocked, id=2020, stack(0x17bc0000,0x17c10000)]
+  0x16ba0400 JavaThread "nioEventLoopGroup-496-1" [_thread_blocked, id=10508, stack(0x17b70000,0x17bc0000)]
+  0x10d31800 JavaThread "nioEventLoopGroup-495-1" [_thread_blocked, id=9412, stack(0x16b50000,0x16ba0000)]
+  0x10d31400 JavaThread "nioEventLoopGroup-494-1" [_thread_blocked, id=16364, stack(0x16b00000,0x16b50000)]
+  0x10d30c00 JavaThread "nioEventLoopGroup-493-1" [_thread_blocked, id=11088, stack(0x16ab0000,0x16b00000)]
+  0x10d30800 JavaThread "nioEventLoopGroup-492-1" [_thread_blocked, id=11916, stack(0x16a60000,0x16ab0000)]
+  0x10d30000 JavaThread "nioEventLoopGroup-491-1" [_thread_blocked, id=14416, stack(0x16a10000,0x16a60000)]
+  0x10d2fc00 JavaThread "nioEventLoopGroup-490-1" [_thread_blocked, id=10908, stack(0x169c0000,0x16a10000)]
+  0x10d2f400 JavaThread "nioEventLoopGroup-489-1" [_thread_blocked, id=3796, stack(0x16970000,0x169c0000)]
+  0x10d2f000 JavaThread "nioEventLoopGroup-488-1" [_thread_blocked, id=8088, stack(0x16920000,0x16970000)]
+  0x10d2e800 JavaThread "nioEventLoopGroup-487-1" [_thread_blocked, id=9644, stack(0x168d0000,0x16920000)]
+  0x10d2e400 JavaThread "nioEventLoopGroup-486-1" [_thread_blocked, id=3836, stack(0x16880000,0x168d0000)]
+  0x10d2dc00 JavaThread "nioEventLoopGroup-485-1" [_thread_blocked, id=14352, stack(0x16830000,0x16880000)]
+  0x10d2d800 JavaThread "nioEventLoopGroup-484-1" [_thread_blocked, id=10368, stack(0x167e0000,0x16830000)]
+  0x10d2d000 JavaThread "nioEventLoopGroup-483-1" [_thread_blocked, id=11384, stack(0x16790000,0x167e0000)]
+  0x10d2cc00 JavaThread "nioEventLoopGroup-482-1" [_thread_blocked, id=10260, stack(0x16740000,0x16790000)]
+  0x10d2c400 JavaThread "nioEventLoopGroup-481-1" [_thread_blocked, id=11044, stack(0x166f0000,0x16740000)]
+  0x10d2c000 JavaThread "nioEventLoopGroup-480-1" [_thread_blocked, id=11912, stack(0x166a0000,0x166f0000)]
+  0x10d2b800 JavaThread "nioEventLoopGroup-479-1" [_thread_blocked, id=13996, stack(0x16650000,0x166a0000)]
+  0x10d2b400 JavaThread "nioEventLoopGroup-478-1" [_thread_blocked, id=14892, stack(0x16600000,0x16650000)]
+  0x10d2ac00 JavaThread "nioEventLoopGroup-477-1" [_thread_blocked, id=6712, stack(0x165b0000,0x16600000)]
+  0x10d2a800 JavaThread "nioEventLoopGroup-476-1" [_thread_blocked, id=10500, stack(0x16560000,0x165b0000)]
+  0x10d2a000 JavaThread "nioEventLoopGroup-475-1" [_thread_blocked, id=15412, stack(0x16510000,0x16560000)]
+  0x10d29c00 JavaThread "nioEventLoopGroup-474-1" [_thread_blocked, id=14776, stack(0x164c0000,0x16510000)]
+  0x10d29400 JavaThread "nioEventLoopGroup-473-1" [_thread_blocked, id=4660, stack(0x16470000,0x164c0000)]
+  0x10d29000 JavaThread "nioEventLoopGroup-472-1" [_thread_blocked, id=9804, stack(0x16420000,0x16470000)]
+  0x10d28800 JavaThread "nioEventLoopGroup-471-1" [_thread_blocked, id=8856, stack(0x163d0000,0x16420000)]
+  0x10d28400 JavaThread "nioEventLoopGroup-470-1" [_thread_blocked, id=14928, stack(0x16380000,0x163d0000)]
+  0x10d27c00 JavaThread "nioEventLoopGroup-469-1" [_thread_blocked, id=15220, stack(0x16330000,0x16380000)]
+  0x10d27800 JavaThread "nioEventLoopGroup-468-1" [_thread_blocked, id=14296, stack(0x162e0000,0x16330000)]
+  0x10d27000 JavaThread "nioEventLoopGroup-467-1" [_thread_blocked, id=10920, stack(0x16290000,0x162e0000)]
+  0x10d26c00 JavaThread "nioEventLoopGroup-466-1" [_thread_blocked, id=14644, stack(0x16240000,0x16290000)]
+  0x10d26400 JavaThread "nioEventLoopGroup-465-1" [_thread_blocked, id=13052, stack(0x161f0000,0x16240000)]
+  0x10d26000 JavaThread "nioEventLoopGroup-464-1" [_thread_blocked, id=15996, stack(0x161a0000,0x161f0000)]
+  0x10d25800 JavaThread "nioEventLoopGroup-463-1" [_thread_blocked, id=9716, stack(0x16150000,0x161a0000)]
+  0x10d25400 JavaThread "nioEventLoopGroup-462-1" [_thread_blocked, id=8124, stack(0x16100000,0x16150000)]
+  0x10d24c00 JavaThread "nioEventLoopGroup-461-1" [_thread_blocked, id=8760, stack(0x160b0000,0x16100000)]
+  0x10d24800 JavaThread "nioEventLoopGroup-460-1" [_thread_blocked, id=1468, stack(0x16060000,0x160b0000)]
+  0x10d24000 JavaThread "nioEventLoopGroup-459-1" [_thread_blocked, id=1024, stack(0x16010000,0x16060000)]
+  0x10d23c00 JavaThread "nioEventLoopGroup-458-1" [_thread_blocked, id=6044, stack(0x15fc0000,0x16010000)]
+  0x10d23400 JavaThread "nioEventLoopGroup-457-1" [_thread_blocked, id=8036, stack(0x15f70000,0x15fc0000)]
+  0x10d23000 JavaThread "nioEventLoopGroup-456-1" [_thread_blocked, id=15900, stack(0x15f20000,0x15f70000)]
+  0x10d22800 JavaThread "nioEventLoopGroup-455-1" [_thread_blocked, id=11568, stack(0x15ed0000,0x15f20000)]
+  0x10d22400 JavaThread "nioEventLoopGroup-454-1" [_thread_blocked, id=8940, stack(0x15e80000,0x15ed0000)]
+  0x10c28000 JavaThread "nioEventLoopGroup-453-1" [_thread_blocked, id=15880, stack(0x15e30000,0x15e80000)]
+  0x10c27c00 JavaThread "nioEventLoopGroup-452-1" [_thread_blocked, id=16324, stack(0x15de0000,0x15e30000)]
+  0x10c27400 JavaThread "nioEventLoopGroup-451-1" [_thread_blocked, id=15072, stack(0x15d90000,0x15de0000)]
+  0x10c27000 JavaThread "nioEventLoopGroup-450-1" [_thread_blocked, id=14404, stack(0x15d40000,0x15d90000)]
+  0x10c26800 JavaThread "nioEventLoopGroup-449-1" [_thread_blocked, id=6936, stack(0x15cf0000,0x15d40000)]
+  0x10c26400 JavaThread "nioEventLoopGroup-448-1" [_thread_blocked, id=16032, stack(0x15ca0000,0x15cf0000)]
+  0x10c25c00 JavaThread "nioEventLoopGroup-447-1" [_thread_blocked, id=10032, stack(0x15c50000,0x15ca0000)]
+  0x10c25800 JavaThread "nioEventLoopGroup-446-1" [_thread_blocked, id=10932, stack(0x15c00000,0x15c50000)]
+  0x10c25000 JavaThread "nioEventLoopGroup-445-1" [_thread_blocked, id=4180, stack(0x15bb0000,0x15c00000)]
+  0x10c24c00 JavaThread "nioEventLoopGroup-444-1" [_thread_blocked, id=11640, stack(0x15b60000,0x15bb0000)]
+  0x10c24400 JavaThread "nioEventLoopGroup-443-1" [_thread_blocked, id=11932, stack(0x15b10000,0x15b60000)]
+  0x10c24000 JavaThread "nioEventLoopGroup-442-1" [_thread_blocked, id=11824, stack(0x15ac0000,0x15b10000)]
+  0x10c23800 JavaThread "nioEventLoopGroup-441-1" [_thread_blocked, id=15200, stack(0x15a70000,0x15ac0000)]
+  0x10c23400 JavaThread "nioEventLoopGroup-440-1" [_thread_blocked, id=13988, stack(0x15a20000,0x15a70000)]
+  0x10c22c00 JavaThread "nioEventLoopGroup-439-1" [_thread_blocked, id=3388, stack(0x159d0000,0x15a20000)]
+  0x10c22800 JavaThread "nioEventLoopGroup-438-1" [_thread_blocked, id=12564, stack(0x15980000,0x159d0000)]
+  0x10c22000 JavaThread "nioEventLoopGroup-437-1" [_thread_blocked, id=15092, stack(0x15930000,0x15980000)]
+  0x10c21c00 JavaThread "nioEventLoopGroup-436-1" [_thread_blocked, id=11952, stack(0x158e0000,0x15930000)]
+  0x10c21400 JavaThread "nioEventLoopGroup-435-1" [_thread_blocked, id=12916, stack(0x15890000,0x158e0000)]
+  0x10c21000 JavaThread "nioEventLoopGroup-434-1" [_thread_blocked, id=8512, stack(0x15840000,0x15890000)]
+  0x10c20800 JavaThread "nioEventLoopGroup-433-1" [_thread_blocked, id=5780, stack(0x157f0000,0x15840000)]
+  0x10c20400 JavaThread "nioEventLoopGroup-432-1" [_thread_blocked, id=15692, stack(0x157a0000,0x157f0000)]
+  0x10c1fc00 JavaThread "nioEventLoopGroup-431-1" [_thread_blocked, id=15912, stack(0x15750000,0x157a0000)]
+  0x10c1f800 JavaThread "nioEventLoopGroup-430-1" [_thread_blocked, id=4060, stack(0x15700000,0x15750000)]
+  0x10c1f000 JavaThread "nioEventLoopGroup-429-1" [_thread_blocked, id=11584, stack(0x156b0000,0x15700000)]
+  0x10c1ec00 JavaThread "nioEventLoopGroup-428-1" [_thread_blocked, id=2948, stack(0x15660000,0x156b0000)]
+  0x10c1e400 JavaThread "nioEventLoopGroup-427-1" [_thread_blocked, id=6620, stack(0x15610000,0x15660000)]
+  0x10c1e000 JavaThread "nioEventLoopGroup-426-1" [_thread_blocked, id=7608, stack(0x155c0000,0x15610000)]
+  0x10c1d800 JavaThread "nioEventLoopGroup-425-1" [_thread_blocked, id=7692, stack(0x15570000,0x155c0000)]
+  0x10c1d400 JavaThread "nioEventLoopGroup-424-1" [_thread_blocked, id=13828, stack(0x15520000,0x15570000)]
+  0x10c1cc00 JavaThread "nioEventLoopGroup-423-1" [_thread_blocked, id=12420, stack(0x154d0000,0x15520000)]
+  0x10c1c800 JavaThread "nioEventLoopGroup-422-1" [_thread_blocked, id=14512, stack(0x15480000,0x154d0000)]
+  0x10c1c000 JavaThread "nioEventLoopGroup-421-1" [_thread_blocked, id=14584, stack(0x15430000,0x15480000)]
+  0x10c1bc00 JavaThread "nioEventLoopGroup-420-1" [_thread_blocked, id=12424, stack(0x153e0000,0x15430000)]
+  0x10c1b400 JavaThread "nioEventLoopGroup-419-1" [_thread_blocked, id=15260, stack(0x15390000,0x153e0000)]
+  0x10c1b000 JavaThread "nioEventLoopGroup-418-1" [_thread_blocked, id=11420, stack(0x15340000,0x15390000)]
+  0x10c1a800 JavaThread "nioEventLoopGroup-417-1" [_thread_blocked, id=11408, stack(0x152f0000,0x15340000)]
+  0x10c1a400 JavaThread "nioEventLoopGroup-416-1" [_thread_blocked, id=15020, stack(0x152a0000,0x152f0000)]
+  0x10c19c00 JavaThread "nioEventLoopGroup-415-1" [_thread_blocked, id=4112, stack(0x15250000,0x152a0000)]
+  0x10c19800 JavaThread "nioEventLoopGroup-414-1" [_thread_blocked, id=8632, stack(0x15200000,0x15250000)]
+  0x10c19000 JavaThread "nioEventLoopGroup-413-1" [_thread_blocked, id=11164, stack(0x151b0000,0x15200000)]
+  0x10c18c00 JavaThread "nioEventLoopGroup-412-1" [_thread_blocked, id=14068, stack(0x15160000,0x151b0000)]
+  0x10b06400 JavaThread "nioEventLoopGroup-411-1" [_thread_blocked, id=15420, stack(0x15110000,0x15160000)]
+  0x10b05c00 JavaThread "nioEventLoopGroup-410-1" [_thread_blocked, id=7204, stack(0x150c0000,0x15110000)]
+  0x10b05800 JavaThread "nioEventLoopGroup-409-1" [_thread_blocked, id=9916, stack(0x15070000,0x150c0000)]
+  0x10b05000 JavaThread "nioEventLoopGroup-408-1" [_thread_blocked, id=16288, stack(0x15020000,0x15070000)]
+  0x10b04c00 JavaThread "nioEventLoopGroup-407-1" [_thread_blocked, id=12520, stack(0x14fd0000,0x15020000)]
+  0x10b04400 JavaThread "nioEventLoopGroup-406-1" [_thread_blocked, id=9688, stack(0x14f80000,0x14fd0000)]
+  0x10b04000 JavaThread "nioEventLoopGroup-405-1" [_thread_blocked, id=13276, stack(0x14f30000,0x14f80000)]
+  0x10b03800 JavaThread "nioEventLoopGroup-404-1" [_thread_blocked, id=14088, stack(0x14ee0000,0x14f30000)]
+  0x10b03400 JavaThread "nioEventLoopGroup-403-1" [_thread_blocked, id=15528, stack(0x14e90000,0x14ee0000)]
+  0x10b02c00 JavaThread "nioEventLoopGroup-402-1" [_thread_blocked, id=10712, stack(0x14e40000,0x14e90000)]
+  0x10b02800 JavaThread "nioEventLoopGroup-401-1" [_thread_blocked, id=3200, stack(0x14df0000,0x14e40000)]
+  0x10b02000 JavaThread "nioEventLoopGroup-400-1" [_thread_blocked, id=11908, stack(0x14da0000,0x14df0000)]
+  0x10b01c00 JavaThread "nioEventLoopGroup-399-1" [_thread_blocked, id=8700, stack(0x14d50000,0x14da0000)]
+  0x10b01400 JavaThread "nioEventLoopGroup-398-1" [_thread_blocked, id=12648, stack(0x14d00000,0x14d50000)]
+  0x10b01000 JavaThread "nioEventLoopGroup-397-1" [_thread_blocked, id=12068, stack(0x14cb0000,0x14d00000)]
+  0x10b00800 JavaThread "nioEventLoopGroup-396-1" [_thread_blocked, id=3904, stack(0x14c60000,0x14cb0000)]
+  0x10b00400 JavaThread "nioEventLoopGroup-395-1" [_thread_blocked, id=9944, stack(0x14c10000,0x14c60000)]
+  0x10affc00 JavaThread "nioEventLoopGroup-394-1" [_thread_blocked, id=13064, stack(0x14bc0000,0x14c10000)]
+  0x10aff800 JavaThread "nioEventLoopGroup-393-1" [_thread_blocked, id=15416, stack(0x14b70000,0x14bc0000)]
+  0x10aff000 JavaThread "nioEventLoopGroup-392-1" [_thread_blocked, id=10408, stack(0x14b20000,0x14b70000)]
+  0x10afec00 JavaThread "nioEventLoopGroup-391-1" [_thread_blocked, id=11624, stack(0x14ad0000,0x14b20000)]
+  0x10afe400 JavaThread "nioEventLoopGroup-390-1" [_thread_blocked, id=12616, stack(0x14a80000,0x14ad0000)]
+  0x10afe000 JavaThread "nioEventLoopGroup-389-1" [_thread_blocked, id=15152, stack(0x14a30000,0x14a80000)]
+  0x10afd800 JavaThread "nioEventLoopGroup-388-1" [_thread_blocked, id=15448, stack(0x149e0000,0x14a30000)]
+  0x10afd400 JavaThread "nioEventLoopGroup-387-1" [_thread_blocked, id=14280, stack(0x14990000,0x149e0000)]
+  0x10afcc00 JavaThread "nioEventLoopGroup-386-1" [_thread_blocked, id=3028, stack(0x14940000,0x14990000)]
+  0x10afc800 JavaThread "nioEventLoopGroup-385-1" [_thread_blocked, id=15616, stack(0x148f0000,0x14940000)]
+  0x10afc000 JavaThread "nioEventLoopGroup-384-1" [_thread_blocked, id=15476, stack(0x148a0000,0x148f0000)]
+  0x10afbc00 JavaThread "nioEventLoopGroup-383-1" [_thread_blocked, id=15380, stack(0x14850000,0x148a0000)]
+  0x10afb400 JavaThread "nioEventLoopGroup-382-1" [_thread_blocked, id=6600, stack(0x14800000,0x14850000)]
+  0x10afb000 JavaThread "nioEventLoopGroup-381-1" [_thread_blocked, id=13888, stack(0x147b0000,0x14800000)]
+  0x10afa800 JavaThread "nioEventLoopGroup-380-1" [_thread_blocked, id=12116, stack(0x14760000,0x147b0000)]
+  0x10afa400 JavaThread "nioEventLoopGroup-379-1" [_thread_blocked, id=15604, stack(0x14710000,0x14760000)]
+  0x10af9c00 JavaThread "nioEventLoopGroup-378-1" [_thread_blocked, id=2976, stack(0x146c0000,0x14710000)]
+  0x10af9800 JavaThread "nioEventLoopGroup-377-1" [_thread_blocked, id=15936, stack(0x14670000,0x146c0000)]
+  0x10af9000 JavaThread "nioEventLoopGroup-376-1" [_thread_blocked, id=15532, stack(0x14620000,0x14670000)]
+  0x10af8c00 JavaThread "nioEventLoopGroup-375-1" [_thread_blocked, id=12668, stack(0x145d0000,0x14620000)]
+  0x10af8400 JavaThread "nioEventLoopGroup-374-1" [_thread_blocked, id=12928, stack(0x14580000,0x145d0000)]
+  0x10af8000 JavaThread "nioEventLoopGroup-373-1" [_thread_blocked, id=11096, stack(0x14530000,0x14580000)]
+  0x10af7800 JavaThread "nioEventLoopGroup-372-1" [_thread_blocked, id=4992, stack(0x144e0000,0x14530000)]
+  0x10af7400 JavaThread "nioEventLoopGroup-371-1" [_thread_blocked, id=14756, stack(0x14490000,0x144e0000)]
+  0x10af6c00 JavaThread "nioEventLoopGroup-370-1" [_thread_blocked, id=12216, stack(0x14440000,0x14490000)]
+  0x10a92c00 JavaThread "nioEventLoopGroup-369-1" [_thread_blocked, id=4904, stack(0x143f0000,0x14440000)]
+  0x10a92800 JavaThread "nioEventLoopGroup-368-1" [_thread_blocked, id=13068, stack(0x143a0000,0x143f0000)]
+  0x10a92000 JavaThread "nioEventLoopGroup-367-1" [_thread_blocked, id=4860, stack(0x14350000,0x143a0000)]
+  0x10a91c00 JavaThread "nioEventLoopGroup-366-1" [_thread_blocked, id=4540, stack(0x14300000,0x14350000)]
+  0x10a91400 JavaThread "nioEventLoopGroup-365-1" [_thread_blocked, id=5636, stack(0x142b0000,0x14300000)]
+  0x10a91000 JavaThread "nioEventLoopGroup-364-1" [_thread_blocked, id=15384, stack(0x14260000,0x142b0000)]
+  0x10a90800 JavaThread "nioEventLoopGroup-363-1" [_thread_blocked, id=9096, stack(0x14210000,0x14260000)]
+  0x10a90400 JavaThread "nioEventLoopGroup-362-1" [_thread_blocked, id=8680, stack(0x141c0000,0x14210000)]
+  0x10a8fc00 JavaThread "nioEventLoopGroup-361-1" [_thread_blocked, id=12888, stack(0x14170000,0x141c0000)]
+  0x10a8f800 JavaThread "nioEventLoopGroup-360-1" [_thread_blocked, id=11500, stack(0x14120000,0x14170000)]
+  0x10a8f000 JavaThread "nioEventLoopGroup-359-1" [_thread_blocked, id=8112, stack(0x140d0000,0x14120000)]
+  0x10a8ec00 JavaThread "nioEventLoopGroup-358-1" [_thread_blocked, id=3572, stack(0x14080000,0x140d0000)]
+  0x10a8e400 JavaThread "nioEventLoopGroup-357-1" [_thread_blocked, id=15632, stack(0x14030000,0x14080000)]
+  0x10a8e000 JavaThread "nioEventLoopGroup-356-1" [_thread_blocked, id=6512, stack(0x13fe0000,0x14030000)]
+  0x10a8d800 JavaThread "nioEventLoopGroup-355-1" [_thread_blocked, id=12448, stack(0x13f90000,0x13fe0000)]
+  0x10a8d400 JavaThread "nioEventLoopGroup-354-1" [_thread_blocked, id=13568, stack(0x13f40000,0x13f90000)]
+  0x10a8cc00 JavaThread "nioEventLoopGroup-353-1" [_thread_blocked, id=10800, stack(0x13ef0000,0x13f40000)]
+  0x10a8c800 JavaThread "nioEventLoopGroup-352-1" [_thread_blocked, id=12804, stack(0x13ea0000,0x13ef0000)]
+  0x10a8c000 JavaThread "nioEventLoopGroup-351-1" [_thread_blocked, id=16128, stack(0x13e50000,0x13ea0000)]
+  0x10a8b800 JavaThread "nioEventLoopGroup-350-1" [_thread_blocked, id=7004, stack(0x13e00000,0x13e50000)]
+  0x10a8b400 JavaThread "nioEventLoopGroup-349-1" [_thread_blocked, id=5836, stack(0x13db0000,0x13e00000)]
+  0x10a2b400 JavaThread "nioEventLoopGroup-348-1" [_thread_blocked, id=15808, stack(0x13d60000,0x13db0000)]
+  0x10a2b000 JavaThread "nioEventLoopGroup-347-1" [_thread_blocked, id=12996, stack(0x13d10000,0x13d60000)]
+  0x10a2a800 JavaThread "nioEventLoopGroup-346-1" [_thread_blocked, id=9984, stack(0x13cc0000,0x13d10000)]
+  0x10a2a400 JavaThread "nioEventLoopGroup-345-1" [_thread_blocked, id=15104, stack(0x13c70000,0x13cc0000)]
+  0x10a29c00 JavaThread "nioEventLoopGroup-344-1" [_thread_blocked, id=14528, stack(0x13c20000,0x13c70000)]
+  0x10a29800 JavaThread "nioEventLoopGroup-343-1" [_thread_blocked, id=11000, stack(0x13bd0000,0x13c20000)]
+  0x10a29000 JavaThread "nioEventLoopGroup-342-1" [_thread_blocked, id=15788, stack(0x13b80000,0x13bd0000)]
+  0x10a28c00 JavaThread "nioEventLoopGroup-341-1" [_thread_blocked, id=13740, stack(0x13b30000,0x13b80000)]
+  0x10a28400 JavaThread "nioEventLoopGroup-340-1" [_thread_blocked, id=13616, stack(0x13ae0000,0x13b30000)]
+  0x10a28000 JavaThread "nioEventLoopGroup-339-1" [_thread_blocked, id=10688, stack(0x13a90000,0x13ae0000)]
+  0x10a27800 JavaThread "nioEventLoopGroup-338-1" [_thread_blocked, id=11140, stack(0x13a40000,0x13a90000)]
+  0x10a27400 JavaThread "nioEventLoopGroup-337-1" [_thread_blocked, id=10984, stack(0x139f0000,0x13a40000)]
+  0x10a26c00 JavaThread "nioEventLoopGroup-336-1" [_thread_blocked, id=8456, stack(0x139a0000,0x139f0000)]
+  0x10a26800 JavaThread "nioEventLoopGroup-335-1" [_thread_blocked, id=13244, stack(0x13950000,0x139a0000)]
+  0x10a26000 JavaThread "nioEventLoopGroup-334-1" [_thread_blocked, id=15024, stack(0x13900000,0x13950000)]
+  0x10a25c00 JavaThread "nioEventLoopGroup-333-1" [_thread_blocked, id=15056, stack(0x138b0000,0x13900000)]
+  0x10a25400 JavaThread "nioEventLoopGroup-332-1" [_thread_blocked, id=10524, stack(0x13860000,0x138b0000)]
+  0x10a25000 JavaThread "nioEventLoopGroup-331-1" [_thread_blocked, id=14248, stack(0x13810000,0x13860000)]
+  0x10a24800 JavaThread "nioEventLoopGroup-330-1" [_thread_blocked, id=15620, stack(0x137c0000,0x13810000)]
+  0x10a24400 JavaThread "nioEventLoopGroup-329-1" [_thread_blocked, id=12728, stack(0x13770000,0x137c0000)]
+  0x10a23c00 JavaThread "nioEventLoopGroup-328-1" [_thread_blocked, id=13324, stack(0x13720000,0x13770000)]
+  0x1097dc00 JavaThread "nioEventLoopGroup-327-1" [_thread_blocked, id=14568, stack(0x136d0000,0x13720000)]
+  0x1097d800 JavaThread "nioEventLoopGroup-326-1" [_thread_blocked, id=10212, stack(0x13680000,0x136d0000)]
+  0x1097d000 JavaThread "nioEventLoopGroup-325-1" [_thread_blocked, id=2396, stack(0x13630000,0x13680000)]
+  0x1097cc00 JavaThread "nioEventLoopGroup-324-1" [_thread_blocked, id=14268, stack(0x135e0000,0x13630000)]
+  0x1097c400 JavaThread "nioEventLoopGroup-323-1" [_thread_blocked, id=14116, stack(0x13590000,0x135e0000)]
+  0x1097c000 JavaThread "nioEventLoopGroup-322-1" [_thread_blocked, id=11424, stack(0x13540000,0x13590000)]
+  0x1097b800 JavaThread "nioEventLoopGroup-321-1" [_thread_blocked, id=14128, stack(0x134f0000,0x13540000)]
+  0x1097b400 JavaThread "nioEventLoopGroup-320-1" [_thread_blocked, id=4772, stack(0x134a0000,0x134f0000)]
+  0x1097ac00 JavaThread "nioEventLoopGroup-319-1" [_thread_blocked, id=11220, stack(0x13350000,0x133a0000)]
+  0x1097a800 JavaThread "nioEventLoopGroup-318-1" [_thread_blocked, id=15852, stack(0x13300000,0x13350000)]
+  0x1097a000 JavaThread "nioEventLoopGroup-317-1" [_thread_blocked, id=15204, stack(0x132b0000,0x13300000)]
+  0x10979c00 JavaThread "nioEventLoopGroup-316-1" [_thread_blocked, id=11396, stack(0x13260000,0x132b0000)]
+  0x10979400 JavaThread "nioEventLoopGroup-315-1" [_thread_blocked, id=9132, stack(0x13210000,0x13260000)]
+  0x10979000 JavaThread "nioEventLoopGroup-314-1" [_thread_blocked, id=10956, stack(0x131c0000,0x13210000)]
+  0x10978800 JavaThread "nioEventLoopGroup-313-1" [_thread_blocked, id=15120, stack(0x13170000,0x131c0000)]
+  0x10978400 JavaThread "nioEventLoopGroup-312-1" [_thread_blocked, id=11560, stack(0x13120000,0x13170000)]
+  0x10977c00 JavaThread "nioEventLoopGroup-311-1" [_thread_blocked, id=13744, stack(0x130d0000,0x13120000)]
+  0x10977800 JavaThread "nioEventLoopGroup-310-1" [_thread_blocked, id=13392, stack(0x13080000,0x130d0000)]
+  0x10977000 JavaThread "nioEventLoopGroup-309-1" [_thread_blocked, id=2348, stack(0x13030000,0x13080000)]
+  0x10976c00 JavaThread "nioEventLoopGroup-308-1" [_thread_blocked, id=9024, stack(0x12fe0000,0x13030000)]
+  0x10976400 JavaThread "nioEventLoopGroup-307-1" [_thread_blocked, id=5428, stack(0x12f90000,0x12fe0000)]
+  0x1091dc00 JavaThread "nioEventLoopGroup-306-1" [_thread_blocked, id=12328, stack(0x12f40000,0x12f90000)]
+  0x1091d800 JavaThread "nioEventLoopGroup-305-1" [_thread_blocked, id=13160, stack(0x12ef0000,0x12f40000)]
+  0x1091d000 JavaThread "nioEventLoopGroup-304-1" [_thread_blocked, id=10512, stack(0x12ea0000,0x12ef0000)]
+  0x1091cc00 JavaThread "nioEventLoopGroup-303-1" [_thread_blocked, id=3860, stack(0x12e50000,0x12ea0000)]
+  0x1091c400 JavaThread "nioEventLoopGroup-302-1" [_thread_blocked, id=11328, stack(0x12e00000,0x12e50000)]
+  0x1091c000 JavaThread "nioEventLoopGroup-301-1" [_thread_blocked, id=11380, stack(0x12db0000,0x12e00000)]
+  0x1091b800 JavaThread "nioEventLoopGroup-300-1" [_thread_blocked, id=3224, stack(0x12d60000,0x12db0000)]
+  0x1091b400 JavaThread "nioEventLoopGroup-299-1" [_thread_blocked, id=10772, stack(0x12d10000,0x12d60000)]
+  0x1091ac00 JavaThread "nioEventLoopGroup-298-1" [_thread_blocked, id=16144, stack(0x12cc0000,0x12d10000)]
+  0x1091a800 JavaThread "nioEventLoopGroup-297-1" [_thread_blocked, id=14204, stack(0x12c70000,0x12cc0000)]
+  0x1091a000 JavaThread "nioEventLoopGroup-296-1" [_thread_blocked, id=14144, stack(0x12c20000,0x12c70000)]
+  0x10919c00 JavaThread "nioEventLoopGroup-295-1" [_thread_blocked, id=13868, stack(0x12bd0000,0x12c20000)]
+  0x10919400 JavaThread "nioEventLoopGroup-294-1" [_thread_blocked, id=13196, stack(0x12b80000,0x12bd0000)]
+  0x10919000 JavaThread "nioEventLoopGroup-293-1" [_thread_blocked, id=14312, stack(0x12b30000,0x12b80000)]
+  0x10918800 JavaThread "nioEventLoopGroup-292-1" [_thread_blocked, id=16228, stack(0x12ae0000,0x12b30000)]
+  0x10918400 JavaThread "nioEventLoopGroup-291-1" [_thread_blocked, id=15080, stack(0x12a90000,0x12ae0000)]
+  0x10917c00 JavaThread "nioEventLoopGroup-290-1" [_thread_blocked, id=8264, stack(0x12a40000,0x12a90000)]
+  0x10917800 JavaThread "nioEventLoopGroup-289-1" [_thread_blocked, id=10108, stack(0x129f0000,0x12a40000)]
+  0x10917000 JavaThread "nioEventLoopGroup-288-1" [_thread_blocked, id=9220, stack(0x129a0000,0x129f0000)]
+  0x10916c00 JavaThread "nioEventLoopGroup-287-1" [_thread_blocked, id=6384, stack(0x12950000,0x129a0000)]
+  0x10916400 JavaThread "nioEventLoopGroup-286-1" [_thread_blocked, id=14284, stack(0x12900000,0x12950000)]
+  0x10871800 JavaThread "nioEventLoopGroup-285-1" [_thread_blocked, id=8812, stack(0x128b0000,0x12900000)]
+  0x10871400 JavaThread "nioEventLoopGroup-284-1" [_thread_blocked, id=11996, stack(0x12860000,0x128b0000)]
+  0x10870c00 JavaThread "nioEventLoopGroup-283-1" [_thread_blocked, id=11524, stack(0x12810000,0x12860000)]
+  0x10870800 JavaThread "nioEventLoopGroup-282-1" [_thread_blocked, id=15688, stack(0x127c0000,0x12810000)]
+  0x10870000 JavaThread "nioEventLoopGroup-281-1" [_thread_blocked, id=14140, stack(0x12770000,0x127c0000)]
+  0x1086fc00 JavaThread "nioEventLoopGroup-280-1" [_thread_blocked, id=15612, stack(0x12720000,0x12770000)]
+  0x1086f400 JavaThread "nioEventLoopGroup-279-1" [_thread_blocked, id=8960, stack(0x126d0000,0x12720000)]
+  0x1086f000 JavaThread "nioEventLoopGroup-278-1" [_thread_blocked, id=15892, stack(0x12680000,0x126d0000)]
+  0x1086e800 JavaThread "nioEventLoopGroup-277-1" [_thread_blocked, id=14788, stack(0x12630000,0x12680000)]
+  0x1086e400 JavaThread "nioEventLoopGroup-276-1" [_thread_blocked, id=4304, stack(0x125e0000,0x12630000)]
+  0x1086dc00 JavaThread "nioEventLoopGroup-275-1" [_thread_blocked, id=15524, stack(0x12590000,0x125e0000)]
+  0x1086d800 JavaThread "nioEventLoopGroup-274-1" [_thread_blocked, id=15568, stack(0x12540000,0x12590000)]
+  0x1086d000 JavaThread "nioEventLoopGroup-273-1" [_thread_blocked, id=10916, stack(0x124f0000,0x12540000)]
+  0x1086cc00 JavaThread "nioEventLoopGroup-272-1" [_thread_blocked, id=14216, stack(0x124a0000,0x124f0000)]
+  0x1086c400 JavaThread "nioEventLoopGroup-271-1" [_thread_blocked, id=14548, stack(0x12450000,0x124a0000)]
+  0x1086c000 JavaThread "nioEventLoopGroup-270-1" [_thread_blocked, id=6540, stack(0x12400000,0x12450000)]
+  0x1086b800 JavaThread "nioEventLoopGroup-269-1" [_thread_blocked, id=10168, stack(0x123b0000,0x12400000)]
+  0x1086b400 JavaThread "nioEventLoopGroup-268-1" [_thread_blocked, id=15232, stack(0x12360000,0x123b0000)]
+  0x1086ac00 JavaThread "nioEventLoopGroup-267-1" [_thread_blocked, id=14468, stack(0x12310000,0x12360000)]
+  0x1086a800 JavaThread "nioEventLoopGroup-266-1" [_thread_blocked, id=8384, stack(0x122c0000,0x12310000)]
+  0x1086a000 JavaThread "nioEventLoopGroup-265-1" [_thread_blocked, id=11024, stack(0x12270000,0x122c0000)]
+  0x107d8400 JavaThread "nioEventLoopGroup-264-1" [_thread_blocked, id=12516, stack(0x12220000,0x12270000)]
+  0x107d8000 JavaThread "nioEventLoopGroup-263-1" [_thread_blocked, id=14808, stack(0x121d0000,0x12220000)]
+  0x107d7800 JavaThread "nioEventLoopGroup-262-1" [_thread_blocked, id=14180, stack(0x12180000,0x121d0000)]
+  0x107d7400 JavaThread "nioEventLoopGroup-261-1" [_thread_blocked, id=11628, stack(0x12130000,0x12180000)]
+  0x107d6c00 JavaThread "nioEventLoopGroup-260-1" [_thread_blocked, id=8928, stack(0x120e0000,0x12130000)]
+  0x107d6400 JavaThread "nioEventLoopGroup-259-1" [_thread_blocked, id=14700, stack(0x12090000,0x120e0000)]
+  0x107d6000 JavaThread "nioEventLoopGroup-258-1" [_thread_blocked, id=12224, stack(0x12040000,0x12090000)]
+  0x107d5800 JavaThread "nioEventLoopGroup-257-1" [_thread_blocked, id=896, stack(0x11ff0000,0x12040000)]
+  0x107d5400 JavaThread "nioEventLoopGroup-256-1" [_thread_blocked, id=12660, stack(0x11fa0000,0x11ff0000)]
+  0x107d4c00 JavaThread "nioEventLoopGroup-255-1" [_thread_blocked, id=4712, stack(0x11f50000,0x11fa0000)]
+  0x107d4800 JavaThread "nioEventLoopGroup-254-1" [_thread_blocked, id=10360, stack(0x11f00000,0x11f50000)]
+  0x107d4000 JavaThread "nioEventLoopGroup-253-1" [_thread_blocked, id=12440, stack(0x11eb0000,0x11f00000)]
+  0x107d3c00 JavaThread "nioEventLoopGroup-252-1" [_thread_blocked, id=12892, stack(0x11e60000,0x11eb0000)]
+  0x107d3400 JavaThread "nioEventLoopGroup-251-1" [_thread_blocked, id=14832, stack(0x11e10000,0x11e60000)]
+  0x107d3000 JavaThread "nioEventLoopGroup-250-1" [_thread_blocked, id=6984, stack(0x11dc0000,0x11e10000)]
+  0x107d2800 JavaThread "nioEventLoopGroup-249-1" [_thread_blocked, id=11300, stack(0x11d70000,0x11dc0000)]
+  0x107d2400 JavaThread "nioEventLoopGroup-248-1" [_thread_blocked, id=8204, stack(0x11d20000,0x11d70000)]
+  0x107d1c00 JavaThread "nioEventLoopGroup-247-1" [_thread_blocked, id=4188, stack(0x11cd0000,0x11d20000)]
+  0x107d1800 JavaThread "nioEventLoopGroup-246-1" [_thread_blocked, id=13652, stack(0x11c80000,0x11cd0000)]
+  0x107d1000 JavaThread "nioEventLoopGroup-245-1" [_thread_blocked, id=13752, stack(0x11c30000,0x11c80000)]
+  0x107d0c00 JavaThread "nioEventLoopGroup-244-1" [_thread_blocked, id=15864, stack(0x11be0000,0x11c30000)]
+  0x10776400 JavaThread "nioEventLoopGroup-243-1" [_thread_blocked, id=5152, stack(0x11b90000,0x11be0000)]
+  0x10775c00 JavaThread "nioEventLoopGroup-242-1" [_thread_blocked, id=10540, stack(0x11b40000,0x11b90000)]
+  0x10775800 JavaThread "nioEventLoopGroup-241-1" [_thread_blocked, id=4000, stack(0x11af0000,0x11b40000)]
+  0x10775000 JavaThread "nioEventLoopGroup-240-1" [_thread_blocked, id=15060, stack(0x11aa0000,0x11af0000)]
+  0x10774c00 JavaThread "nioEventLoopGroup-239-1" [_thread_blocked, id=15192, stack(0x11a50000,0x11aa0000)]
+  0x10774400 JavaThread "nioEventLoopGroup-238-1" [_thread_blocked, id=14836, stack(0x11a00000,0x11a50000)]
+  0x10774000 JavaThread "nioEventLoopGroup-237-1" [_thread_blocked, id=12484, stack(0x119b0000,0x11a00000)]
+  0x10773800 JavaThread "nioEventLoopGroup-236-1" [_thread_blocked, id=13488, stack(0x11960000,0x119b0000)]
+  0x10773400 JavaThread "nioEventLoopGroup-235-1" [_thread_blocked, id=6952, stack(0x11910000,0x11960000)]
+  0x10772c00 JavaThread "nioEventLoopGroup-234-1" [_thread_blocked, id=5772, stack(0x118c0000,0x11910000)]
+  0x10772800 JavaThread "nioEventLoopGroup-233-1" [_thread_blocked, id=7868, stack(0x11870000,0x118c0000)]
+  0x10772000 JavaThread "nioEventLoopGroup-232-1" [_thread_blocked, id=8012, stack(0x11820000,0x11870000)]
+  0x10771800 JavaThread "nioEventLoopGroup-231-1" [_thread_blocked, id=14324, stack(0x117d0000,0x11820000)]
+  0x10771400 JavaThread "nioEventLoopGroup-230-1" [_thread_blocked, id=10476, stack(0x11780000,0x117d0000)]
+  0x10770c00 JavaThread "nioEventLoopGroup-229-1" [_thread_blocked, id=5328, stack(0x11730000,0x11780000)]
+  0x10770800 JavaThread "nioEventLoopGroup-228-1" [_thread_blocked, id=10720, stack(0x116e0000,0x11730000)]
+  0x10770000 JavaThread "nioEventLoopGroup-227-1" [_thread_blocked, id=1556, stack(0x11690000,0x116e0000)]
+  0x1076fc00 JavaThread "nioEventLoopGroup-226-1" [_thread_blocked, id=10552, stack(0x11640000,0x11690000)]
+  0x1076f400 JavaThread "nioEventLoopGroup-225-1" [_thread_blocked, id=15964, stack(0x115f0000,0x11640000)]
+  0x1076f000 JavaThread "nioEventLoopGroup-224-1" [_thread_blocked, id=16296, stack(0x115a0000,0x115f0000)]
+  0x1076e800 JavaThread "nioEventLoopGroup-223-1" [_thread_blocked, id=11616, stack(0x11550000,0x115a0000)]
+  0x106c7c00 JavaThread "nioEventLoopGroup-222-1" [_thread_blocked, id=15144, stack(0x11500000,0x11550000)]
+  0x106c7400 JavaThread "nioEventLoopGroup-221-1" [_thread_blocked, id=13440, stack(0x114b0000,0x11500000)]
+  0x106c7000 JavaThread "nioEventLoopGroup-220-1" [_thread_blocked, id=13860, stack(0x11460000,0x114b0000)]
+  0x106c6800 JavaThread "nioEventLoopGroup-219-1" [_thread_blocked, id=7968, stack(0x11410000,0x11460000)]
+  0x106c6400 JavaThread "nioEventLoopGroup-218-1" [_thread_blocked, id=10364, stack(0x113c0000,0x11410000)]
+  0x106c5c00 JavaThread "nioEventLoopGroup-217-1" [_thread_blocked, id=12028, stack(0x11370000,0x113c0000)]
+  0x106c5800 JavaThread "nioEventLoopGroup-216-1" [_thread_blocked, id=11948, stack(0x11320000,0x11370000)]
+  0x106c5000 JavaThread "nioEventLoopGroup-215-1" [_thread_blocked, id=1232, stack(0x112d0000,0x11320000)]
+  0x106c4c00 JavaThread "nioEventLoopGroup-214-1" [_thread_blocked, id=9848, stack(0x11280000,0x112d0000)]
+  0x106c4400 JavaThread "nioEventLoopGroup-213-1" [_thread_blocked, id=4420, stack(0x11230000,0x11280000)]
+  0x106c4000 JavaThread "nioEventLoopGroup-212-1" [_thread_blocked, id=9452, stack(0x111e0000,0x11230000)]
+  0x106c3800 JavaThread "nioEventLoopGroup-211-1" [_thread_blocked, id=10276, stack(0x11190000,0x111e0000)]
+  0x106c3400 JavaThread "nioEventLoopGroup-210-1" [_thread_blocked, id=5952, stack(0x11140000,0x11190000)]
+  0x106c2c00 JavaThread "nioEventLoopGroup-209-1" [_thread_blocked, id=13292, stack(0x110f0000,0x11140000)]
+  0x106c2800 JavaThread "nioEventLoopGroup-208-1" [_thread_blocked, id=7012, stack(0x110a0000,0x110f0000)]
+  0x106c2000 JavaThread "nioEventLoopGroup-207-1" [_thread_blocked, id=13128, stack(0x11050000,0x110a0000)]
+  0x106c1c00 JavaThread "nioEventLoopGroup-206-1" [_thread_blocked, id=9180, stack(0x11000000,0x11050000)]
+  0x106c1400 JavaThread "nioEventLoopGroup-205-1" [_thread_blocked, id=14764, stack(0x10fb0000,0x11000000)]
+  0x106c1000 JavaThread "nioEventLoopGroup-204-1" [_thread_blocked, id=6980, stack(0x10f60000,0x10fb0000)]
+  0x106c0800 JavaThread "nioEventLoopGroup-203-1" [_thread_blocked, id=12860, stack(0x10f10000,0x10f60000)]
+  0x106c0400 JavaThread "nioEventLoopGroup-202-1" [_thread_blocked, id=14152, stack(0x10ec0000,0x10f10000)]
+  0x0d186400 JavaThread "nioEventLoopGroup-201-1" [_thread_blocked, id=12780, stack(0x10670000,0x106c0000)]
+  0x0d185c00 JavaThread "nioEventLoopGroup-200-1" [_thread_blocked, id=3252, stack(0x10620000,0x10670000)]
+  0x0d185800 JavaThread "nioEventLoopGroup-199-1" [_thread_blocked, id=11376, stack(0x105d0000,0x10620000)]
+  0x0d185000 JavaThread "nioEventLoopGroup-198-1" [_thread_blocked, id=13660, stack(0x10580000,0x105d0000)]
+  0x0d184c00 JavaThread "nioEventLoopGroup-197-1" [_thread_blocked, id=12488, stack(0x10530000,0x10580000)]
+  0x0d184400 JavaThread "nioEventLoopGroup-196-1" [_thread_blocked, id=11536, stack(0x104e0000,0x10530000)]
+  0x0d184000 JavaThread "nioEventLoopGroup-195-1" [_thread_blocked, id=7044, stack(0x10490000,0x104e0000)]
+  0x0d183800 JavaThread "nioEventLoopGroup-194-1" [_thread_blocked, id=12712, stack(0x10440000,0x10490000)]
+  0x0d183400 JavaThread "nioEventLoopGroup-193-1" [_thread_blocked, id=6804, stack(0x103f0000,0x10440000)]
+  0x0d182c00 JavaThread "nioEventLoopGroup-192-1" [_thread_blocked, id=4784, stack(0x103a0000,0x103f0000)]
+  0x0d182800 JavaThread "nioEventLoopGroup-191-1" [_thread_blocked, id=12700, stack(0x10350000,0x103a0000)]
+  0x0d182000 JavaThread "nioEventLoopGroup-190-1" [_thread_blocked, id=8880, stack(0x10300000,0x10350000)]
+  0x0d181c00 JavaThread "nioEventLoopGroup-189-1" [_thread_blocked, id=12428, stack(0x102b0000,0x10300000)]
+  0x0d181400 JavaThread "nioEventLoopGroup-188-1" [_thread_blocked, id=8580, stack(0x10260000,0x102b0000)]
+  0x0d181000 JavaThread "nioEventLoopGroup-187-1" [_thread_blocked, id=12400, stack(0x10210000,0x10260000)]
+  0x0d180800 JavaThread "nioEventLoopGroup-186-1" [_thread_blocked, id=8936, stack(0x101c0000,0x10210000)]
+  0x0d180400 JavaThread "nioEventLoopGroup-185-1" [_thread_blocked, id=10200, stack(0x10170000,0x101c0000)]
+  0x0d17fc00 JavaThread "nioEventLoopGroup-184-1" [_thread_blocked, id=12176, stack(0x10120000,0x10170000)]
+  0x0d17f800 JavaThread "nioEventLoopGroup-183-1" [_thread_blocked, id=16280, stack(0x100d0000,0x10120000)]
+  0x0d17f000 JavaThread "nioEventLoopGroup-182-1" [_thread_blocked, id=12256, stack(0x10080000,0x100d0000)]
+  0x0d17ec00 JavaThread "nioEventLoopGroup-181-1" [_thread_blocked, id=10272, stack(0x10030000,0x10080000)]
+  0x0d0e3c00 JavaThread "nioEventLoopGroup-180-1" [_thread_blocked, id=10924, stack(0x0ffe0000,0x10030000)]
+  0x0d0e3400 JavaThread "nioEventLoopGroup-179-1" [_thread_blocked, id=11728, stack(0x0ff90000,0x0ffe0000)]
+  0x0d0e3000 JavaThread "nioEventLoopGroup-178-1" [_thread_blocked, id=15536, stack(0x0ff40000,0x0ff90000)]
+  0x0d0e2800 JavaThread "nioEventLoopGroup-177-1" [_thread_blocked, id=9216, stack(0x0fef0000,0x0ff40000)]
+  0x0d0e2400 JavaThread "nioEventLoopGroup-176-1" [_thread_blocked, id=15512, stack(0x0fea0000,0x0fef0000)]
+  0x0d0e1c00 JavaThread "nioEventLoopGroup-175-1" [_thread_blocked, id=4456, stack(0x0fe50000,0x0fea0000)]
+  0x0d0e1800 JavaThread "nioEventLoopGroup-174-1" [_thread_blocked, id=792, stack(0x0fe00000,0x0fe50000)]
+  0x0d0e1000 JavaThread "nioEventLoopGroup-173-1" [_thread_blocked, id=7116, stack(0x0fdb0000,0x0fe00000)]
+  0x0d0e0c00 JavaThread "nioEventLoopGroup-172-1" [_thread_blocked, id=8484, stack(0x0fd60000,0x0fdb0000)]
+  0x0d0e0400 JavaThread "nioEventLoopGroup-171-1" [_thread_blocked, id=7348, stack(0x0fd10000,0x0fd60000)]
+  0x0d0e0000 JavaThread "nioEventLoopGroup-170-1" [_thread_blocked, id=5324, stack(0x0fcc0000,0x0fd10000)]
+  0x0d0df800 JavaThread "nioEventLoopGroup-169-1" [_thread_blocked, id=11596, stack(0x0fc70000,0x0fcc0000)]
+  0x0d0df400 JavaThread "nioEventLoopGroup-168-1" [_thread_blocked, id=5024, stack(0x0fc20000,0x0fc70000)]
+  0x0d0dec00 JavaThread "nioEventLoopGroup-167-1" [_thread_blocked, id=572, stack(0x0fbd0000,0x0fc20000)]
+  0x0d0de800 JavaThread "nioEventLoopGroup-166-1" [_thread_blocked, id=12968, stack(0x0fb80000,0x0fbd0000)]
+  0x0d0de000 JavaThread "nioEventLoopGroup-165-1" [_thread_blocked, id=10768, stack(0x0fb30000,0x0fb80000)]
+  0x0d0ddc00 JavaThread "nioEventLoopGroup-164-1" [_thread_blocked, id=14616, stack(0x0fae0000,0x0fb30000)]
+  0x0d0dd400 JavaThread "nioEventLoopGroup-163-1" [_thread_blocked, id=13336, stack(0x0fa90000,0x0fae0000)]
+  0x0d0dd000 JavaThread "nioEventLoopGroup-162-1" [_thread_blocked, id=9792, stack(0x0fa40000,0x0fa90000)]
+  0x0d0dc800 JavaThread "nioEventLoopGroup-161-1" [_thread_blocked, id=11612, stack(0x0f9f0000,0x0fa40000)]
+  0x0d0dc400 JavaThread "nioEventLoopGroup-160-1" [_thread_blocked, id=9800, stack(0x0f9a0000,0x0f9f0000)]
+  0x0d074000 JavaThread "nioEventLoopGroup-159-1" [_thread_blocked, id=9332, stack(0x0f950000,0x0f9a0000)]
+  0x0d073c00 JavaThread "nioEventLoopGroup-158-1" [_thread_blocked, id=11740, stack(0x0f900000,0x0f950000)]
+  0x0d073400 JavaThread "nioEventLoopGroup-157-1" [_thread_blocked, id=11768, stack(0x0f8b0000,0x0f900000)]
+  0x0d073000 JavaThread "nioEventLoopGroup-156-1" [_thread_blocked, id=6392, stack(0x0f860000,0x0f8b0000)]
+  0x0d072800 JavaThread "nioEventLoopGroup-155-1" [_thread_blocked, id=10224, stack(0x0f810000,0x0f860000)]
+  0x0d072400 JavaThread "nioEventLoopGroup-154-1" [_thread_blocked, id=4700, stack(0x0f7c0000,0x0f810000)]
+  0x0d071c00 JavaThread "nioEventLoopGroup-153-1" [_thread_blocked, id=9904, stack(0x0f770000,0x0f7c0000)]
+  0x0d071800 JavaThread "nioEventLoopGroup-152-1" [_thread_blocked, id=12792, stack(0x0f720000,0x0f770000)]
+  0x0d071000 JavaThread "nioEventLoopGroup-151-1" [_thread_blocked, id=12044, stack(0x0f6d0000,0x0f720000)]
+  0x0d070c00 JavaThread "nioEventLoopGroup-150-1" [_thread_blocked, id=12016, stack(0x0f680000,0x0f6d0000)]
+  0x0d070400 JavaThread "nioEventLoopGroup-149-1" [_thread_blocked, id=13600, stack(0x0f630000,0x0f680000)]
+  0x0d070000 JavaThread "nioEventLoopGroup-148-1" [_thread_blocked, id=11132, stack(0x0f5e0000,0x0f630000)]
+  0x0d06f800 JavaThread "nioEventLoopGroup-147-1" [_thread_blocked, id=16260, stack(0x0f590000,0x0f5e0000)]
+  0x0d06f400 JavaThread "nioEventLoopGroup-146-1" [_thread_blocked, id=11936, stack(0x0f540000,0x0f590000)]
+  0x0d06ec00 JavaThread "nioEventLoopGroup-145-1" [_thread_blocked, id=12240, stack(0x0f4f0000,0x0f540000)]
+  0x0d06e800 JavaThread "nioEventLoopGroup-144-1" [_thread_blocked, id=13520, stack(0x0f4a0000,0x0f4f0000)]
+  0x0d06e000 JavaThread "nioEventLoopGroup-143-1" [_thread_blocked, id=10116, stack(0x0f450000,0x0f4a0000)]
+  0x0d06dc00 JavaThread "nioEventLoopGroup-142-1" [_thread_blocked, id=10608, stack(0x0f400000,0x0f450000)]
+  0x0d06d400 JavaThread "nioEventLoopGroup-141-1" [_thread_blocked, id=3840, stack(0x0f3b0000,0x0f400000)]
+  0x0d06d000 JavaThread "nioEventLoopGroup-140-1" [_thread_blocked, id=16132, stack(0x0f360000,0x0f3b0000)]
+  0x0d06c800 JavaThread "nioEventLoopGroup-139-1" [_thread_blocked, id=14516, stack(0x0f310000,0x0f360000)]
+  0x0cfecc00 JavaThread "nioEventLoopGroup-138-1" [_thread_blocked, id=11348, stack(0x0f2c0000,0x0f310000)]
+  0x0cfec800 JavaThread "nioEventLoopGroup-137-1" [_thread_blocked, id=13528, stack(0x0f270000,0x0f2c0000)]
+  0x0cfec000 JavaThread "nioEventLoopGroup-136-1" [_thread_blocked, id=4484, stack(0x0f220000,0x0f270000)]
+  0x0cfebc00 JavaThread "nioEventLoopGroup-135-1" [_thread_blocked, id=10936, stack(0x0f1d0000,0x0f220000)]
+  0x0cfeb400 JavaThread "nioEventLoopGroup-134-1" [_thread_blocked, id=8408, stack(0x0f180000,0x0f1d0000)]
+  0x0cfeb000 JavaThread "nioEventLoopGroup-133-1" [_thread_blocked, id=12628, stack(0x0f130000,0x0f180000)]
+  0x0cfea800 JavaThread "nioEventLoopGroup-132-1" [_thread_blocked, id=12480, stack(0x0f0e0000,0x0f130000)]
+  0x0cfea400 JavaThread "nioEventLoopGroup-131-1" [_thread_blocked, id=10424, stack(0x0f090000,0x0f0e0000)]
+  0x0cfe9c00 JavaThread "nioEventLoopGroup-130-1" [_thread_blocked, id=12104, stack(0x0f040000,0x0f090000)]
+  0x0cfe9800 JavaThread "nioEventLoopGroup-129-1" [_thread_blocked, id=10988, stack(0x0eff0000,0x0f040000)]
+  0x0cfe9000 JavaThread "nioEventLoopGroup-128-1" [_thread_blocked, id=16056, stack(0x0efa0000,0x0eff0000)]
+  0x0cfe8c00 JavaThread "nioEventLoopGroup-127-1" [_thread_blocked, id=12796, stack(0x0ef50000,0x0efa0000)]
+  0x0cfe8400 JavaThread "nioEventLoopGroup-126-1" [_thread_blocked, id=10672, stack(0x0ef00000,0x0ef50000)]
+  0x0cfe8000 JavaThread "nioEventLoopGroup-125-1" [_thread_blocked, id=14120, stack(0x0eeb0000,0x0ef00000)]
+  0x0cfe7800 JavaThread "nioEventLoopGroup-124-1" [_thread_blocked, id=9908, stack(0x0ee60000,0x0eeb0000)]
+  0x0cfe7400 JavaThread "nioEventLoopGroup-123-1" [_thread_blocked, id=11020, stack(0x0ee10000,0x0ee60000)]
+  0x0cfe6c00 JavaThread "nioEventLoopGroup-122-1" [_thread_blocked, id=12012, stack(0x0edc0000,0x0ee10000)]
+  0x0cfe6800 JavaThread "nioEventLoopGroup-121-1" [_thread_blocked, id=8160, stack(0x0ed70000,0x0edc0000)]
+  0x0cfe6000 JavaThread "nioEventLoopGroup-120-1" [_thread_blocked, id=12008, stack(0x0ed20000,0x0ed70000)]
+  0x0cfe5c00 JavaThread "nioEventLoopGroup-119-1" [_thread_blocked, id=14448, stack(0x0ecd0000,0x0ed20000)]
+  0x0cfe5400 JavaThread "nioEventLoopGroup-118-1" [_thread_blocked, id=4480, stack(0x0ec80000,0x0ecd0000)]
+  0x0cf65800 JavaThread "nioEventLoopGroup-117-1" [_thread_blocked, id=14864, stack(0x0ec30000,0x0ec80000)]
+  0x0cf65000 JavaThread "nioEventLoopGroup-116-1" [_thread_blocked, id=15804, stack(0x0ebe0000,0x0ec30000)]
+  0x0cf64c00 JavaThread "nioEventLoopGroup-115-1" [_thread_blocked, id=3156, stack(0x0eb90000,0x0ebe0000)]
+  0x0cf64400 JavaThread "nioEventLoopGroup-114-1" [_thread_blocked, id=13364, stack(0x0eb40000,0x0eb90000)]
+  0x0cf64000 JavaThread "nioEventLoopGroup-113-1" [_thread_blocked, id=9436, stack(0x0eaf0000,0x0eb40000)]
+  0x0cf63800 JavaThread "nioEventLoopGroup-112-1" [_thread_blocked, id=13268, stack(0x0eaa0000,0x0eaf0000)]
+  0x0cf63400 JavaThread "nioEventLoopGroup-111-1" [_thread_blocked, id=12132, stack(0x0ea50000,0x0eaa0000)]
+  0x0cf62c00 JavaThread "nioEventLoopGroup-110-1" [_thread_blocked, id=5716, stack(0x0ea00000,0x0ea50000)]
+  0x0cf62800 JavaThread "nioEventLoopGroup-109-1" [_thread_blocked, id=14044, stack(0x0e9b0000,0x0ea00000)]
+  0x0cf62000 JavaThread "nioEventLoopGroup-108-1" [_thread_blocked, id=15468, stack(0x0e960000,0x0e9b0000)]
+  0x0cf61c00 JavaThread "nioEventLoopGroup-107-1" [_thread_blocked, id=10296, stack(0x0e910000,0x0e960000)]
+  0x0cf61400 JavaThread "nioEventLoopGroup-106-1" [_thread_blocked, id=13492, stack(0x0e8c0000,0x0e910000)]
+  0x0cf61000 JavaThread "nioEventLoopGroup-105-1" [_thread_blocked, id=6228, stack(0x0e870000,0x0e8c0000)]
+  0x0cf60800 JavaThread "nioEventLoopGroup-104-1" [_thread_blocked, id=7832, stack(0x0e820000,0x0e870000)]
+  0x0cf60400 JavaThread "nioEventLoopGroup-103-1" [_thread_blocked, id=6448, stack(0x0e7d0000,0x0e820000)]
+  0x0cf5fc00 JavaThread "nioEventLoopGroup-102-1" [_thread_blocked, id=13812, stack(0x0e780000,0x0e7d0000)]
+  0x0cf5f800 JavaThread "nioEventLoopGroup-101-1" [_thread_blocked, id=12896, stack(0x0e730000,0x0e780000)]
+  0x0cf5f000 JavaThread "nioEventLoopGroup-100-1" [_thread_blocked, id=4532, stack(0x0e6e0000,0x0e730000)]
+  0x0cf5ec00 JavaThread "nioEventLoopGroup-99-1" [_thread_blocked, id=13004, stack(0x0e690000,0x0e6e0000)]
+  0x0cf5e400 JavaThread "nioEventLoopGroup-98-1" [_thread_blocked, id=10064, stack(0x0e640000,0x0e690000)]
+  0x0cf5e000 JavaThread "nioEventLoopGroup-97-1" [_thread_blocked, id=12184, stack(0x0e5f0000,0x0e640000)]
+  0x0cedac00 JavaThread "nioEventLoopGroup-96-1" [_thread_blocked, id=14112, stack(0x0e5a0000,0x0e5f0000)]
+  0x0ceda400 JavaThread "nioEventLoopGroup-95-1" [_thread_blocked, id=204, stack(0x0e550000,0x0e5a0000)]
+  0x0ceda000 JavaThread "nioEventLoopGroup-94-1" [_thread_blocked, id=15316, stack(0x0e500000,0x0e550000)]
+  0x0ced9800 JavaThread "nioEventLoopGroup-93-1" [_thread_blocked, id=15652, stack(0x0e4b0000,0x0e500000)]
+  0x0ced9400 JavaThread "nioEventLoopGroup-92-1" [_thread_blocked, id=11100, stack(0x0e460000,0x0e4b0000)]
+  0x0ced8c00 JavaThread "nioEventLoopGroup-91-1" [_thread_blocked, id=15956, stack(0x0e410000,0x0e460000)]
+  0x0ced8800 JavaThread "nioEventLoopGroup-90-1" [_thread_blocked, id=10308, stack(0x0e3c0000,0x0e410000)]
+  0x0ced8000 JavaThread "nioEventLoopGroup-89-1" [_thread_blocked, id=12456, stack(0x0e370000,0x0e3c0000)]
+  0x0ced7c00 JavaThread "nioEventLoopGroup-88-1" [_thread_blocked, id=12824, stack(0x0e320000,0x0e370000)]
+  0x0ced7400 JavaThread "nioEventLoopGroup-87-1" [_thread_blocked, id=3868, stack(0x0e2d0000,0x0e320000)]
+  0x0ced7000 JavaThread "nioEventLoopGroup-86-1" [_thread_blocked, id=4080, stack(0x0e280000,0x0e2d0000)]
+  0x0ced6800 JavaThread "nioEventLoopGroup-85-1" [_thread_blocked, id=5764, stack(0x0e230000,0x0e280000)]
+  0x0ced6400 JavaThread "nioEventLoopGroup-84-1" [_thread_blocked, id=9100, stack(0x0e1e0000,0x0e230000)]
+  0x0ced5c00 JavaThread "nioEventLoopGroup-83-1" [_thread_blocked, id=13800, stack(0x0e190000,0x0e1e0000)]
+  0x0ced5800 JavaThread "nioEventLoopGroup-82-1" [_thread_blocked, id=6172, stack(0x0e140000,0x0e190000)]
+  0x0ced5000 JavaThread "nioEventLoopGroup-81-1" [_thread_blocked, id=3140, stack(0x0e0f0000,0x0e140000)]
+  0x0ced4c00 JavaThread "nioEventLoopGroup-80-1" [_thread_blocked, id=14408, stack(0x0e0a0000,0x0e0f0000)]
+  0x0ced4400 JavaThread "nioEventLoopGroup-79-1" [_thread_blocked, id=9044, stack(0x0e050000,0x0e0a0000)]
+  0x0ced4000 JavaThread "nioEventLoopGroup-78-1" [_thread_blocked, id=13332, stack(0x0e000000,0x0e050000)]
+  0x0ced3800 JavaThread "nioEventLoopGroup-77-1" [_thread_blocked, id=13316, stack(0x0dfb0000,0x0e000000)]
+  0x0ced3400 JavaThread "nioEventLoopGroup-76-1" [_thread_blocked, id=10852, stack(0x0df60000,0x0dfb0000)]
+  0x0ce56c00 JavaThread "nioEventLoopGroup-75-1" [_thread_blocked, id=12512, stack(0x0df10000,0x0df60000)]
+  0x0ce56400 JavaThread "nioEventLoopGroup-74-1" [_thread_blocked, id=10520, stack(0x0ddc0000,0x0de10000)]
+  0x0ce56000 JavaThread "nioEventLoopGroup-73-1" [_thread_blocked, id=13120, stack(0x0dd70000,0x0ddc0000)]
+  0x0ce55800 JavaThread "nioEventLoopGroup-72-1" [_thread_blocked, id=11312, stack(0x0dd20000,0x0dd70000)]
+  0x0ce55400 JavaThread "nioEventLoopGroup-71-1" [_thread_blocked, id=3372, stack(0x0dcd0000,0x0dd20000)]
+  0x0ce54c00 JavaThread "nioEventLoopGroup-70-1" [_thread_blocked, id=14676, stack(0x0dc80000,0x0dcd0000)]
+  0x0ce54800 JavaThread "nioEventLoopGroup-69-1" [_thread_blocked, id=16076, stack(0x0dc30000,0x0dc80000)]
+  0x0ce54000 JavaThread "nioEventLoopGroup-68-1" [_thread_blocked, id=15240, stack(0x0dbe0000,0x0dc30000)]
+  0x0ce53c00 JavaThread "nioEventLoopGroup-67-1" [_thread_blocked, id=8896, stack(0x0db90000,0x0dbe0000)]
+  0x0ce53400 JavaThread "nioEventLoopGroup-66-1" [_thread_blocked, id=11184, stack(0x0db40000,0x0db90000)]
+  0x0ce53000 JavaThread "nioEventLoopGroup-65-1" [_thread_blocked, id=13840, stack(0x0daf0000,0x0db40000)]
+  0x0ce52800 JavaThread "nioEventLoopGroup-64-1" [_thread_blocked, id=15952, stack(0x0daa0000,0x0daf0000)]
+  0x0ce52400 JavaThread "nioEventLoopGroup-63-1" [_thread_blocked, id=5676, stack(0x0da50000,0x0daa0000)]
+  0x0ce51c00 JavaThread "nioEventLoopGroup-62-1" [_thread_blocked, id=13036, stack(0x0da00000,0x0da50000)]
+  0x0ce51800 JavaThread "nioEventLoopGroup-61-1" [_thread_blocked, id=16188, stack(0x0d9b0000,0x0da00000)]
+  0x0ce51000 JavaThread "nioEventLoopGroup-60-1" [_thread_blocked, id=15352, stack(0x0d960000,0x0d9b0000)]
+  0x0ce50c00 JavaThread "nioEventLoopGroup-59-1" [_thread_blocked, id=13420, stack(0x0d910000,0x0d960000)]
+  0x0ce50400 JavaThread "nioEventLoopGroup-58-1" [_thread_blocked, id=15712, stack(0x0d8c0000,0x0d910000)]
+  0x0ce50000 JavaThread "nioEventLoopGroup-57-1" [_thread_blocked, id=6516, stack(0x0d870000,0x0d8c0000)]
+  0x0ce4f800 JavaThread "nioEventLoopGroup-56-1" [_thread_blocked, id=13328, stack(0x0d820000,0x0d870000)]
+  0x0ce4f000 JavaThread "nioEventLoopGroup-55-1" [_thread_blocked, id=11468, stack(0x0d7d0000,0x0d820000)]
+  0x0c1d5800 JavaThread "nioEventLoopGroup-54-1" [_thread_blocked, id=11956, stack(0x0d780000,0x0d7d0000)]
+  0x0c1d5000 JavaThread "nioEventLoopGroup-53-1" [_thread_blocked, id=11308, stack(0x0d730000,0x0d780000)]
+  0x0c1d4c00 JavaThread "nioEventLoopGroup-52-1" [_thread_blocked, id=444, stack(0x0d6e0000,0x0d730000)]
+  0x0c1d4400 JavaThread "nioEventLoopGroup-51-1" [_thread_blocked, id=568, stack(0x0d690000,0x0d6e0000)]
+  0x0c1d4000 JavaThread "nioEventLoopGroup-50-1" [_thread_blocked, id=10972, stack(0x0d640000,0x0d690000)]
+  0x0c1d3800 JavaThread "nioEventLoopGroup-49-1" [_thread_blocked, id=11352, stack(0x0d5f0000,0x0d640000)]
+  0x0c1d3400 JavaThread "nioEventLoopGroup-48-1" [_thread_blocked, id=9584, stack(0x0d5a0000,0x0d5f0000)]
+  0x0c1d2c00 JavaThread "nioEventLoopGroup-47-1" [_thread_blocked, id=14736, stack(0x0d550000,0x0d5a0000)]
+  0x0c1d2800 JavaThread "nioEventLoopGroup-46-1" [_thread_blocked, id=15904, stack(0x0d500000,0x0d550000)]
+  0x0c1d2000 JavaThread "nioEventLoopGroup-45-1" [_thread_blocked, id=3600, stack(0x0d4b0000,0x0d500000)]
+  0x0c1d1c00 JavaThread "nioEventLoopGroup-44-1" [_thread_blocked, id=14968, stack(0x0d460000,0x0d4b0000)]
+  0x0c1d1400 JavaThread "nioEventLoopGroup-43-1" [_thread_blocked, id=13876, stack(0x0d410000,0x0d460000)]
+  0x0c1d1000 JavaThread "nioEventLoopGroup-42-1" [_thread_blocked, id=14540, stack(0x0d3c0000,0x0d410000)]
+  0x0c1d0800 JavaThread "nioEventLoopGroup-41-1" [_thread_blocked, id=12072, stack(0x0d370000,0x0d3c0000)]
+  0x0c1d0400 JavaThread "nioEventLoopGroup-40-1" [_thread_blocked, id=10880, stack(0x0d320000,0x0d370000)]
+  0x0c1cfc00 JavaThread "nioEventLoopGroup-39-1" [_thread_blocked, id=10172, stack(0x0d2d0000,0x0d320000)]
+  0x0c1cf800 JavaThread "nioEventLoopGroup-38-1" [_thread_blocked, id=13544, stack(0x0d280000,0x0d2d0000)]
+  0x0c1cf000 JavaThread "nioEventLoopGroup-37-1" [_thread_blocked, id=10940, stack(0x0d230000,0x0d280000)]
+  0x0c1cec00 JavaThread "nioEventLoopGroup-36-1" [_thread_blocked, id=14900, stack(0x0d1e0000,0x0d230000)]
+  0x0c1ce400 JavaThread "nioEventLoopGroup-35-1" [_thread_blocked, id=740, stack(0x0cd90000,0x0cde0000)]
+  0x0c1ce000 JavaThread "nioEventLoopGroup-34-1" [_thread_blocked, id=16160, stack(0x0cd40000,0x0cd90000)]
+  0x0c16f800 JavaThread "nioEventLoopGroup-33-1" [_thread_blocked, id=11452, stack(0x0ccf0000,0x0cd40000)]
+  0x0c16f000 JavaThread "nioEventLoopGroup-32-1" [_thread_blocked, id=12944, stack(0x0cca0000,0x0ccf0000)]
+  0x0c16ec00 JavaThread "nioEventLoopGroup-31-1" [_thread_blocked, id=16292, stack(0x0cc50000,0x0cca0000)]
+  0x0c16e400 JavaThread "nioEventLoopGroup-30-1" [_thread_blocked, id=3356, stack(0x0cc00000,0x0cc50000)]
+  0x0c16e000 JavaThread "nioEventLoopGroup-29-1" [_thread_blocked, id=4472, stack(0x0cbb0000,0x0cc00000)]
+  0x0c16d800 JavaThread "nioEventLoopGroup-28-1" [_thread_blocked, id=15184, stack(0x0cb60000,0x0cbb0000)]
+  0x0c16d400 JavaThread "nioEventLoopGroup-27-1" [_thread_blocked, id=12724, stack(0x0cb10000,0x0cb60000)]
+  0x0c16cc00 JavaThread "nioEventLoopGroup-26-1" [_thread_blocked, id=9588, stack(0x0cac0000,0x0cb10000)]
+  0x0c16c800 JavaThread "nioEventLoopGroup-25-1" [_thread_blocked, id=9424, stack(0x0ca70000,0x0cac0000)]
+  0x0c16c000 JavaThread "nioEventLoopGroup-24-1" [_thread_blocked, id=6184, stack(0x0ca20000,0x0ca70000)]
+  0x0c16bc00 JavaThread "nioEventLoopGroup-23-1" [_thread_blocked, id=14300, stack(0x0c9d0000,0x0ca20000)]
+  0x0c16b400 JavaThread "nioEventLoopGroup-22-1" [_thread_blocked, id=11056, stack(0x0c980000,0x0c9d0000)]
+  0x0c16b000 JavaThread "nioEventLoopGroup-21-1" [_thread_blocked, id=8232, stack(0x0c930000,0x0c980000)]
+  0x0c16a800 JavaThread "nioEventLoopGroup-20-1" [_thread_blocked, id=8320, stack(0x0c8e0000,0x0c930000)]
+  0x0c16a400 JavaThread "nioEventLoopGroup-19-1" [_thread_blocked, id=10872, stack(0x0c890000,0x0c8e0000)]
+  0x0c169c00 JavaThread "nioEventLoopGroup-18-1" [_thread_blocked, id=16208, stack(0x0c840000,0x0c890000)]
+  0x0c169400 JavaThread "nioEventLoopGroup-17-1" [_thread_blocked, id=10504, stack(0x0c7f0000,0x0c840000)]
+  0x0c169000 JavaThread "nioEventLoopGroup-16-1" [_thread_blocked, id=16308, stack(0x0c7a0000,0x0c7f0000)]
+  0x0c168800 JavaThread "nioEventLoopGroup-15-1" [_thread_blocked, id=14728, stack(0x0c750000,0x0c7a0000)]
+  0x0c168400 JavaThread "nioEventLoopGroup-14-1" [_thread_blocked, id=12912, stack(0x0c700000,0x0c750000)]
+  0x0c167c00 JavaThread "nioEventLoopGroup-13-1" [_thread_blocked, id=7504, stack(0x0c6b0000,0x0c700000)]
+  0x0c147800 JavaThread "nioEventLoopGroup-12-1" [_thread_blocked, id=12140, stack(0x0c660000,0x0c6b0000)]
+  0x0c145000 JavaThread "nioEventLoopGroup-11-1" [_thread_blocked, id=6232, stack(0x0c610000,0x0c660000)]
+  0x0c13cc00 JavaThread "nioEventLoopGroup-10-1" [_thread_blocked, id=13912, stack(0x0c5c0000,0x0c610000)]
+  0x0c13c800 JavaThread "nioEventLoopGroup-9-1" [_thread_blocked, id=7152, stack(0x0c570000,0x0c5c0000)]
+  0x0c13c000 JavaThread "nioEventLoopGroup-8-1" [_thread_blocked, id=13040, stack(0x0c520000,0x0c570000)]
+  0x0c13bc00 JavaThread "nioEventLoopGroup-7-1" [_thread_blocked, id=15320, stack(0x0c4d0000,0x0c520000)]
+  0x0c13b000 JavaThread "nioEventLoopGroup-6-1" [_thread_blocked, id=13640, stack(0x0c480000,0x0c4d0000)]
+  0x0c115c00 JavaThread "nioEventLoopGroup-5-1" [_thread_blocked, id=12956, stack(0x0c430000,0x0c480000)]
+  0x0c0fc400 JavaThread "nioEventLoopGroup-4-1" [_thread_blocked, id=8196, stack(0x0c390000,0x0c3e0000)]
+  0x0c0f8400 JavaThread "nioEventLoopGroup-3-1" [_thread_blocked, id=9280, stack(0x0c340000,0x0c390000)]
+  0x0c0f5800 JavaThread "nioEventLoopGroup-2-1" [_thread_blocked, id=10860, stack(0x0c2f0000,0x0c340000)]
+  0x0194b000 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=14600, stack(0x0be90000,0x0bee0000)]
+  0x01946400 JavaThread "CompilerThread0" daemon [_thread_blocked, id=4192, stack(0x0be40000,0x0be90000)]
+  0x01936400 JavaThread "JDWP Command Reader" daemon [_thread_in_native, id=5692, stack(0x0bdf0000,0x0be40000)]
+  0x01935800 JavaThread "JDWP Event Helper Thread" daemon [_thread_blocked, id=3872, stack(0x0bcd0000,0x0bd20000)]
+  0x01933000 JavaThread "JDWP Transport Listener: dt_socket" daemon [_thread_blocked, id=15296, stack(0x0bc60000,0x0bcb0000)]
+  0x018fec00 JavaThread "Attach Listener" daemon [_thread_blocked, id=4280, stack(0x0bb70000,0x0bbc0000)]
+  0x018fc400 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=8952, stack(0x0bb20000,0x0bb70000)]
+  0x018ee800 JavaThread "Finalizer" daemon [_thread_blocked, id=6340, stack(0x0bad0000,0x0bb20000)]
+  0x018e9c00 JavaThread "Reference Handler" daemon [_thread_blocked, id=9008, stack(0x0ba80000,0x0bad0000)]
+=>0x00199c00 JavaThread "main" [_thread_in_vm, id=11232, stack(0x01810000,0x01860000)]
+
+Other Threads:
+  0x018e6000 VMThread [stack: 0x0ba30000,0x0ba80000] [id=13168]
+  0x0195b800 WatcherThread [stack: 0x0bfa0000,0x0bff0000] [id=5960]
+
+VM state:synchronizing (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00197e78] Threads_lock - owner thread: 0x018e6000
+[0x00198288] Heap_lock - owner thread: 0x16cb0400
+
+Heap
+ def new generation   total 4544K, used 4543K [0x039e0000, 0x03ec0000, 0x03ec0000)
+  eden space 4096K,  99% used [0x039e0000, 0x03ddfff8, 0x03de0000)
+  from space 448K, 100% used [0x03de0000, 0x03e50000, 0x03e50000)
+  to   space 448K,   0% used [0x03e50000, 0x03e50000, 0x03ec0000)
+ tenured generation   total 60544K, used 60543K [0x03ec0000, 0x079e0000, 0x079e0000)
+   the space 60544K,  99% used [0x03ec0000, 0x079dfff0, 0x079e0000, 0x079e0000)
+ compacting perm gen  total 12288K, used 4970K [0x079e0000, 0x085e0000, 0x0b9e0000)
+   the space 12288K,  40% used [0x079e0000, 0x07ebabf0, 0x07ebac00, 0x085e0000)
+No shared spaces configured.
+
+Dynamic libraries:
+0x00400000 - 0x00424000 	D:\jdk1.6.0_17\bin\javaw.exe
+0x771c0000 - 0x772fc000 	C:\Windows\SYSTEM32\ntdll.dll
+0x763d0000 - 0x764a4000 	C:\Windows\system32\kernel32.dll
+0x74f40000 - 0x74f8b000 	C:\Windows\system32\KERNELBASE.dll
+0x76720000 - 0x767c0000 	C:\Windows\system32\ADVAPI32.dll
+0x76e90000 - 0x76f3c000 	C:\Windows\system32\msvcrt.dll
+0x754c0000 - 0x754d9000 	C:\Windows\SYSTEM32\sechost.dll
+0x764b0000 - 0x76551000 	C:\Windows\system32\RPCRT4.dll
+0x76aa0000 - 0x76b69000 	C:\Windows\system32\USER32.dll
+0x77320000 - 0x7736e000 	C:\Windows\system32\GDI32.dll
+0x763c0000 - 0x763ca000 	C:\Windows\system32\LPK.dll
+0x754e0000 - 0x7557d000 	C:\Windows\system32\USP10.dll
+0x76840000 - 0x7685f000 	C:\Windows\system32\IMM32.DLL
+0x76dc0000 - 0x76e8c000 	C:\Windows\system32\MSCTF.dll
+0x7c340000 - 0x7c396000 	D:\jdk1.6.0_17\jre\bin\msvcr71.dll
+0x6d8b0000 - 0x6db3b000 	D:\jdk1.6.0_17\jre\bin\client\jvm.dll
+0x74ff0000 - 0x75022000 	C:\Windows\system32\WINMM.dll
+0x74df0000 - 0x74e3c000 	C:\Windows\system32\apphelp.dll
+0x6d860000 - 0x6d86c000 	D:\jdk1.6.0_17\jre\bin\verify.dll
+0x6d3e0000 - 0x6d3ff000 	D:\jdk1.6.0_17\jre\bin\java.dll
+0x6d340000 - 0x6d348000 	D:\jdk1.6.0_17\jre\bin\hpi.dll
+0x77310000 - 0x77315000 	C:\Windows\system32\PSAPI.DLL
+0x6d430000 - 0x6d459000 	D:\jdk1.6.0_17\jre\bin\jdwp.dll
+0x6d750000 - 0x6d756000 	D:\jdk1.6.0_17\jre\bin\npt.dll
+0x6d8a0000 - 0x6d8af000 	D:\jdk1.6.0_17\jre\bin\zip.dll
+0x6d2b0000 - 0x6d2b7000 	D:\jdk1.6.0_17\jre\bin\dt_socket.dll
+0x76a60000 - 0x76a95000 	C:\Windows\system32\WS2_32.dll
+0x75580000 - 0x75586000 	C:\Windows\system32\NSI.dll
+0x73480000 - 0x73490000 	C:\Windows\system32\NLAapi.dll
+0x6b270000 - 0x6b280000 	C:\Windows\system32\napinsp.dll
+0x6b250000 - 0x6b262000 	C:\Windows\system32\pnrpnsp.dll
+0x74930000 - 0x7496c000 	C:\Windows\System32\mswsock.dll
+0x747f0000 - 0x74834000 	C:\Windows\system32\DNSAPI.dll
+0x6b240000 - 0x6b248000 	C:\Windows\System32\winrnr.dll
+0x72c40000 - 0x72c5c000 	C:\Windows\system32\IPHLPAPI.DLL
+0x72c30000 - 0x72c37000 	C:\Windows\system32\WINNSI.DLL
+0x72b10000 - 0x72b48000 	C:\Windows\System32\fwpuclnt.dll
+0x721b0000 - 0x721b6000 	C:\Windows\system32\rasadhlp.dll
+0x74440000 - 0x74445000 	C:\Windows\System32\wshtcpip.dll
+0x6d6c0000 - 0x6d6d3000 	D:\jdk1.6.0_17\jre\bin\net.dll
+0x74920000 - 0x74926000 	C:\Windows\System32\wship6.dll
+0x6d6e0000 - 0x6d6e9000 	D:\jdk1.6.0_17\jre\bin\nio.dll
+0x74970000 - 0x74986000 	C:\Windows\system32\CRYPTSP.dll
+0x746e0000 - 0x7471b000 	C:\Windows\system32\rsaenh.dll
+0x74510000 - 0x74527000 	C:\Windows\system32\USERENV.dll
+0x74ec0000 - 0x74ecb000 	C:\Windows\system32\profapi.dll
+0x74e40000 - 0x74e4c000 	C:\Windows\system32\CRYPTBASE.dll
+
+VM Arguments:
+jvm_args: -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:59304 -Dfile.encoding=UTF-8 
+java_command: cn.hexing.meter.mock.BootStrap
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=D:\jdk1.6.0_17
+CLASSPATH=.;D:\jdk1.6.0_17\lib;
+PATH=D:\jdk1.6.0_17\jre\bin;D:/jdk1.6.0_17/bin/../jre/bin/client;D:/jdk1.6.0_17/bin/../jre/bin;D:/jdk1.6.0_17/bin/../jre/lib/i386;E:\app\Administrator\product\11.2.0\dbhome_2\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;D:\jdk1.6.0_17\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Microsoft Network Monitor 3\;D:\Tools\apache-ant-1.8.4\bin;C:\Program Files\Vim\vim73;E:\Program Files\Rational\Common;D:\c_Resource\¹¤¾ß\apache-maven-3.1.0\bin;C:\Program Files\SSH Communications Security\SSH Secure Shell;C:\Program Files\DBank\ClickUp;D:\Soft\eclipse;
+USERNAME=Administrator
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=x86 Family 6 Model 42 Stepping 7, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 7 Build 7601 Service Pack 1
+
+CPU:total 2 (8 cores per cpu, 2 threads per core) family 6 model 42 stepping 7, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, ht
+
+Memory: 4k page, physical 2097151k(459780k free), swap 4194303k(2922616k free)
+
+vm_info: Java HotSpot(TM) Client VM (14.3-b01) for windows-x86 JRE (1.6.0_17-b04), built on Oct 11 2009 00:52:06 by "java_re" with MS VC++ 7.1
+
+time: Mon Oct 21 20:34:30 2013
+elapsed time: 81 seconds
+

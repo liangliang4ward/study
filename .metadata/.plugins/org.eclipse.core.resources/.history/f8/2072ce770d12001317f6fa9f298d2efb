@@ -1,0 +1,7 @@
+package test.codeconvert;
+
+import javassist.expr.ExprEditor;
+
+public class VerboseEditor extends ExprEditor{
+
+}

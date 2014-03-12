@@ -1,0 +1,10 @@
+1381993054444	Delete element
+1381993086629	Move compilation unit
+1381993347866	Rename type 'DlmsMockHandler'
+1382063334984	Delete element
+1382063382164	Extract method 'connectListener'
+1382076556198	Extract local variable 'readableBytes'
+1382080551893	Rename type 'FutureConnectListener'
+1382080698121	Delete element
+1382080715367	Rename type 'DlmsMockMessageHandler'
+1382080729357	Rename type 'DlmsMockClient'

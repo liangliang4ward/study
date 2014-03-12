@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring clone="true" comment="Infer generic type arguments on &apos;EventDriven&apos;&#x0D;&#x0A;- Original project: &apos;EventDriven&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     inf.impl.BasicActionListener.java&#x0D;&#x0A;- Assume clone() returns an instance of the receiver type&#x0D;&#x0A;- Leave unconstrained type arguments raw" description="Infer generic type arguments" element1="/src&lt;inf.impl{BasicActionListener.java" flags="6" id="org.eclipse.jdt.ui.infer.typearguments" leave="true" stamp="1380422415609" version="1.0"/>
+</session>

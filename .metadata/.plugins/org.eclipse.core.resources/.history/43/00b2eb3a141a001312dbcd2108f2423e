@@ -1,0 +1,205 @@
+package sample;
+
+import java.awt.Font;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.JTree;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+
+import net.miginfocom.layout.CC;
+import net.miginfocom.swing.MigLayout;
+
+public class MainFrame extends JFrame{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -347003037896182059L;
+
+
+	private JPanel contentPane = new JPanel(new MigLayout("debug,wrap", "[][grow]", "[grow]"));
+	
+	public MainFrame(){
+
+		//contentPanel
+		this.setContentPane(contentPane);
+		
+		//WestPanel
+		createWestPanel();
+		contentPane.add(westTreeScrollPanel, new CC().spanY().growY().minWidth("150").gapX(null, "10"));
+		
+		//EastPanel
+		createEastPanel();
+		contentPane.add(eastPanel,"growy");
+		
+		this.pack();
+		this.setVisible(true);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+
+	private JPanel eastPanel;
+	
+	
+	private void createEastPanel() {
+		
+		eastPanel = new JPanel(new MigLayout("wrap","[]unrel[]unrel[]unrel[]","[]unrel[]unrel[]"));
+		
+		//l_logicAddr: t_logicAddr
+		//l_lastHeart: l_lastHeartV	 l_lastRecvGprs: l_lastRecvGprs
+		//l_bwinfo   : t_area
+		//         	   b_button
+		
+		eastPanel.add(Constant.createLabel("终端逻辑地址:"),"r");
+		eastPanel.add(Constant.createTextField("",20,false),"wrap,l");
+		eastPanel.add(Constant.createLabel("最近一次心跳时间:"),"r");
+		eastPanel.add(Constant.createTextField("",20,false),"split,l");
+		eastPanel.add(Constant.createLabel("最近一次GPRS时间:"));
+		eastPanel.add(Constant.createTextField("",20,false),"wrap,l");
+		eastPanel.add(Constant.createLabel("报文信息:"),"r");
+		eastPanel.add(Constant.createTextAreaScroll("", 20, 60, true),"wrap");
+		eastPanel.add(contentPane.add(Constant.createButton("终止显示", false)),"skip");
+	}
+
+	private JTree westTree;
+	private JScrollPane westTreeScrollPanel;
+	private void createWestPanel() {
+		westTree=createWestTree();
+		westTreeScrollPanel  = new JScrollPane(westTree);
+	}
+
+	private JTree createWestTree() {
+		JTree tree = new JTree();
+		return tree;
+	}
+
+	
+	private JPanel createTopPanel() {
+		
+		JPanel p = new JPanel(new MigLayout("","","[][][][]"));
+		p.add(createLabel("终端逻辑地址:"));
+		p.add(createTextField("",20,false),"wrap");
+		p.add(createLabel("最近一次心跳:"));
+		p.add(createLabel(""));
+		p.add(createLabel("最近一次收到GPRS:"));
+		p.add(createLabel(""));
+		return p;
+	}
+	private JPanel createMiddlePanel() {
+		
+		JPanel p = new JPanel(new MigLayout());
+		p.add(createLabel("报文信息:"));
+		p.add(createTextAreaScroll("",20,60,true));
+		return p;
+	}
+	private JPanel createBottomPanel() {
+		
+		JPanel p = new JPanel(new MigLayout("insets 0 120 0 0 "));
+		p.add(createButton("停止显示", false),"span");
+		return p;
+	}
+	
+	public static void main(String[] args) {
+
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+				} catch (Exception ex) {
+					ex.printStackTrace();
+				}
+
+				new MainFrame();
+			}
+		});
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	private JLabel createLabel(String text)
+	{
+		return createLabel(text, SwingConstants.LEADING);
+	}
+
+	private JLabel createLabel(String text, int align)
+	{
+		final JLabel b = new JLabel(text, align);
+		return b;
+	}
+
+	private JTextField createTextField(int cols)
+	{
+		return createTextField("", cols,true);
+	}
+	
+
+//	private JTextField createTextField(String text)
+//	{
+//		return createTextField(text, 0);
+//	}
+
+	private JTextField createTextField(String text, int cols,boolean canEdit)
+	{
+		final JTextField b = new JTextField(text, cols);
+		b.setEditable(canEdit);
+		return b;
+	}
+	
+	private JScrollPane createTextAreaScroll(String text, int rows, int cols, boolean hasVerScroll)
+	{
+		JTextArea ta = new JTextArea(text, rows, cols);
+		ta.setFont(UIManager.getFont("TextField.font"));
+		ta.setWrapStyleWord(true);
+		ta.setLineWrap(true);
+
+		JScrollPane scroll = new JScrollPane(
+			    ta,
+			    hasVerScroll ? ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED : ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER,
+			    ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+		return scroll;
+	}
+	
+	private JButton createButton(String text, boolean bold)
+	{
+		JButton b = new JButton(text);
+		
+		if (bold)
+			b.setFont(b.getFont().deriveFont(Font.BOLD));
+
+		b.setContentAreaFilled(true);
+
+		return b;
+	}
+	
+}

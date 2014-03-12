@@ -1,0 +1,342 @@
+[2013-12-03 10:21:23 DEBUG] ++++ initializing pool with following settings:
+[2013-12-03 10:21:23 DEBUG] ++++ initial size: 10
+[2013-12-03 10:21:23 DEBUG] ++++ min spare   : 5
+[2013-12-03 10:21:23 DEBUG] ++++ max spare   : 250
+[2013-12-03 10:21:23 DEBUG] ++++ initializing internal hashing structure for consistent hashing
+[2013-12-03 10:21:23 DEBUG] ++++ added 192.168.2.166:11211 to server bucket
+[2013-12-03 10:21:23 DEBUG] +++ creating initial connections (10) for host: 192.168.2.166:11211
+[2013-12-03 10:21:23 DEBUG] ++++ created socket (Socket[addr=/192.168.2.166,port=11211,localport=54954]) for host: 192.168.2.166:11211
+[2013-12-03 10:21:23 DEBUG] ++++ created and added socket: Socket[addr=/192.168.2.166,port=11211,localport=54954] for host 192.168.2.166:11211
+[2013-12-03 10:21:23 DEBUG] ++++ created socket (Socket[addr=/192.168.2.166,port=11211,localport=54957]) for host: 192.168.2.166:11211
+[2013-12-03 10:21:23 DEBUG] ++++ created and added socket: Socket[addr=/192.168.2.166,port=11211,localport=54957] for host 192.168.2.166:11211
+[2013-12-03 10:21:23 DEBUG] ++++ created socket (Socket[addr=/192.168.2.166,port=11211,localport=54958]) for host: 192.168.2.166:11211
+[2013-12-03 10:21:23 DEBUG] ++++ created and added socket: Socket[addr=/192.168.2.166,port=11211,localport=54958] for host 192.168.2.166:11211
+[2013-12-03 10:21:23 DEBUG] ++++ created socket (Socket[addr=/192.168.2.166,port=11211,localport=54959]) for host: 192.168.2.166:11211
+[2013-12-03 10:21:23 DEBUG] ++++ created and added socket: Socket[addr=/192.168.2.166,port=11211,localport=54959] for host 192.168.2.166:11211
+[2013-12-03 10:21:23 DEBUG] ++++ created socket (Socket[addr=/192.168.2.166,port=11211,localport=54960]) for host: 192.168.2.166:11211
+[2013-12-03 10:21:23 DEBUG] ++++ created and added socket: Socket[addr=/192.168.2.166,port=11211,localport=54960] for host 192.168.2.166:11211
+[2013-12-03 10:21:23 DEBUG] ++++ created socket (Socket[addr=/192.168.2.166,port=11211,localport=54961]) for host: 192.168.2.166:11211
+[2013-12-03 10:21:23 DEBUG] ++++ created and added socket: Socket[addr=/192.168.2.166,port=11211,localport=54961] for host 192.168.2.166:11211
+[2013-12-03 10:21:23 DEBUG] ++++ created socket (Socket[addr=/192.168.2.166,port=11211,localport=54962]) for host: 192.168.2.166:11211
+[2013-12-03 10:21:23 DEBUG] ++++ created and added socket: Socket[addr=/192.168.2.166,port=11211,localport=54962] for host 192.168.2.166:11211
+[2013-12-03 10:21:23 DEBUG] ++++ created socket (Socket[addr=/192.168.2.166,port=11211,localport=54963]) for host: 192.168.2.166:11211
+[2013-12-03 10:21:23 DEBUG] ++++ created and added socket: Socket[addr=/192.168.2.166,port=11211,localport=54963] for host 192.168.2.166:11211
+[2013-12-03 10:21:23 DEBUG] ++++ created socket (Socket[addr=/192.168.2.166,port=11211,localport=54964]) for host: 192.168.2.166:11211
+[2013-12-03 10:21:23 DEBUG] ++++ created and added socket: Socket[addr=/192.168.2.166,port=11211,localport=54964] for host 192.168.2.166:11211
+[2013-12-03 10:21:23 DEBUG] ++++ created socket (Socket[addr=/192.168.2.166,port=11211,localport=54965]) for host: 192.168.2.166:11211
+[2013-12-03 10:21:23 DEBUG] ++++ created and added socket: Socket[addr=/192.168.2.166,port=11211,localport=54965] for host 192.168.2.166:11211
+[2013-12-03 10:21:23 DEBUG] ++++ added 192.168.2.166:11212 to server bucket
+[2013-12-03 10:21:23 DEBUG] +++ creating initial connections (10) for host: 192.168.2.166:11212
+[2013-12-03 10:21:23 DEBUG] ++++ created socket (Socket[addr=/192.168.2.166,port=11212,localport=54966]) for host: 192.168.2.166:11212
+[2013-12-03 10:21:23 DEBUG] ++++ created and added socket: Socket[addr=/192.168.2.166,port=11212,localport=54966] for host 192.168.2.166:11212
+[2013-12-03 10:21:23 DEBUG] ++++ created socket (Socket[addr=/192.168.2.166,port=11212,localport=54967]) for host: 192.168.2.166:11212
+[2013-12-03 10:21:23 DEBUG] ++++ created and added socket: Socket[addr=/192.168.2.166,port=11212,localport=54967] for host 192.168.2.166:11212
+[2013-12-03 10:21:23 DEBUG] ++++ created socket (Socket[addr=/192.168.2.166,port=11212,localport=54968]) for host: 192.168.2.166:11212
+[2013-12-03 10:21:23 DEBUG] ++++ created and added socket: Socket[addr=/192.168.2.166,port=11212,localport=54968] for host 192.168.2.166:11212
+[2013-12-03 10:21:23 DEBUG] ++++ created socket (Socket[addr=/192.168.2.166,port=11212,localport=54969]) for host: 192.168.2.166:11212
+[2013-12-03 10:21:23 DEBUG] ++++ created and added socket: Socket[addr=/192.168.2.166,port=11212,localport=54969] for host 192.168.2.166:11212
+[2013-12-03 10:21:23 DEBUG] ++++ created socket (Socket[addr=/192.168.2.166,port=11212,localport=54970]) for host: 192.168.2.166:11212
+[2013-12-03 10:21:23 DEBUG] ++++ created and added socket: Socket[addr=/192.168.2.166,port=11212,localport=54970] for host 192.168.2.166:11212
+[2013-12-03 10:21:23 DEBUG] ++++ created socket (Socket[addr=/192.168.2.166,port=11212,localport=54971]) for host: 192.168.2.166:11212
+[2013-12-03 10:21:23 DEBUG] ++++ created and added socket: Socket[addr=/192.168.2.166,port=11212,localport=54971] for host 192.168.2.166:11212
+[2013-12-03 10:21:23 DEBUG] ++++ created socket (Socket[addr=/192.168.2.166,port=11212,localport=54972]) for host: 192.168.2.166:11212
+[2013-12-03 10:21:23 DEBUG] ++++ created and added socket: Socket[addr=/192.168.2.166,port=11212,localport=54972] for host 192.168.2.166:11212
+[2013-12-03 10:21:23 DEBUG] ++++ created socket (Socket[addr=/192.168.2.166,port=11212,localport=54973]) for host: 192.168.2.166:11212
+[2013-12-03 10:21:23 DEBUG] ++++ created and added socket: Socket[addr=/192.168.2.166,port=11212,localport=54973] for host 192.168.2.166:11212
+[2013-12-03 10:21:23 DEBUG] ++++ created socket (Socket[addr=/192.168.2.166,port=11212,localport=54974]) for host: 192.168.2.166:11212
+[2013-12-03 10:21:23 DEBUG] ++++ created and added socket: Socket[addr=/192.168.2.166,port=11212,localport=54974] for host 192.168.2.166:11212
+[2013-12-03 10:21:23 DEBUG] ++++ created socket (Socket[addr=/192.168.2.166,port=11212,localport=54975]) for host: 192.168.2.166:11212
+[2013-12-03 10:21:23 DEBUG] ++++ created and added socket: Socket[addr=/192.168.2.166,port=11212,localport=54975] for host 192.168.2.166:11212
+[2013-12-03 10:21:23 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:23 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:23 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:23 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:23 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:23 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:23 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:23 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:23 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:23 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:23 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:23 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:23 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:23 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:23 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:23 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:23 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:23 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:23 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:23 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:23 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:23 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:23 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:23 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:23 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:23 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:23 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:23 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:23 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:23 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:24 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:24 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:24 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:24 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:24 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:24 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:24 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:24 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:24 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:24 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:24 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:24 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:24 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:24 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:24 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:24 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:24 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:24 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:24 DEBUG] ++++ Starting self maintenance....
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11211) = 10
+[2013-12-03 10:21:24 DEBUG] ++++ Size of avail pool for host (192.168.2.166:11212) = 10
+[2013-12-03 10:21:24 DEBUG] +++ ending self maintenance.
+[2013-12-03 10:21:24 DEBUG] cache socket pick key24 null
+[2013-12-03 10:21:24 DEBUG] ++++ moving socket for host (192.168.2.166:11212) to busy pool ... socket: Socket[addr=/192.168.2.166,port=11212,localport=54972]
+[2013-12-03 10:21:24 DEBUG] cache choose 192.168.2.166:11212 for key24
+[2013-12-03 10:21:24  INFO] Storing with native handler...
+[2013-12-03 10:21:24  INFO] ++++ memcache cmd (result code): set key24 32 0 6
+ (STORED)
+[2013-12-03 10:21:24  INFO] ++++ data successfully stored for key: key24
+[2013-12-03 10:21:24 DEBUG] ++++ marking socket (Socket[addr=/192.168.2.166,port=11212,localport=54972]) as closed and available to return to avail pool
+[2013-12-03 10:21:24 DEBUG] ++++ calling check-in on socket: Socket[addr=/192.168.2.166,port=11212,localport=54972] for host: 192.168.2.166:11212
+[2013-12-03 10:21:24 DEBUG] ++++ removing socket (Socket[addr=/192.168.2.166,port=11212,localport=54972]) from busy pool for host: 192.168.2.166:11212
+[2013-12-03 10:21:24 DEBUG] ++++ returning socket (Socket[addr=/192.168.2.166,port=11212,localport=54972] to avail pool for host: 192.168.2.166:11212

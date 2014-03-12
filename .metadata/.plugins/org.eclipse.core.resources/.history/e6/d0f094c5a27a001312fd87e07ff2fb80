@@ -1,0 +1,18 @@
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class TestMm {
+
+		
+	public byte[] placeholder=new byte[64*1024];
+
+	public static void fillheap(int size){
+		List<TestMm> values = new ArrayList<TestMm>();
+		
+		for(int i=0;i<size;i++){
+			
+		}
+	}
+		
+}

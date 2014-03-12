@@ -1,0 +1,44 @@
+package example;
+
+import java.util.concurrent.ExecutorService;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+
+
+public class TestExecute2 {
+
+	public static volatile boolean isFinished = false;
+	public static void main(String[] args) throws InterruptedException {
+		ExecutorService es = Executors.newFixedThreadPool(3);
+		
+		List<Callable<String>> tasks = new ArrayList<Callable<String>>();
+		for(int i=0;i<10;i++){
+			tasks.add(new Callable<String>() {
+
+				@Override
+				public String call() throws Exception {
+					System.out.println("ABC");
+					boolean a = true;
+					while(a)
+						a=true;
+					System.out.println("CBA");
+					return null;
+				}
+			});
+		}
+		
+		es.invokeAll(tasks,5,TimeUnit.SECONDS);
+		
+		es.shutdown();
+	}
+	
+	
+	
+	
+}

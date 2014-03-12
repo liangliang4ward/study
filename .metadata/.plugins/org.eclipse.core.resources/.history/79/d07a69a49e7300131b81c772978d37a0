@@ -1,0 +1,83 @@
+package server;
+
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.SocketException;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
+import java.nio.channels.ServerSocketChannel;
+import java.nio.channels.SocketChannel;
+import java.util.Iterator;
+import java.util.Set;
+
+public class Server {
+	
+	private int port;
+	private ServerSocketChannel ssc ;
+	private Selector selector;
+	public Server(int port){
+		this.port = port;
+		new AcceptThread().start();
+	}
+	
+	
+
+	public static void main(String[] args) {
+		new Server(3111);
+	}
+
+	class AcceptThread extends Thread{
+		
+		@Override
+		public void run(){
+			
+			try {
+				ssc = ServerSocketChannel.open();
+				ssc.socket().setReuseAddress(true);
+				ssc.socket().bind(new InetSocketAddress(port));
+				ssc.configureBlocking(false);
+			} catch (SocketException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			try {
+				selector=Selector.open();
+				ssc.register(selector, SelectionKey.OP_ACCEPT);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			while(true){
+				
+				try {
+					tryAccept();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}	
+				
+			}
+			
+		}
+		
+		public void tryAccept() throws IOException{
+			int n=selector.select(50);
+			
+			Set<SelectionKey> keys = selector.selectedKeys();
+			for(SelectionKey key:keys){
+				doAccept();
+			}
+			
+		}
+
+		private void doAccept() throws IOException {
+			SocketChannel client = ssc.accept();
+			
+			System.out.println(client);
+		}
+	}
+	
+	
+	
+}

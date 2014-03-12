@@ -1,0 +1,221 @@
+package sample;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTextField;
+import javax.swing.JTree;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.event.TreeExpansionEvent;
+import javax.swing.event.TreeWillExpandListener;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.ExpandVetoException;
+
+import net.miginfocom.swing.MigLayout;
+
+public class MainFrame2 extends JFrame{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -347003037896182059L;
+
+
+	private JPanel contentPane = new JPanel(new MigLayout("","[grow,15%][grow]","[grow]"));
+	
+	private boolean isDisplay = true;
+	
+	public MainFrame2(){
+		
+		init();
+
+		this.setContentPane(contentPane);
+		this.pack();
+		this.setVisible(true);
+		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		this.addWindowListener(new WindowAdapter() {
+			public void windowClosed(WindowEvent e) {logout();}
+		});
+		
+	}
+	
+	private void init(){
+		
+		//leftPanel
+		createLeftPanel();
+		contentPane.add(leftTabPane, "spany,grow");
+		
+		//rightPanel
+		createRightPanel();
+		contentPane.add(rightPanel,"spany,grow");
+		
+	}
+
+	private JPanel rightPanel;
+	
+	private JTextField tf_LogicAddr;
+	private JTextField tf_LastHeartBeat;
+	private JTextField tf_LastGprs;
+	private JButton b_displaySwitch;
+	
+	private void createRightPanel() {
+		
+		rightPanel = new JPanel(new MigLayout("wrap","[][][grow][]","[][][grow][][]"));
+		
+		rightPanel.add(Constant.createLabel("终端逻辑地址:"),"l");
+		JButton b = new JButton(new ImageIcon("sel.gif"));
+		rightPanel.add(b);
+		
+		tf_LogicAddr=Constant.createTextField("",20,false);
+		rightPanel.add(tf_LogicAddr,"wrap");
+		
+		rightPanel.add(Constant.createLabel("最近一次心跳时间:"),"l");
+		
+		tf_LastHeartBeat=Constant.createTextField("",20,false);
+		rightPanel.add(tf_LastHeartBeat,"split");
+		
+		rightPanel.add(Constant.createLabel("最近一次GPRS时间:"),"l");
+		
+		tf_LastGprs=Constant.createTextField("",20,false);
+		rightPanel.add(tf_LastGprs,"wrap");
+		
+		rightPanel.add(Constant.createLabel("报文信息:"),"t");
+		rightPanel.add(Constant.createTextAreaScroll("", 20, 60, true),"span 3 3,grow");
+		b_displaySwitch=Constant.createButton("终止显示", false);
+		rightPanel.add(b_displaySwitch,"t");
+		rightPanel.add(Constant.createButton("清除", false),"t");
+		
+		
+		
+		b_displaySwitch.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				isDisplay=!isDisplay;
+				String buttonText;
+				buttonText=isDisplay?"终止显示":"开始显示";
+				b_displaySwitch.setText(buttonText);
+			}
+		});
+	}
+
+	private JTree leftTree;
+	private JScrollPane leftTreePane;
+	
+	private JTabbedPane leftTabPane;
+	private JPanel leftQueryPane;
+	
+	
+	
+	private void createLeftPanel() {
+		leftTabPane = new JTabbedPane(JTabbedPane.LEFT);
+		createLeftTreePane();
+		
+		createLeftQueryPane();
+		
+		
+		leftTabPane.addTab("<html>\n<br>设<br>\t<br>备<br>\n<br></html>", leftTreePane);
+		leftTabPane.addTab("<html>\n<br>查<br>\t<br>寻<br>\n<br></html>", leftQueryPane);
+	}
+
+	private void createLeftQueryPane() {
+
+
+		leftQueryPane = new JPanel(new MigLayout("","[][grow]","[][][grow]"));
+		
+		
+		//label  text
+		leftQueryPane.add(Constant.createLabel("设备号:"),"split");
+		leftQueryPane.add(Constant.createTextField(20),"wrap");
+		//label
+		leftQueryPane.add(Constant.createLabel("查询结果:"),"split,wrap");
+		//list
+		JScrollPane list2 = new JScrollPane(new JList());
+		leftQueryPane.add(list2, "spany,spanx,growy");
+	}
+
+	private void createLeftTreePane() {
+		leftTree=createLeftTree();
+		leftTreePane  = new JScrollPane(leftTree);
+	}
+	
+	
+	
+
+	private JTree createLeftTree() {
+		
+		//getRoot;
+		TreeNode tn = new TreeNode();
+		tn.id="5";
+		tn.text="iran";
+		DefaultMutableTreeNode tmtn = new DefaultMutableTreeNode(tn);
+		
+		
+		TreeNode tn1 = new TreeNode();
+		tn1.id="501";
+		tn1.text="test";
+		DefaultMutableTreeNode tmtn1 = new DefaultMutableTreeNode(tn1);
+		tmtn.add(tmtn1);
+		TreeNode tn2 = new TreeNode();
+		tn2.id="50110";
+		tn2.text="test1";
+		DefaultMutableTreeNode tmtn2 = new DefaultMutableTreeNode(tn2);
+		tmtn1.add(tmtn2);
+		//tree model
+		JTree tree = new JTree(tmtn);
+		//1.加载根数据 
+		
+		//2.加载第一级数据
+		
+		tree.addTreeWillExpandListener(new TreeWillExpandListener() {
+			
+			@Override
+			public void treeWillExpand(TreeExpansionEvent event)
+					throws ExpandVetoException {
+				//树扩展的时候处理
+				DefaultMutableTreeNode c = (DefaultMutableTreeNode) event.getPath().getLastPathComponent();
+				TreeNode treeNode=(TreeNode) c.getUserObject();
+				System.out.println(treeNode);
+			}
+			
+			@Override
+			public void treeWillCollapse(TreeExpansionEvent event)
+					throws ExpandVetoException {
+				
+			}
+		});
+		
+		return tree;
+	}
+
+	public static void main(String[] args) {
+
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+				} catch (Exception ex) {
+					ex.printStackTrace();
+				}
+
+				new MainFrame2();
+			}
+		});
+	}
+	
+	public void logout(){
+		
+		System.out.println("logout...");
+		
+	}
+	
+}

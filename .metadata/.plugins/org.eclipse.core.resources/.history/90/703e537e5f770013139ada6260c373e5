@@ -1,0 +1,8 @@
+package nio.client;
+
+public class TestUDPReceiver {
+	public static void main(String[] args) {
+		
+		
+	}
+}

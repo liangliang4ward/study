@@ -1,0 +1,90 @@
+package c_port_packageDoctor;
+
+import java.awt.BorderLayout;
+import java.awt.Font;
+import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class PayforTheSoftWareOfDevelopmenter extends JFrame implements ActionListener{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	Socket so1 = null;
+	JPanel jp = new JPanel();
+	JButton jb0 = new JButton("提交本客户端开发商产品注册码");
+	JTextField jtf = new JTextField();
+	static JLabel jL = new JLabel("<html>请输入您9位系统服务授权验证码<br>获得系统的在线优秀教师的服务和本系统的产品授权，购买地址：您所在的银川新二中财务处购买</html>");
+	DataOutputStream dops = null;
+	Integer MyMemNum = -1;
+	String MyMemNumStr = null;
+	
+	public PayforTheSoftWareOfDevelopmenter(Socket s1){
+		so1 = s1;
+		this.setBounds(283,115,370,330);
+		Font fnt = new Font("华文中宋",0,18);
+		jb0.setFont(fnt);
+		jL.setFont(fnt);
+		this.setTitle("请输入授权码获得产品使用权");
+		jb0.setEnabled(false);
+		jtf.addKeyListener(new KeyAdapter(){
+		    public void keyTyped(KeyEvent evt) {
+
+		    	String content = jtf.getText();
+		        int typenum = content.length();
+		        if(typenum==9){
+		        	jb0.setEnabled(true);
+		        }}
+		      	});
+		jp.setLayout(new BorderLayout());
+		jp.add(jL,BorderLayout.NORTH);
+		jp.add(jb0,BorderLayout.CENTER);
+		jp.add(jtf,BorderLayout.SOUTH);
+		jp.setBounds(new Rectangle(400,300,400,300));
+		this.add(jp);
+		this.setVisible(true);
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		String MyPersonality = jtf.getText();
+		try {
+			dops = new DataOutputStream(so1.getOutputStream());
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		MyMemNumStr = String.valueOf(Recv.MySystemserialnum);
+		int length = MyMemNumStr.length();
+		if(length==1){
+			MyMemNumStr = "00"+MyMemNumStr;
+		}
+		if(length==2){
+			MyMemNumStr = "0"+MyMemNumStr;
+			}
+		int len = MyPersonality.length();
+		if(len == 9){
+			jb0.setEnabled(true);
+		try {
+			dops.writeUTF("11##"+MyMemNumStr+"%%"+MyPersonality);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		}
+	}
+
+	
+}

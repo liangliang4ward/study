@@ -1,0 +1,14 @@
+package nio.client;
+
+import java.io.IOException;
+import java.nio.channels.DatagramChannel;
+
+public class TestUDPReceiver {
+	public static void main(String[] args) throws IOException {
+		
+		DatagramChannel channel = DatagramChannel.open();
+		
+		
+		
+	}
+}

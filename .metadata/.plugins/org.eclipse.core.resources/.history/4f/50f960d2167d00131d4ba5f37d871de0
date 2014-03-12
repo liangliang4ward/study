@@ -1,0 +1,397 @@
+package org.taskdistribution;
+
+import java.io.DataInput;
+import java.io.DataOutput;
+import java.io.IOException;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import org.jgroups.Address;
+import org.jgroups.Channel;
+import org.jgroups.JChannel;
+import org.jgroups.Message;
+import org.jgroups.ReceiverAdapter;
+import org.jgroups.View;
+import org.jgroups.util.Promise;
+import org.jgroups.util.Streamable;
+import org.jgroups.util.Util;
+
+public class Server extends ReceiverAdapter implements Master, Slave {
+
+	private String props = "udp.xml";
+	private Channel ch;
+	private final ConcurrentMap<ClusterID, Entry> tasks = new ConcurrentHashMap<ClusterID, Entry>();
+	private final ExecutorService thread_pool = Executors.newCachedThreadPool();
+	private View view;
+	private int rank = -1;
+	private int cluster_size = -1;
+
+	public Server(String props) {
+		this.props = props;
+	}
+
+	public void start() throws Exception {
+		ch = new JChannel(props);
+		ch.setReceiver(this);
+		ch.connect("dzone-demo");
+	}
+
+	public void stop() {
+		thread_pool.shutdown();
+		ch.close();
+	}
+
+	@Override
+	public Object handle(Task paramTask) {
+		return paramTask.execute();
+	}
+
+	public void viewAccepted(View view) {
+		List<Address> left_members = Util.leftMembers(this.view, view);
+		this.view = view;
+		Address local_addr = ch.getAddress();
+		cluster_size = view.size();
+		List<Address> mbrs = view.getMembers();
+		for (int i = 0; i < mbrs.size(); i++) {
+			Address tmp = mbrs.get(i);
+			if (tmp.equals(local_addr)) {
+				rank = i;
+				break;
+			}
+		}
+		if (left_members != null && !left_members.isEmpty()) {
+			for (Address mbr : left_members)
+				handleLeftMember(mbr);
+		}
+	}
+
+	private void execute(ClusterID paramClusterID, Address paramAddress,
+			Task paramTask) {
+		Handler localHandler = new Handler(paramClusterID, paramAddress,
+				paramTask);
+		this.thread_pool.execute(localHandler);
+	}
+
+	private void handleLeftMember(Address paramAddress) {
+		Iterator localIterator = this.tasks.entrySet().iterator();
+		while (true) {
+			ClusterID localClusterID;
+			Entry localEntry1;
+			while (true) {
+				if (!(localIterator.hasNext()))
+					return;
+				Map.Entry localEntry = (Map.Entry) localIterator.next();
+				localClusterID = (ClusterID) localEntry.getKey();
+				int i = localClusterID.getId() % this.cluster_size;
+				if (i != this.rank)
+					return;
+				localEntry1 = (Entry) localEntry.getValue();
+				if (!(paramAddress.equals(localEntry1.submitter)))
+					break;
+				err("will not take over tasks submitted by " + paramAddress
+						+ " because it left the cluster");
+			}
+
+			log("**** taking over task " + localClusterID + " from "
+					+ paramAddress + " (submitted by " + localEntry1.submitter
+					+ ")");
+			execute(localClusterID, localEntry1.submitter, localEntry1.task);
+		}
+	}
+
+	@Override
+	public void receive(Message msg) {
+		try {
+			Request req = (Request) Util.streamableFromByteBuffer(
+					Request.class, msg.getBuffer());
+			switch (req.type) {
+			case EXECUTE:
+				handleExecute(req.id, msg.getSrc(), req.task);
+				break;
+			case RESULT:
+				Entry entry = tasks.get(req.id);
+				entry.promise.setResult(req.result);
+				multicastRemoveRequest(req.id);
+				break;
+			case REMOVE:
+				tasks.remove(req.id);
+				break;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void multicastRemoveRequest(ClusterID paramClusterID) {
+		Request localRequest = new Request(Request.Type.REMOVE, null,
+				paramClusterID, null);
+		try {
+			byte[] arrayOfByte = Util.streamableToByteBuffer(localRequest);
+			this.ch.send(new Message(null, null, arrayOfByte));
+		} catch (Exception localException) {
+			err("failed multicasting REMOVE request", localException);
+		}
+	}
+
+	private static void help() {
+		System.out.println("Server [-props <JGroups properties>]");
+	}
+
+	private static void log(String paramString) {
+		System.out.println(paramString);
+	}
+
+	private static void err(String paramString) {
+		System.err.println(paramString);
+	}
+
+	private static void err(String paramString, Throwable paramThrowable) {
+		System.err.println(paramString + ", ex=" + paramThrowable);
+	}
+
+	private void handleExecute(ClusterID id, Address sender, Task task) {
+		tasks.putIfAbsent(id, new Entry(task, sender));
+		int index = id.getId() % cluster_size;
+		if (index != rank)
+			return;
+		thread_pool.execute(new Handler(id, sender, task));
+
+	}
+
+	@Override
+	public Object submit(Task task, long timeout) throws Exception {
+		ClusterID id = ClusterID.create(ch.getAddress());
+		try {
+			Request req = new Request(Request.Type.EXECUTE, task, id, null);
+			byte[] buf = Util.streamableToByteBuffer(req);
+			Entry entry = new Entry(task, ch.getAddress());
+			tasks.put(id, entry);
+			ch.send(new Message(null, null, buf));
+			return entry.promise.getResultWithTimeout(timeout);
+		} catch (Exception ex) {
+			tasks.remove(id); // remove it again
+			throw ex;
+		}
+
+	}
+
+	private class Handler implements Runnable {
+		final ClusterID id;
+		final Address sender;
+		final Task task;
+
+		public Handler(ClusterID id, Address sender, Task task) {
+			this.id = id;
+			this.sender = sender;
+			this.task = task;
+		}
+
+		public void run() {
+			Object localObject = null;
+			if (this.task != null)
+				try {
+					log("executing " + this.id);
+					localObject = handle(this.task);
+				} catch (Throwable localThrowable) {
+					err("failed executing " + this.id, localThrowable);
+					localObject = localThrowable;
+				}
+
+			Server.Request localRequest = new Server.Request(
+					Server.Request.Type.RESULT, null, this.id, localObject);
+			try {
+				byte[] arrayOfByte = Util.streamableToByteBuffer(localRequest);
+				Message localMessage = new Message(this.sender, null,
+						arrayOfByte);
+				ch.send(localMessage);
+			} catch (Exception localException) {
+				err("failed executing task " + this.id, localException);
+			}
+		}
+	}
+
+	public static void main(String[] paramArrayOfString) throws Exception {
+		String str = "udp.xml";
+
+		for (int i = 0; i < paramArrayOfString.length; ++i)
+			if (paramArrayOfString[i].equals("-props")) {
+				str = paramArrayOfString[(++i)];
+			} else {
+				help();
+				return;
+			}
+		Server localServer = new Server(str);
+		localServer.start();
+
+		loop(localServer);
+	}
+	private static class Entry {
+		private final Task task;
+		private final Address submitter;
+		private final Promise<Object> promise = new Promise();
+
+		public Entry(Task paramTask, Address paramAddress) {
+			this.task = paramTask;
+			this.submitter = paramAddress;
+		}
+	}
+
+	public static class Request implements Streamable {
+		static enum Type {
+			EXECUTE, RESULT, REMOVE
+		};
+
+		private Type type;
+		private Task task;
+		private ClusterID id;
+		private Object result;
+
+		public Request(){}
+		
+		public Request(Type paramType, Task paramTask,
+				ClusterID paramClusterID, Object paramObject) {
+			this.type = paramType;
+			this.task = paramTask;
+			this.id = paramClusterID;
+			this.result = paramObject;
+		}
+
+		@Override
+		public void readFrom(DataInput paramDataInputStream) throws Exception {
+			Object localObject;
+			int i = paramDataInputStream.readInt();
+			switch (i) {
+			case 0:
+				this.type = Type.EXECUTE;
+				break;
+			case 1:
+				this.type = Type.RESULT;
+				break;
+			case 2:
+				this.type = Type.REMOVE;
+				break;
+			default:
+				throw new InstantiationException("ordinal " + i
+						+ " cannot be mapped to enum");
+			}
+			try {
+				this.task = ((Task) Util.objectFromStream(paramDataInputStream));
+			} catch (Exception localException1) {
+				localObject = new InstantiationException(
+						"failed reading task from stream");
+				((InstantiationException) localObject)
+						.initCause(localException1);
+			}
+			this.id = ((ClusterID) Util.readStreamable(ClusterID.class,
+					paramDataInputStream));
+			try {
+				this.result = Util.objectFromStream(paramDataInputStream);
+			} catch (Exception localException2) {
+				localObject = new IOException(
+						"failed to unmarshal result object");
+				((IOException) localObject).initCause(localException2);
+			}
+		}
+
+		@Override
+		public void writeTo(DataOutput paramDataOutputStream) throws Exception {
+			IOException localIOException;
+			paramDataOutputStream.writeInt(this.type.ordinal());
+			try {
+				Util.objectToStream(this.task, paramDataOutputStream);
+			} catch (Exception localException1) {
+				localIOException = new IOException(
+						"failed marshalling of task " + this.task);
+				localIOException.initCause(localException1);
+				throw localIOException;
+			}
+			Util.writeStreamable(this.id, paramDataOutputStream);
+			try {
+				Util.objectToStream(this.result, paramDataOutputStream);
+			} catch (Exception localException2) {
+				localIOException = new IOException(
+						"failed to marshall result object");
+				localIOException.initCause(localException2);
+				throw localIOException;
+			}
+		}
+	}
+
+	private static void loop(Server paramServer) {
+		int i = 1;
+		while (i != 0) {
+			Object localObject;
+			int j = Util
+					.keyPress("[1] Submit [2] Submit long running task [3] Info [q] Quit");
+			Util.discardUntilNewLine(System.in);
+			switch (j) {
+			case 49:
+				localObject = new Task() {
+					private static final long serialVersionUID = 5102426397394071700L;
+
+					public Object execute() {
+						return new Date();
+					}
+
+				};
+				_submit((Task) localObject, paramServer);
+				break;
+			case 50:
+				localObject = new Task() {
+					private static final long serialVersionUID = 5102426397394071700L;
+
+					public Object execute() {
+						System.out.println("sleeping for 15 secs...");
+						Util.sleep(15000L);
+						System.out.println("done");
+						return new Date();
+					}
+
+				};
+				_submit((Task) localObject, paramServer);
+				break;
+			case 51:
+				System.out.println(paramServer.info());
+				break;
+			case 113:
+				i = 0;
+				break;
+			case 114:
+				break;
+			case 10:
+				break;
+			case -1:
+				i = 0;
+			}
+		}
+
+		paramServer.stop();
+	}
+
+	private static void _submit(Task paramTask, Server paramServer) {
+		Object localObject;
+		try {
+			localObject = paramServer.submit(paramTask, 30000L);
+			log("<== result = " + localObject);
+		} catch (Exception localException) {
+			localException.printStackTrace();
+		}
+	}
+
+	public String info() {
+		StringBuilder localStringBuilder = new StringBuilder();
+		localStringBuilder.append(
+				"local_addr=" + this.ch.getAddress() + "\nview=" + this.view)
+				.append("\n");
+		localStringBuilder.append("rank=" + this.rank + "\n");
+		localStringBuilder.append("(" + this.tasks.size()
+				+ " entries in tasks cache)");
+		return localStringBuilder.toString();
+	}
+}

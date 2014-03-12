@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;cn.hexing.maini&apos; to &apos;cn.hexing.main&apos;&#x0D;&#x0A;- Original project: &apos;TestMANIFEST&apos;&#x0D;&#x0A;- Original element: &apos;TestMANIFEST/src/cn.hexing.maini&apos;&#x0D;&#x0A;- Renamed element: &apos;TestMANIFEST/src/cn.hexing.main&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;cn.hexing.maini&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;cn.hexing.maini" name="cn.hexing.main" qualified="false" references="true" stamp="1392949656039" textual="false" version="1.0"/>
+</session>

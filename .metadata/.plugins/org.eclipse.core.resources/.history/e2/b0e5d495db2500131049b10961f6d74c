@@ -1,0 +1,39 @@
+
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
+import javax.swing.JButton;
+
+public class MyJButtonPayForSysProduct extends JButton{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	Socket s;
+	public MyJButtonPayForSysProduct(String name){
+		super(name);
+//		try {
+////			s = new Socket(Recv.D_PORT_SERVER,9999);
+//		} catch (UnknownHostException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		new PayforTheSoftWareOfDevelopmenter(s);
+		this.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				new PayforTheSoftWareOfDevelopmenter(s);
+			}
+			
+		});
+	}
+}

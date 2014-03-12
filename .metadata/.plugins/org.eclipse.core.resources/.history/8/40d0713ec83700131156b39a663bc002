@@ -1,0 +1,75 @@
+package cn.hexing.meter.mock;
+
+import io.netty.bootstrap.Bootstrap;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.EventLoop;
+import io.netty.channel.EventLoopGroup;
+import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.SocketChannel;
+import io.netty.channel.socket.nio.NioSocketChannel;
+
+import java.util.concurrent.TimeUnit;
+
+import cn.hexing.meter.mock.coder.ByteMessageDecoder;
+import cn.hexing.meter.mock.coder.ByteMessageEncoder;
+import cn.hexing.meter.mock.factory.DlmsMessageCreator;
+import cn.hexing.meter.mock.factory.MessageCreator;
+import cn.hexing.meter.mock.listener.FutureDisConnectListener;
+
+public class MockerClient {
+
+    private int RECONNECT_DELAY = 5;
+
+    private final String host;
+    private final int port;
+
+    private final MockerMessageHandler handler = new MockerMessageHandler(this);
+
+	public MockerClient(String str, int i) {
+		this.host = str;
+		this.port= i;
+	}
+
+	public void run() {
+       final ChannelFuture c = configureBootstrap(new Bootstrap()).connect();
+       c.addListener(new FutureDisConnectListener(MockerClient.this));
+    }
+	
+	public  Bootstrap configureBootstrap(Bootstrap b) {
+        return configureBootstrap(b, new NioEventLoopGroup());
+    }
+
+	public Bootstrap configureBootstrap(Bootstrap b, EventLoopGroup g) {
+		b.group(g).channel(NioSocketChannel.class).remoteAddress(host, port)
+				.handler(new ChannelInitializer<SocketChannel>() {
+					@Override
+					public void initChannel(SocketChannel ch) throws Exception {
+						ch.pipeline().addLast("decoder",new ByteMessageDecoder());
+						ch.pipeline().addLast("encoder",new ByteMessageEncoder());
+						ch.pipeline().addLast(handler);
+					}
+				});
+		return b;
+	}
+
+    public static void main(String[] args) {   
+
+        new MockerClient("127.0.0.1", 2222).run();
+    }
+    
+	public void onDisconnect(Channel channel) {
+		//处理连接断开
+		final EventLoop loop = channel.eventLoop();
+		loop.schedule(new Runnable() {
+			@Override
+			public void run() {
+				MockerClient.this.run();
+			}
+		},RECONNECT_DELAY,TimeUnit.SECONDS);
+	}
+
+
+	
+}

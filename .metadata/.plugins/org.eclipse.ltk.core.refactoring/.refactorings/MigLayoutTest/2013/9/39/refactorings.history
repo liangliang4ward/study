@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Extract local variable &apos;createButton&apos; from expression &apos;Constant.createButton(&quot;停止显示&quot;,false)&apos;&#x0D;&#x0A;- Original project: &apos;MigLayoutTest&apos;&#x0D;&#x0A;- Variable name: &apos;createButton&apos;&#x0D;&#x0A;- Destination method: &apos;sample.RightPanel.createBottomPanel()&apos;&#x0D;&#x0A;- Variable expression: &apos;Constant.createButton(&quot;停止显示&quot;,false)&apos;&#x0D;&#x0A;- Replace occurrences of expression with variable" description="Extract local variable &apos;createButton&apos;" final="false" id="org.eclipse.jdt.ui.extract.temp" input="/src&lt;sample{RightPanel.java" name="createButton" replace="true" selection="1546 36" stamp="1380182603620" version="1.0"/>
+</session>

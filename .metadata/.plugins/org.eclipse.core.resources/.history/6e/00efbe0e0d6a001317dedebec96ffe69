@@ -1,0 +1,86 @@
+package test.hx.dlms.memcache;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.hx.dlms.aa.DlmsContext;
+import com.meetup.memcached.MemcachedClient;
+
+public class MemcachedTest {
+
+	private MemcachedClient client ;
+	
+	private static int MAX=100000;
+	
+	@Before
+	public  void beforeClass(){
+		ApplicationContext context = new ClassPathXmlApplicationContext("memcached.xml");
+		client=(MemcachedClient) context.getBean("memcachedClient");
+		
+	}
+	
+	private class ClientThread implements Runnable{
+
+		public int startNum = 0;
+		public String name;
+		public OPERATION{SET,READ};
+		
+		public ClientThread(int startNum,String name){
+			this.startNum = startNum;
+			this.name = name;
+		}
+		
+		@Override
+		public void run() {
+			long t1 = System.currentTimeMillis();
+			for(int i=startNum*MAX;i<MAX*(startNum+1);i++){
+				DlmsContext dc = new DlmsContext();
+				dc.setMeterId("meterId:"+i);
+				if(!client.set("meterId:"+i, dc)){
+					System.out.println("set false");
+				}
+			}
+			long t2 = System.currentTimeMillis();
+			System.out.println("Thread-"+name+" set "+MAX+" use time:"+(t2-t1));
+				
+		}
+		
+	}
+	
+	
+	@Test
+	public void testSet(){
+		for(int i=0;i<5;i++){
+			new ClientThread(i, "set("+i+")");
+		}
+	
+	}
+	
+	@Test
+	public void testGet(){
+		long t1 = System.currentTimeMillis();
+		int j = 0;
+		for(int i=0;i<MAX;i++){
+			DlmsContext dc=(DlmsContext) client.get("meterId:"+i);
+			if(dc == null){
+				System.out.println("get false");
+				j++;
+			}
+		}
+		
+		long t2 = System.currentTimeMillis();
+		System.out.println("get "+MAX+" use time:"+(t2-t1)+",false:"+j);
+	}
+	
+//	@Test
+//	public void testM(){
+//		long beforeMemory=Runtime.getRuntime().totalMemory();
+//		DlmsContext obj=new DlmsContext();
+//		obj.setMeterId("meterId:"+10000);
+//		long afterMemory=Runtime.getRuntime().totalMemory();
+//		        System.out.println("Memory used:"+(beforeMemory-afterMemory));
+//	}
+//	
+}

@@ -1,0 +1,13 @@
+
+public class Test {
+	public static void main(String[] args) {
+		CommPortIdentifier portId; 
+		　　Enumeration en = CommPortIdentifier.getPortIdentifiers(); 
+		　　// iterate through the ports. 
+		　　while (en.hasMoreElements()) { 
+		　　portId = (CommPortIdentifier) en.nextElement(); 
+		　　if (portId.getPortType() == CommPortIdentifier.PORT_SERIAL) { 
+		　　System.out.println(portId.getName()); 
+		　　} 
+	}
+}

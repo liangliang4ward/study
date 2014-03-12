@@ -1,0 +1,9 @@
+package _string;
+
+public class TestString {
+	
+	public static void main(String[] args) {
+		String str = "sdfsf" ;
+		System.out.println(str.intern());
+	}
+}

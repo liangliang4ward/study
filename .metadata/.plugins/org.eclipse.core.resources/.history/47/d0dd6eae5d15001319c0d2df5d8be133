@@ -1,0 +1,27 @@
+package _thread;
+
+public class Single {
+
+	
+	private static Single in = null;
+	
+	private Single(){
+	}
+	
+	public static Single getInstance(){
+
+		if(in == null){
+			synchronized (Single.class) {
+				if( in == null){
+					return new Single();
+				}
+			}
+		}
+		return in;
+	}
+	
+	
+	private static class Thread1 extends Thread{
+		
+	}
+}

@@ -1,0 +1,8 @@
+package client;
+
+public class ClientNIO {
+
+	public ClientNIO() {
+	}
+
+}

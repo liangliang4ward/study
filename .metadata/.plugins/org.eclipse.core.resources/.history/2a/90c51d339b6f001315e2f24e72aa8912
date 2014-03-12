@@ -1,0 +1,18 @@
+
+public class LockTest {
+
+	
+	class TestThread implements Runnable{
+
+		@Override
+		public void run() {
+			
+		}
+		
+	}
+	
+	//1.Write
+	//2.Read
+	
+	
+}

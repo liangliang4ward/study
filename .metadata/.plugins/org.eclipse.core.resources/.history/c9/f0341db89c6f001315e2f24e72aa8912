@@ -1,0 +1,42 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.CountDownLatch;
+
+
+
+public class LockTest {
+
+	
+	//1.Write
+	//2.Read
+	List<String> values = Collections.synchronizedList(new ArrayList<String>());
+	public LockTest(){
+		for(int i=0;i<1000000;i++){
+			values.add(""+i);
+		}	
+	}
+	
+	CountDownLatch cdl = new CountDownLatch(5);
+	
+	class TestThread implements Runnable{
+
+		@Override
+		public void run() {
+			Iterator<String> it = values.iterator();
+			while(it.hasNext()){
+				it.next();
+			}
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		LockTest lt = new LockTest();
+		for(int i=0;i<5;i++){
+			new Thread()
+			
+		}
+	}
+}

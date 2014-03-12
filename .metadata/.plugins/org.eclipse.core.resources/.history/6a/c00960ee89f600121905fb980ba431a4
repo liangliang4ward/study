@@ -1,0 +1,16 @@
+package _uname;
+
+public class Test1 {
+
+	
+	
+	public static void main(String[] args) {
+		
+		System.out.println(getMaxInt());
+	}
+	
+	public static int getMaxInt(){
+		return (1<<30)-1;
+	}
+	
+}

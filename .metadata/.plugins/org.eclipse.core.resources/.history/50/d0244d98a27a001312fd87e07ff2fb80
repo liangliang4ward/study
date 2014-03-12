@@ -1,0 +1,9 @@
+
+public class TestMm {
+
+	static class OOMObejct{
+		
+		public byte[] placeholder=new byte[64*1024];
+		
+	}
+}

@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+externalMigrateFromAuthorizationDatabase/isMigrated=true
+migrateFromAuthorizationDatabase/isMigrated=true
+repositories/e0de928bf169001317dedebec96ffe69=e0de928bf169001317dedebec96ffe69;https\://172.16.241.21\:8443/svn/ami3.0;https\://172.16.241.21\:8443/svn/ami3.0;branches;tags;trunk;true;;;;false;;;0

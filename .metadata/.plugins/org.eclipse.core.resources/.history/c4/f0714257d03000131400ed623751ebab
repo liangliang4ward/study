@@ -1,0 +1,10 @@
+package fastclass;
+
+import net.sf.cglib.reflect.FastClass;
+
+public class TestFastClass1 {
+	public static void main(String[] args) {
+		FastClass s = FastClass.create(TestInnerClass.InnerClass.class);
+		s.newInstance();
+	}
+}

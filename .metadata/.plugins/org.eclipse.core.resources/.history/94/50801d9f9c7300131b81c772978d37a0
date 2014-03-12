@@ -1,0 +1,25 @@
+package server;
+
+public class Server {
+	
+	
+	
+	
+	
+	class AcceptThread extends Thread{
+		
+		@Override
+		public void run(){
+			
+			
+			
+			
+			
+			
+			
+		}
+	}
+	
+	
+	
+}

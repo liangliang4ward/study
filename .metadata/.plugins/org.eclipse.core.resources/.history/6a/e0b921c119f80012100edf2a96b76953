@@ -1,0 +1,40 @@
+package _thread;
+
+
+public class TestConcurrentCount {
+
+	public int count=0;
+	
+	public synchronized int compute(){
+		while(++count<Integer.MAX_VALUE);
+		return count;
+	}
+	
+	public void threadCompute(){
+		Thread t1 = new Thread(new Thread1());
+		Thread t2 = new Thread(new Thread1());
+		t1.start();t2.start();
+
+	}
+	
+	public static void main(String[] args) {
+		TestConcurrentCount tcc = new TestConcurrentCount();
+		long start=System.currentTimeMillis();
+		tcc.threadCompute();
+		long end = System.currentTimeMillis();
+		System.out.println(end-start);
+	}
+	
+	
+	class Thread1 implements Runnable{
+
+		@Override
+		public void run() {
+			compute();
+		}
+		
+	}
+	
+	
+	
+}

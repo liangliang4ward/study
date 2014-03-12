@@ -1,0 +1,17 @@
+import javassist.CannotCompileException;
+import javassist.ClassPool;
+import javassist.CtClass;
+import javassist.NotFoundException;
+
+
+public class TestJavassist {
+	public static void main(String[] args) throws NotFoundException, CannotCompileException {
+		
+		ClassPool classPool = ClassPool.getDefault();
+		
+		CtClass ct = classPool.get("C");
+		ct.setSuperclass(classPool.get("Persion"));
+		
+		System.out.println(ct.toClass());
+	}
+}	

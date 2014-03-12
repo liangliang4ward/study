@@ -1,0 +1,106 @@
+package sample;
+
+import java.awt.Font;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.JTree;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+
+import net.miginfocom.layout.CC;
+import net.miginfocom.swing.MigLayout;
+
+public class MainFrame extends JFrame{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -347003037896182059L;
+
+
+	private JPanel contentPane = new JPanel(new MigLayout());
+	
+	public MainFrame(){
+		
+		init();
+
+		this.setContentPane(contentPane);
+		this.pack();
+		this.setVisible(true);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setResizable(false);
+		
+	}
+	
+	private void init(){
+		
+		//leftPanel
+		createLeftPanel();
+		contentPane.add(leftTreePanel, new CC().spanY().growY().minWidth("150").gapX(null, "10"));
+		
+		//rightPanel
+		createEastPanel();
+		contentPane.add(rightPanel);
+		
+	}
+
+	private JPanel rightPanel;
+	
+	
+	private void createEastPanel() {
+		
+		rightPanel = new JPanel(new MigLayout());
+		
+		rightPanel.add(Constant.createLabel("终端逻辑地址:"),"l");
+		rightPanel.add(Constant.createTextField("",20,false),"wrap");
+		
+		rightPanel.add(Constant.createLabel("最近一次心跳时间:"),"l");
+		rightPanel.add(Constant.createTextField("",20,false),"split");
+		rightPanel.add(Constant.createLabel("最近一次GPRS时间:"),"l");
+		rightPanel.add(Constant.createTextField("",20,false),"wrap");
+		
+		rightPanel.add(Constant.createLabel("报文信息:"),"l");
+		rightPanel.add(Constant.createTextAreaScroll("", 20, 60, true),"wrap");
+		
+		rightPanel.add(contentPane.add(Constant.createButton("终止显示", false)),"skip");
+	}
+
+	private JTree leftTree;
+	private JScrollPane leftTreePanel;
+	
+	private void createLeftPanel() {
+		leftTree=createLeftTree();
+		leftTreePanel  = new JScrollPane(leftTree);
+	}
+
+	private JTree createLeftTree() {
+		JTree tree = new JTree();
+		return tree;
+	}
+
+	
+	public static void main(String[] args) {
+
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+				} catch (Exception ex) {
+					ex.printStackTrace();
+				}
+
+				new MainFrame();
+			}
+		});
+	
+	}
+	
+}

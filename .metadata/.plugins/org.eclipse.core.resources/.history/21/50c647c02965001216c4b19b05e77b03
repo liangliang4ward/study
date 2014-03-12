@@ -1,0 +1,37 @@
+package quartz.test;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+import org.quartz.CronExpression;
+import org.quartz.CronTrigger;
+import org.quartz.JobDetail;
+import org.quartz.Scheduler;
+import org.quartz.SchedulerException;
+import org.quartz.SchedulerFactory;
+import org.quartz.impl.StdSchedulerFactory;
+
+public class FirstQuartz {
+	public static void main(String[] args) throws SchedulerException, ParseException {
+
+		SchedulerFactory sf = new StdSchedulerFactory();
+		Scheduler scheduler = sf.getScheduler();
+		
+		JobDetail jobDetail = new JobDetail("JobName","JobGroup",JobProcessor.class);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		jobDetail.getJobDataMap().put("name", "JobName");
+		jobDetail.getJobDataMap().put("age", "16");
+		jobDetail.getJobDataMap().put("level", "3");
+		jobDetail.getJobDataMap().put("pos", "low");
+		jobDetail.getJobDataMap().put("format", sdf);
+		
+		CronTrigger trigger=new CronTrigger("TriggerName","TriggerGroup");
+		CronExpression cron = new CronExpression("10 1 * * * ?");
+		trigger.setCronExpression(cron);
+
+		System.out.println(sdf.format(trigger.getStartTime()));
+		scheduler.scheduleJob(jobDetail,trigger);
+		scheduler.start();
+	}
+}
+

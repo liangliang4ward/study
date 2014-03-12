@@ -1,0 +1,26 @@
+
+
+import java.util.Vector;
+
+public class OneMain {
+       public static void main(String[] args) throws InterruptedException {
+            Vector<Integer> list = new Vector<Integer>(100);
+
+             for (int i = 0; i < 100; i++) {
+                  list.add(i);
+            }
+
+             long start = System.currentTimeMillis();
+             while (list.size() > 0) {
+                   int val = list.remove(0);
+                  Thread. sleep(100);//模拟处理
+                  System. out.println(val);
+            }
+             long end = System.currentTimeMillis();
+
+            System. out.println("消耗 " + (end - start) + " ms");
+
+      }
+
+       // 消耗 10063 ms
+}

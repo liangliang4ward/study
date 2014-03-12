@@ -1,0 +1,4 @@
+
+public class TestGc {
+	public static TestGc save_hook = null;
+}

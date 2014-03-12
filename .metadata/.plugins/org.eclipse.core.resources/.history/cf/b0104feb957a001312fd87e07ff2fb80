@@ -1,0 +1,29 @@
+
+public class TestDCL {
+
+	
+	class Thread1 extends Thread{
+		
+		@Override
+		public void run(){
+			
+		}
+	}
+	
+
+}
+class Singleton{
+	private Singleton(){
+		System.out.println("This consuture of singleton");
+	}
+	
+	private static Singleton instance=null;
+	
+	public static Singleton getInstance(){
+		if(instance == null){
+			instance = new Singleton();
+		}
+		
+		return instance;
+	}
+} 

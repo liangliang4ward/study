@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<project name="Fep_Common" default="build" basedir="." >
+	<taskdef resource="net/sf/antcontrib/antlib.xml"></taskdef>
+	<property file="build.properties"/>
+	<property name="fk.version" value="2.0" />
+	<property name="src.dir" value="${basedir}/src" />
+	<property name="classes.dir" value="${basedir}/bin" />
+	<property name="lib.dir" value="${basedir}/libs" />
+	<property name="common.jar.name" value="fep-common.jar" />
+	<property name="build.encoding" value="GBK" />
+	
+	<path id="project.classpath">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+		<pathelement path="${classes.dir}" />
+	</path>
+    <!-- =================================================================== -->
+    <!-- Clean generated class files                                         -->
+    <!-- =================================================================== -->
+    <target name="clean" description="Clean generated class files">
+        <delete dir="${classes.dir}" />
+    </target>
+	
+	<!-- =================================================================== -->
+    <!-- Compile java source file                                            -->
+    <!-- =================================================================== -->
+    <target name="compile" description="Compile java file">
+    	<mkdir dir="${classes.dir}" />
+		<copy todir="${classes.dir}">
+			<fileset dir="${src.dir}">			  
+			  <exclude name="**/*.java"/>
+			</fileset>
+		</copy>
+    	<javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="project.classpath"
+    	    source="1.5" target="1.5" debug="true" encoding="${build.encoding}" includeantruntime="on">
+    		<include name="**/*.java"/>
+    	</javac>
+    </target>
+
+	<!-- =================================================================== -->
+    <!-- Build distributed .jar file - fep-common.jar                    -->
+    <!-- =================================================================== -->
+	
+	<target name="build">
+		<foreach target="build-common-jar" param="project.name" list="${app.name}" delimiter=";">
+		</foreach>
+	</target>
+	
+	<target name="build-common-jar" depends="compile" description="Build fep-common jar">
+		<mkdir dir="${app.path}/${project.name}/libs" />
+		<delete file="${app.path}/${project.name}/libs/${common.jar.name}" />
+		<jar destfile="${app.path}/${project.name}/libs/${common.jar.name}" basedir="${classes.dir}">
+			<include name="cn/**" />
+			<include name="com/**"/>
+			<include name="org/**" />
+		</jar>
+		<copy todir="${app.path}/${project.name}/src" >
+			<fileset dir="${src.dir}" defaultexcludes="true">			  
+				<include name="*.xml" />
+				<include name="*.properties" />
+			</fileset>
+		</copy>
+		<copydir dest="${app.path}/${project.name}/libs" src="${basedir}/libs">
+			<include name="*.jar"/>
+			<exclude name="*-sources.jar"/>
+		</copydir>
+	</target>
+
+</project>

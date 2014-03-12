@@ -1,0 +1,11 @@
+package _thread;
+
+public class Single {
+
+	
+	private  Single in = null;
+	
+	private Single(){
+	}
+	
+}

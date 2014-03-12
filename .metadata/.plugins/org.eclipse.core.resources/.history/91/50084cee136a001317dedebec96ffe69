@@ -1,0 +1,102 @@
+package test.hx.dlms.memcache;
+
+import java.util.concurrent.CountDownLatch;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.hx.dlms.aa.DlmsContext;
+import com.meetup.memcached.MemcachedClient;
+
+public class MemcachedTest {
+
+	private MemcachedClient client ;
+	
+	private static int MAX=100000;
+	
+	private static int THREAD_SIZE=10;
+	
+	private static String BASEID="100000000000";
+	
+	@Before
+	public  void beforeClass(){
+		ApplicationContext context = new ClassPathXmlApplicationContext("memcached.xml");
+		client=(MemcachedClient) context.getBean("memcachedClient");
+		
+	}
+	public enum OPERATION {SET,GET};
+
+	private class ClientThread implements Runnable{
+
+		public int startNum = 0;
+		public String name;
+		public OPERATION operation;
+		CountDownLatch cdl;
+		public ClientThread(int startNum,OPERATION op,CountDownLatch cdl){
+			this.startNum = startNum;
+			this.name =op.name()+"("+startNum+")";
+			this.cdl = cdl;
+			this.operation  =op;
+		}
+		
+		
+		@Override
+		public void run() {
+			long t1 = System.currentTimeMillis();
+			int count=0;
+			for(int i=startNum*MAX;i<MAX*(startNum+1);i++){
+				if(operation == OPERATION.SET){
+					DlmsContext dc = new DlmsContext();
+					dc.setMeterId((""+i));
+					if(!client.set("meterId:"+i, dc)){
+						count++;
+					}					
+				}else{
+					DlmsContext dc=(DlmsContext) client.get("meterId:"+i);
+					if(dc==null){
+						count++;
+					}
+				}
+			}
+			long t2 = System.currentTimeMillis();
+			System.out.println("Thread-"+name+" op:"+MAX+" use time:"+(t2-t1)+",fail:"+count);
+			cdl.countDown();
+				
+		}
+		
+	}
+	
+
+	@Test
+	public void testSet() throws InterruptedException{
+		CountDownLatch cdl = new CountDownLatch(THREAD_SIZE);
+
+		for(int i=0;i<THREAD_SIZE;i++){
+			new Thread(new ClientThread(i, OPERATION.SET,cdl)).start();
+		}
+		cdl.await();
+	
+	}
+	
+	@Test
+	public void testGet() throws InterruptedException{
+		CountDownLatch cdl = new CountDownLatch(THREAD_SIZE);
+
+		for(int i=0;i<THREAD_SIZE;i++){
+			new Thread(new ClientThread(i, OPERATION.GET,cdl)).start();
+		}
+		cdl.await();
+	}
+	
+//	@Test
+//	public void testM(){
+//		long beforeMemory=Runtime.getRuntime().totalMemory();
+//		DlmsContext obj=new DlmsContext();
+//		obj.setMeterId("meterId:"+10000);
+//		long afterMemory=Runtime.getRuntime().totalMemory();
+//		        System.out.println("Memory used:"+(beforeMemory-afterMemory));
+//	}
+//	
+}

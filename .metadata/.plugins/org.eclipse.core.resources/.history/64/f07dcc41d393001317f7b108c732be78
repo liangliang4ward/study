@@ -1,0 +1,24 @@
+package client;
+
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.nio.channels.SocketChannel;
+
+public class ClientNIO {
+
+	
+	
+	
+	public ClientNIO(int port,String ip) {
+		try {
+			SocketChannel channel = SocketChannel.open();
+			channel.connect(new InetSocketAddress(ip, port));
+			
+			
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+}

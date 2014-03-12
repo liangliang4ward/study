@@ -1,0 +1,17 @@
+import java.util.concurrent.Callable;
+import java.util.concurrent.FutureTask;
+
+
+public class TestFutureTask {
+	public static void main(String[] args) {
+		FutureTask<String> future = new FutureTask<String>(new Callable<String>() {
+
+			@Override
+			public String call() throws Exception {
+				return null;
+			}
+		});
+		
+		
+	}
+}

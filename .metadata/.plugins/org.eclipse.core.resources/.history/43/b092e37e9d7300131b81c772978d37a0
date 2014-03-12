@@ -1,0 +1,54 @@
+package server;
+
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.SocketException;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
+import java.nio.channels.ServerSocketChannel;
+
+public class Server {
+	
+	private int port;
+	private ServerSocketChannel ssc ;
+	private Selector selector;
+	public Server(int port){
+		this.port = port;
+	}
+	
+	
+
+
+
+	class AcceptThread extends Thread{
+		
+		@Override
+		public void run(){
+			
+			try {
+				ssc = ServerSocketChannel.open();
+				ssc.socket().setReuseAddress(true);
+				ssc.socket().bind(new InetSocketAddress(port));
+				ssc.configureBlocking(false);
+			} catch (SocketException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			try {
+				selector=Selector.open();
+				ssc.register(selector, SelectionKey.OP_ACCEPT);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			
+			
+			
+		}
+	}
+	
+	
+	
+}

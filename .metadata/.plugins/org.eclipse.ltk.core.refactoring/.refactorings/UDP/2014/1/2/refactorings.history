@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;nio.client.TestUDP&apos; to &apos;TestUDPSender&apos;&#x0D;&#x0A;- Original project: &apos;UDP&apos;&#x0D;&#x0A;- Original element: &apos;nio.client.TestUDP&apos;&#x0D;&#x0A;- Renamed element: &apos;nio.client.TestUDPSender&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;TestUDP&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;nio.client{TestUDP.java[TestUDP" matchStrategy="1" name="TestUDPSender" qualified="false" references="true" similarDeclarations="false" stamp="1389073764736" textual="false" version="1.0"/>
+</session>

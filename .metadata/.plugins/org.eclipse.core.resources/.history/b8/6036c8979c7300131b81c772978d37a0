@@ -1,0 +1,15 @@
+package server;
+
+public class Server {
+	
+	
+	
+	
+	
+	class AcceptThread extends Thread{
+		
+	}
+	
+	
+	
+}

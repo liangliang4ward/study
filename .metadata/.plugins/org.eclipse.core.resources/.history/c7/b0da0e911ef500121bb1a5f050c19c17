@@ -1,0 +1,29 @@
+package cache;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.danga.MemCached.MemCachedClient;
+
+public class MemcachedSpringTest {
+
+	private MemCachedClient cachedClient;
+	
+	@Before
+	public void init() {
+		ApplicationContext context = new ClassPathXmlApplicationContext("classpath*:app.xml");
+		cachedClient = (MemCachedClient)context.getBean("memcachedClient");
+	}
+	
+	@Test
+	public void testMemcachedSpring() {
+		
+		System.out.println(cachedClient.get("user"));
+		UserBean user = new UserBean("lou", "jason");
+		cachedClient.set("user", user);
+		UserBean cachedBean = (UserBean)user;
+		System.out.println(cachedBean.getUsername());
+	}
+}

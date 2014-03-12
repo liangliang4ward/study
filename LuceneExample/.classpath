@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="/LuceneTest1/lib/lucene-core-3.6.2.jar" sourcepath="D:/c_Resource/资料/lucene/lucene-3.6.2-src/lucene-3.6.2/core"/>
+	<classpathentry kind="lib" path="/LuceneTest1/lib/lucene-highlighter-3.6.2.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

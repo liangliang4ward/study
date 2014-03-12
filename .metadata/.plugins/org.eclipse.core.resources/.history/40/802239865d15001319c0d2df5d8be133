@@ -1,0 +1,18 @@
+package _thread;
+
+public class Single {
+
+	
+	private  Single in = null;
+	
+	private Single(){
+		if(in == null){
+			synchronized (this) {
+				if( in == null){
+					return new Single()''
+				}
+			}
+		}
+	}
+	
+}

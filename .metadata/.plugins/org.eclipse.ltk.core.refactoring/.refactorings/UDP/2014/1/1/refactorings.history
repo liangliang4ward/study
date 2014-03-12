@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;client.UDPEchoClientClient&apos; to &apos;UDPEchoClient&apos;&#x0D;&#x0A;- Original project: &apos;UDP&apos;&#x0D;&#x0A;- Original element: &apos;client.UDPEchoClientClient&apos;&#x0D;&#x0A;- Renamed element: &apos;client.UDPEchoClient&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;UDPEchoClientClient&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;client{UDPEchoClientClient.java[UDPEchoClientClient" matchStrategy="1" name="UDPEchoClient" qualified="false" references="true" similarDeclarations="false" stamp="1388826472823" textual="false" version="1.0"/>
+</session>

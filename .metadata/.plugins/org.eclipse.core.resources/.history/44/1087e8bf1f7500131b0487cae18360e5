@@ -1,0 +1,12 @@
+package client;
+
+import java.net.DatagramSocket;
+import java.net.SocketException;
+
+public class UDPEchoServer {
+	public static void main(String[] args) throws SocketException {
+		
+		
+		DatagramSocket ds = new DatagramSocket(3111);
+	}
+}

@@ -1,0 +1,23 @@
+package _thread;
+
+public class Single {
+
+	
+	private static Single in = null;
+	
+	private Single(){
+	}
+	
+	public static getInstance(){
+
+		if(in == null){
+			synchronized (this) {
+				if( in == null){
+					return new Single();
+				}
+			}
+		}
+		return in;
+	}
+	
+}

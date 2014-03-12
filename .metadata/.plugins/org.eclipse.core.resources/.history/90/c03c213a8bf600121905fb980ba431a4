@@ -1,0 +1,57 @@
+package _uname;
+
+public class Test1 {
+
+	
+	
+	public static void main(String[] args) {
+		System.out.println(Integer.MAX_VALUE);
+		System.out.println(getMaxInt());
+		System.out.println(getMaxInt1());
+		System.out.println(getMaxInt2());
+		System.out.println(getMinInt());
+		System.out.println(getMinInt1());
+		System.out.println(getMaxLong());
+		System.out.println(mulTwo(9));
+		System.out.println(divTwo(9));
+		System.out.println(isOddMun(9));
+
+	}
+	
+	public static int getMaxInt(){
+		return (1<<31)-1;
+	}
+	
+	public static int getMaxInt1(){
+		return ~(1<<31);
+	}
+	
+	public static int getMaxInt2(){
+		return (1<<-1)-1;
+	}
+	
+	public static int getMinInt(){
+		return 1<<31;
+	}
+	
+	public static int getMinInt1(){
+		return (1<<-1);
+	}
+	
+	public static long getMaxLong(){
+		return ((long)1<<127)-1;
+	}
+	
+	public static int mulTwo(int n){
+		return n<<1;
+	}
+	
+	public static int divTwo(int n){
+		return n>>1;
+	}
+	
+	public static boolean isOddMun(int n){
+		return (n&1)==1;
+	}
+	
+}

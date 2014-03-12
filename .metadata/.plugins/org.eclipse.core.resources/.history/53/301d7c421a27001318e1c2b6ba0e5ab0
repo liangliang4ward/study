@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>netty-testsuite-osgi-split</name>
+	<comment>verify osgi compliance: prohibit split packages. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
+	<projects>
+		<project>netty-buffer</project>
+		<project>netty-common</project>
+		<project>netty-codec</project>
+		<project>netty-transport</project>
+		<project>netty-codec-http</project>
+		<project>netty-handler</project>
+		<project>netty-codec-socks</project>
+		<project>netty-transport-rxtx</project>
+		<project>netty-transport-sctp</project>
+		<project>netty-transport-udt</project>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+</projectDescription>

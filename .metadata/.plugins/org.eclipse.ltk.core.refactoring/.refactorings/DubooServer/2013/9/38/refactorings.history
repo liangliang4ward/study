@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;DubooTest/src/proviser.xml&apos; to &apos;provider.xml&apos;" description="Rename resource &apos;proviser.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/proviser.xml" name="provider.xml" stamp="1379418701071" updateReferences="true"/>
+</session>

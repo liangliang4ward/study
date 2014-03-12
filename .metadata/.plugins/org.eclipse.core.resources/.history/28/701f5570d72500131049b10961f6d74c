@@ -1,0 +1,65 @@
+package c_port_packageTeacher;
+
+import java.awt.Rectangle;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+public class Login extends JFrame{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
+	 * @param args
+	 */
+	JTextField jtf0 = new JTextField();
+	JTextField jtf1 = new JTextField();
+	JLabel jl0 = new JLabel();
+	JLabel jl1 = new JLabel();
+	MyJButtonLogin jb1 = new MyJButtonLogin("登陆",jtf0.getText(),jtf1.getText(),this);
+	MyJButton jb2 = new MyJButton("注册","127.0.0.1");
+	MyJButtonPayForSysProduct jb3 = new MyJButtonPayForSysProduct("买产品");
+	JPasswordField jpwf = new JPasswordField();       
+	JPanel jp1 = new JPanel();
+	public static String UID = null;
+	static String PWD = null;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		new Login();
+	}
+	
+	public Login(){
+		this.setTitle("赤兔马网络答疑学校，让您的孩子，从杜月笙成为段永平");
+		this.setSize(500,600);
+		this.setVisible(true);
+		this.setDefaultCloseOperation(Login.EXIT_ON_CLOSE);
+		jb1.setBounds(new Rectangle(30,220,80,30));
+		jb2.setBounds(new Rectangle(236,220,80,30));
+		jb3.setBounds(new Rectangle(128,220,90,30));
+		jp1.setLayout(null);
+		jp1.add(jb1);
+		jp1.add(jb2);
+		jtf0.setBounds(new Rectangle(73,115,220,25));
+		jp1.add(jtf0);
+		jpwf.setBounds(new Rectangle(73,150,220,25));
+		jp1.add(jpwf) ;
+		jl0 = new JLabel("用户名");
+		jl1 = new JLabel("密码");
+		jl0.setBounds(new Rectangle(30,115,40,25));
+		jl1.setBounds(new Rectangle(30,150,40,25));
+		jp1.add(jl0);
+		jp1.add(jl1);
+		jp1.add(jb3);
+		this.add(jp1);
+		this.setBounds(283,115,370,330);
+		this.setContentPane(jp1);
+		UID = jtf0.getText();
+		PWD = jtf1.getText();
+		}
+}
+

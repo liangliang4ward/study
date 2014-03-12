@@ -1,0 +1,17 @@
+package example;
+
+import java.util.concurrent.ExecutorCompletionService;
+import java.util.concurrent.Executors;
+
+
+public class Test {
+	
+	public static void main(String[] args) {
+	
+		Executors executor = Executors.newCachedThreadPool();
+		ExecutorCompletionService<String> ecs = new ExecutorCompletionService<String>(executor) 
+		
+	}
+	
+	
+}

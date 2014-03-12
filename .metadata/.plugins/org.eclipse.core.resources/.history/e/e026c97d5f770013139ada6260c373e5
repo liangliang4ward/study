@@ -1,0 +1,5 @@
+package nio.client;
+
+public class TestUDPReceiver {
+
+}

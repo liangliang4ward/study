@@ -1,0 +1,36 @@
+package server;
+
+public class Server {
+	
+	private int port;
+	
+	public Server(int port){
+		this.port = port;
+		init();
+	}
+	
+	
+	
+	private void init() {
+		
+	}
+
+
+
+	class AcceptThread extends Thread{
+		
+		@Override
+		public void run(){
+			
+			
+			
+			
+			
+			
+			
+		}
+	}
+	
+	
+	
+}

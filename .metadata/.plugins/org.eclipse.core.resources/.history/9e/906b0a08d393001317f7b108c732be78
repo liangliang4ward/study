@@ -1,0 +1,11 @@
+package client;
+
+public class ClientNIO {
+
+	
+	
+	
+	public ClientNIO(int port,String ip) {
+	}
+
+}

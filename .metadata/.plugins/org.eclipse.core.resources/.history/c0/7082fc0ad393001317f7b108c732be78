@@ -1,0 +1,15 @@
+package client;
+
+import java.nio.channels.SocketChannel;
+
+public class ClientNIO {
+
+	
+	
+	
+	public ClientNIO(int port,String ip) {
+		SocketChannel channel = SocketChannel.open();
+		
+	}
+
+}

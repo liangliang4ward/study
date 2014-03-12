@@ -1,0 +1,24 @@
+package test.codeconvert;
+
+import javassist.compiler.ast.Expr;
+import javassist.expr.ExprEditor;
+
+public class VerboseEditor extends ExprEditor{
+	private String from(Expr expr) {
+        CtBehavior source = expr.where();
+        return " in " + source.getName() + "(" + expr.getFileName() + ":" +
+            expr.getLineNumber() + ")";
+    }
+    public void edit(FieldAccess arg) {
+        String dir = arg.isReader() ? "read" : "write";
+        System.out.println(" " + dir + " of " + arg.getClassName() +
+            "." + arg.getFieldName() + from(arg));
+    }
+    public void edit(MethodCall arg) {
+        System.out.println(" call to " + arg.getClassName() + "." +
+            arg.getMethodName() + from(arg));
+    }
+    public void edit(NewExpr arg) {
+        System.out.println(" new " + arg.getClassName() + from(arg));
+    }
+}

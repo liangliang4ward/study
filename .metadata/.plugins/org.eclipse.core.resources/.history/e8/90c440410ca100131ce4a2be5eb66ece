@@ -1,0 +1,15 @@
+package test;
+import inf.HightLightsContainer;
+
+
+public class HightLightsContainerImpl implements HightLightsContainer{
+
+	public void initialize(Callback callback) {
+		
+	}
+
+	public void test() {
+		
+	}
+
+}

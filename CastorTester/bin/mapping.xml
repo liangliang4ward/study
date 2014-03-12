@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Object Mapping DTD Version 1.0//EN"
+                         "http://castor.exolab.org/mapping.dtd">
+
+
+<mapping>
+        <class name="MyOrder">
+                <map-to xml="Order"/>
+        
+                <field name="Reference"
+                       type="java.lang.String">
+                        <bind-xml name="reference" node="attribute"/>
+                </field>
+
+                <field name="Total"
+                       type="float">
+                        <bind-xml name="total-price" node="attribute"/>
+                </field>
+
+                <field name="ClientData"
+                       type="ClientData">
+                        <bind-xml name="Client"/>
+                </field>
+
+                <field name="ItemsList"
+                       type="Item"
+                          collection="vector">
+                        <bind-xml name="Item"/>
+                </field>
+        </class>
+
+        <class name="ClientData">
+                <field name="Name"
+                       type="java.lang.String">
+                        <bind-xml name="Name" node="element"/>
+                </field>
+
+                <field name="Address"
+                       type="java.lang.String">
+                        <bind-xml name="Address" node="element"/>
+                </field>
+        </class>
+
+        <class name="Item">
+                <field name="_reference"
+                       type="java.lang.String"
+                       direct="true">
+                        <bind-xml name="Reference" node="attribute"/>
+                </field>
+
+                <field name="_quantity"
+                       type="integer"
+                       direct="true">
+                        <bind-xml name="Quantity" node="element"/>
+                </field>
+
+                <field name="_unitPrice"
+                       type="float"
+                       direct="true">
+                        <bind-xml name="UnitPrice" node="element"/>
+                </field>
+                <field name="_description"
+                       type="string"
+                       direct="true">
+                        <bind-xml name="Description" node="element"/>
+                </field>
+        </class>
+
+</mapping>
+            

@@ -1,0 +1,6 @@
+
+public class Children extends Persion{
+
+	
+	public void play();
+}

@@ -1,0 +1,15 @@
+package example;
+
+import java.util.concurrent.ExecutorCompletionService;
+
+
+public class Test {
+	
+	public static void main(String[] args) {
+	
+		ExecutorCompletionService<V>
+		
+	}
+	
+	
+}

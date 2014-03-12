@@ -1,0 +1,16 @@
+import javassist.ClassPool;
+import javassist.CtClass;
+import javassist.CtField;
+import javassist.NotFoundException;
+
+
+public class TestJavassist {
+	public static void main(String[] args) throws NotFoundException {
+		
+		ClassPool classPool = ClassPool.getDefault();
+		
+		CtClass ct = classPool.get("Persion");
+		CtField[] s = ct.getDeclaredFields();
+		System.out.println();
+	}
+}	

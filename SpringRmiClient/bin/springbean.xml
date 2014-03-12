@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security-2.5.xsd">
+    
+	<beans:bean id="userDaoProxy" class="org.springframework.remoting.rmi.RmiProxyFactoryBean"> 
+		<beans:property name="serviceUrl" value="rmi://localhost:9111/userDaoService"/> 
+        <beans:property name="serviceInterface" value="leon.rmi.iface.IUserDao"/> 
+    </beans:bean>
+    
+</beans:beans>

@@ -1,0 +1,8 @@
+
+public class Children extends Persion{
+
+	
+	public void play(){
+		System.out.println("play");
+	}
+}

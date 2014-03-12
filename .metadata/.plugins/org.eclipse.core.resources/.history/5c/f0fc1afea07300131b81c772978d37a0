@@ -1,0 +1,12 @@
+package server;
+
+import java.nio.channels.ServerSocketChannel;
+import java.nio.channels.SocketChannel;
+
+public class Client {
+	SocketChannel sc;
+	SocketChannel sc
+	public Client(SocketChannel sc, ServerSocketChannel ssc) {
+	}
+
+}

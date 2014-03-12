@@ -1,0 +1,13 @@
+package example;
+
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class Test1 {
+	public static void main(String[] args) throws InterruptedException, ExecutionException {
+		ExecutorService s = Executors.newCachedThreadPool();
+		
+		
+	}
+}

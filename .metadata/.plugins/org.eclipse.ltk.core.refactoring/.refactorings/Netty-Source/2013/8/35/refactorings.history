@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;Netty-Source&apos;&#x0D;&#x0A;- Original project: &apos;Netty-Source&apos;&#x0D;&#x0A;- Original element: &apos;Netty-Source/src/io.netty.util&apos;&#x0D;&#x0A;- Delete subpackages" description="Delete element" element1="/src&lt;io.netty.util.internal.logging" element2="/src&lt;io.netty.util.internal.chmv8" element3="/src&lt;io.netty.util.internal" element4="/src&lt;io.netty.util.concurrent" element5="/src&lt;io.netty.util" element6="/src&lt;io.netty" element7="/src&lt;io" elements="7" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1377777479603" subPackages="true" version="1.0"/>
+</session>

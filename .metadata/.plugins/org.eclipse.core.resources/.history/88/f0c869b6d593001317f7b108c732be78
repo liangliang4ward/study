@@ -1,0 +1,29 @@
+package client;
+
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.nio.channels.Selector;
+import java.nio.channels.SocketChannel;
+
+public class ClientNIO {
+
+	private SocketChannel channel;
+	private Selector selector;
+	public ClientNIO(int port,String ip) {
+		try {
+			channel = SocketChannel.open();
+			channel.configureBlocking(false);
+			selector = Selector.open();
+			channel.connect(new InetSocketAddress(ip, port));
+			
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void main(String[] args) {
+		new ClientNIO(3333, "localhost");
+	}
+
+}

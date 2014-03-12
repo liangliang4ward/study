@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;client.Client1&apos; to &apos;ClientNIO&apos;&#x0D;&#x0A;- Original project: &apos;Socket&apos;&#x0D;&#x0A;- Original element: &apos;client.Client1&apos;&#x0D;&#x0A;- Renamed element: &apos;client.ClientNIO&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Client1&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;client{Client1.java[Client1" matchStrategy="1" name="ClientNIO" qualified="false" references="true" similarDeclarations="false" stamp="1392202002051" textual="false" version="1.0"/>
+</session>

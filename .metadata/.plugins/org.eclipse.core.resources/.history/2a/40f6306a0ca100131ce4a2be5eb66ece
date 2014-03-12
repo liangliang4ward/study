@@ -1,0 +1,19 @@
+package test;
+import inf.HightLightsContainer;
+
+
+public class HightLightsContainerImpl implements HightLightsContainer{
+
+	public void initialize(Callback callback) {
+		
+	}
+
+	public void test() {
+	}
+	
+	public static void main(String[] args) {
+		HightLightsContainerImpl hm = new HightLightsContainerImpl();
+		hm.initialize(new Callback());
+	}
+
+}

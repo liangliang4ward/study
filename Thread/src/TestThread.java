@@ -1,0 +1,25 @@
+import java.util.concurrent.TimeUnit;
+
+
+public class TestThread {
+	public static void main(String[] args) throws InterruptedException {
+		
+		
+		Thread t  = new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				try {
+					System.out.println("start");
+					TimeUnit.SECONDS.sleep(10);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				
+			}
+		});
+		t.start();
+		Thread.yield();
+		System.out.println("end");
+	}
+}

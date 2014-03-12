@@ -1,0 +1,15 @@
+package _uname;
+
+public class Test1 {
+
+	
+	
+	public static void main(String[] args) {
+		
+	}
+	
+	public static int getMaxInt(){
+		return (1<<31);
+	}
+	
+}

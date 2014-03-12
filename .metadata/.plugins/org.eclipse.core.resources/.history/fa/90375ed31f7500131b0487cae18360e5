@@ -1,0 +1,18 @@
+package client;
+
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.SocketException;
+
+public class UDPEchoServer {
+	public static void main(String[] args) throws SocketException {
+		
+		
+		DatagramSocket ds = new DatagramSocket(3111);
+		
+		DatagramPacket dpr = new DatagramPacket(new byte[125], 125);
+		
+		
+		
+	}
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">flashlight</string>
+    <string name="hello">Gaoll Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <color name="all_white">#FFFFFF</color>
+    <color name="all_black">#000000</color>
+    
+</resources>

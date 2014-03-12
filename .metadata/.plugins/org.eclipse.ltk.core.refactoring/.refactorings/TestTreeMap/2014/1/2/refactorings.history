@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;TestTreeMao&apos; to &apos;TestTreeMap&apos;&#x0D;&#x0A;- Original project: &apos;TestTreeMap&apos;&#x0D;&#x0A;- Original element: &apos;TestTreeMao&apos;&#x0D;&#x0A;- Renamed element: &apos;TestTreeMap&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;TestTreeMao&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{TestTreeMao.java[TestTreeMao" matchStrategy="1" name="TestTreeMap" qualified="false" references="true" similarDeclarations="false" stamp="1388979718058" textual="false" version="1.0"/>
+</session>

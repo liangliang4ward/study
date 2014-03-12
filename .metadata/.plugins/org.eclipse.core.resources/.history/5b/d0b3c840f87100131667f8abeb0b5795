@@ -1,0 +1,25 @@
+
+public class TestVolate {
+
+	 int b = 2;
+	
+	
+	public TestVolate(){
+		for(int i=0;i<1000;i++){
+			
+		}
+	}
+	
+	class Thread1 extends Thread{
+		
+		@Override
+		public void run(){
+			b++;
+		}
+	}
+	
+	public static void main(String[] args) {
+		new TestVolate();
+	}
+}
+

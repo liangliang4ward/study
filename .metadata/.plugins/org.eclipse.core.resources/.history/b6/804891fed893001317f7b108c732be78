@@ -1,0 +1,87 @@
+package client;
+
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
+import java.nio.channels.SocketChannel;
+import java.util.Iterator;
+import java.util.Set;
+
+public class ClientNIO {
+
+	private Selector selector;
+	SocketChannel channel;
+	public ClientNIO(int port,String ip) {
+		try {
+			channel = SocketChannel.open();
+			channel.configureBlocking(false);
+			selector = Selector.open();
+			channel.connect(new InetSocketAddress(ip, port));
+			channel.register(selector, SelectionKey.OP_CONNECT);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	class WorkThread implements Runnable{
+
+		@Override
+		public void run() {
+
+			
+			while(true){
+				try {
+					int n = selector.select(10);
+					if(n<=0)
+						continue;
+					Set<SelectionKey> keys = this.selector.selectedKeys();
+					Iterator<SelectionKey> iterator = keys.iterator();
+					while(iterator.hasNext()){
+						SelectionKey key = iterator.next();
+						iterator.remove();
+						
+						if(key.isConnectable()){
+							if(channel.isConnectionPending()){
+								channel.finishConnect();
+							}
+							channel.configureBlocking(false);
+							channel.register(selector, SelectionKey.OP_READ);
+						}else if( key.isReadable() ){
+							ByteBuffer buffer = ByteBuffer.allocate(3);
+							channel.read(buffer);
+							String value = "";
+							while(!buffer.hasRemaining()){
+								buffer.flip();
+								byte[] dst =new byte[buffer.limit()];
+								buffer.get(dst);
+								value+=new String(dst);
+								buffer.clear();
+							}
+							buffer.flip();
+							byte[] dst =new byte[buffer.limit()];
+							buffer.get(dst);
+							value+=new String(dst);
+							System.out.println(value);
+						}
+						
+					}
+					
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			
+		
+		}
+		
+	}
+	
+	public void listen(){}
+	
+	public static void main(String[] args) {
+		new ClientNIO(3333, "localhost").listen();
+	}
+
+}

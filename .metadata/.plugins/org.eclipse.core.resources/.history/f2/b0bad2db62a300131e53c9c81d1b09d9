@@ -1,0 +1,14 @@
+
+public class Test1 {
+	public static void main(String[] args) {
+		String content = "0206246170706C69636174696F6E2F766E642E7761702E6D6D732D6D65737361676500B487AF848C82986D727A416D304F6F54784830008D90891680313036353838383039302F545950453D504C4D4E008A808E040000D2248805810303F48083687474703A2F2F3231312E3134302E31322E3233343A3138382F30426279683100";
+		StringBuffer sb = new StringBuffer();
+		for(int i = 0 ; i < content.length()/40;i++){
+			sb.append(content.substring(40*i, 40*i+40));
+			sb.append("\n");
+		}
+		sb.append(content.substring((content.length()/40)*40, content.length()));
+		content = sb.toString();
+		System.out.println(content+"============");
+	}
+}

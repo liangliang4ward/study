@@ -1,0 +1,49 @@
+package cn.hexing.meter.mock;
+
+import java.util.concurrent.TimeUnit;
+
+
+import io.netty.channel.ChannelHandler.Sharable;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.EventLoop;
+import io.netty.channel.SimpleChannelInboundHandler;
+
+@Sharable
+public class MockerMessageHandler extends SimpleChannelInboundHandler<Object>{
+
+	private MockerClient client;
+	public MockerMessageHandler(MockerClient dlmsMockClient) {
+		this.client = dlmsMockClient;
+	}
+
+	@Override
+	protected void channelRead0(ChannelHandlerContext ctx, Object msg)
+			throws Exception {
+		System.out.println(msg);
+	}
+	
+	@Override
+	public void channelInactive(final ChannelHandlerContext ctx) throws Exception {
+		client.onDisconnect(ctx.channel());
+	}
+
+	@Override
+	public void channelActive(ChannelHandlerContext ctx) throws Exception {
+		onConnect(ctx.channel());
+	}
+	
+	
+	private void onConnect(final Channel channel) {
+		final EventLoop loop = channel.eventLoop();
+		loop.scheduleAtFixedRate(new Runnable() {
+			@Override
+			public void run() {
+				channel.writeAndFlush("123123");
+				
+			}
+		}, 0, 2, TimeUnit.MINUTES);
+	}
+
+
+}

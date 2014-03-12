@@ -1,0 +1,21 @@
+1378724594662	Delete element
+1378727590686	Delete element
+1378727658625	Delete element
+1378727919443	Delete element
+1378811632574	Copy compilation unit
+1378811714432	Rename type 'RightPanel2'
+1378816459792	Rename field 'eastPanel'
+1378816490788	Rename field 'westTreeScrollPanel'
+1378816504198	Rename field 'westTree'
+1378816514450	Rename method 'createWestPanel'
+1378816519645	Rename method 'createWestTree'
+1378816522923	Rename method 'createleftPanel'
+1378816628880	Rename method 'createEastPanel'
+1378879350669	Delete element
+1378880106426	Extract method 'createLeftTreePanel'
+1378880110650	Rename method 'createLeftTreePanel'
+1378880172714	Rename field 'leftTreePanel'
+1378887145238	Copy compilation unit
+1378889461246	Copy compilation unit
+1379057422660	Copy compilation unit
+1379060441434	Move file

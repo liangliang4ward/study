@@ -1,0 +1,48 @@
+package client;
+
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+
+
+
+public class UDPEchoClient {
+	public static void main(String[] args) throws IOException {
+		for (int i = 0; i < 100; i++) {
+
+			DatagramSocket dc = new DatagramSocket();
+
+			dc.setSoTimeout(1000);
+
+			String msg = "Heart Beart";
+			DatagramPacket dps = new DatagramPacket(msg.getBytes(),
+					msg.getBytes().length, InetAddress.getByName("127.0.0.1"),
+					3111);
+
+			DatagramPacket dpr = new DatagramPacket(
+					new byte[msg.getBytes().length], msg.getBytes().length);
+
+			int tries = 0;
+			boolean receivedResponse = false;
+
+			do {
+
+				dc.send(dps);
+				try {
+					dc.receive(dpr);
+
+					receivedResponse = true;
+				} catch (IOException e) {
+					tries++;
+				}
+			} while (!receivedResponse && tries < 5);
+
+			if (receivedResponse) {
+				System.out.println(new String(dpr.getData())+":"+tries);
+			} else {
+				System.out.println("unreceived");
+			}
+		}
+	}
+}

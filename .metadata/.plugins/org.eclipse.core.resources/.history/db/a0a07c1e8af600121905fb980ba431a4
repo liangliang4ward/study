@@ -1,0 +1,25 @@
+package _uname;
+
+public class Test1 {
+
+	
+	
+	public static void main(String[] args) {
+		System.out.println(Integer.MAX_VALUE);
+		System.out.println(getMaxInt());
+		System.out.println(getMaxInt1());
+	}
+	
+	public static int getMaxInt(){
+		return (1<<31)-1;
+	}
+	
+	public static int getMaxInt1(){
+		return ~(1<<31);
+	}
+	
+	public static int getMaxInt2(){
+		return (1<<-1);
+	}
+	
+}

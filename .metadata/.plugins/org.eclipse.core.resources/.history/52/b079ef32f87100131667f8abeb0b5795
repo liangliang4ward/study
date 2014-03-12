@@ -1,0 +1,24 @@
+
+public class TestVolate {
+
+	volatile int b = 2;
+	
+	
+	public TestVolate(){
+		new Thread1().start();
+		new Thread1().start();
+	}
+	
+	class Thread1 extends Thread{
+		
+		@Override
+		public void run(){
+			b++;
+		}
+	}
+	
+	public static void main(String[] args) {
+		new TestVolate();
+	}
+}
+

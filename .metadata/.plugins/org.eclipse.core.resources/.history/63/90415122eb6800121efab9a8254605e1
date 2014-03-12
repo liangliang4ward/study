@@ -1,0 +1,12 @@
+import gnu.io.CommPortIdentifier;
+
+import java.util.Enumeration;
+
+
+public class Test {
+	public static void main(String[] args) {
+		CommPortIdentifier portId; 
+			Enumeration en = CommPortIdentifier.getPortIdentifiers(); 
+			
+	}
+}

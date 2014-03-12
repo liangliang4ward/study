@@ -1,0 +1,60 @@
+package client;
+
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
+import java.nio.channels.SocketChannel;
+import java.util.Iterator;
+import java.util.Set;
+
+public class ClientNIO {
+
+	private SocketChannel channel;
+	private Selector selector;
+	public ClientNIO(int port,String ip) {
+		try {
+			channel = SocketChannel.open();
+			channel.configureBlocking(false);
+			selector = Selector.open();
+			channel.connect(new InetSocketAddress(ip, port));
+			channel.register(selector, SelectionKey.OP_CONNECT);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void listen(){
+		
+		while(true){
+			try {
+				int n = selector.select(10);
+				if(n<0)
+					continue;
+				Set<SelectionKey> keys = this.selector.selectedKeys();
+				Iterator<SelectionKey> iterator = keys.iterator();
+				while(iterator.hasNext()){
+					SelectionKey key = iterator.next();
+					iterator.remove();
+					
+					if(key.isConnectable()){
+						SocketChannel channel=(SocketChannel) key.channel();
+						if(channel.isConnectionPending()){
+							channel.finishConnect();
+						}
+					}
+					
+				}
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		new ClientNIO(3333, "localhost");
+	}
+
+}

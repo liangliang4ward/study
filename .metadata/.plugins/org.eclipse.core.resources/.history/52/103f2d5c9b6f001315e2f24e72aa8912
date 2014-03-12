@@ -1,0 +1,29 @@
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class LockTest {
+
+	
+	List<String> values = new ArrayList<String>();
+	
+	class TestThread implements Runnable{
+
+		int op=0;
+		
+		@Override
+		public void run() {
+			if(op==0){
+				
+			}else{
+				
+			}
+		}
+		
+	}
+	
+	//1.Write
+	//2.Read
+	
+	
+}

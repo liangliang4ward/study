@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="lib" path="libs/commons-dbcp.jar"/>
+	<classpathentry kind="lib" path="libs/commons-logging.jar"/>
+	<classpathentry kind="lib" path="libs/commons-pool.jar"/>
+	<classpathentry kind="lib" path="libs/log4j.jar"/>
+	<classpathentry kind="lib" path="libs/quartz-all-1.6.0.jar"/>
+	<classpathentry kind="lib" path="libs/spring.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.6.0_17"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="libs/commons-beanutils-1.8.3.jar"/>
+	<classpathentry kind="lib" path="libs/commons-net-3.1.jar"/>
+	<classpathentry kind="lib" path="libs/commons-lang.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/MemcachedClient"/>
+	<classpathentry kind="lib" path="/MemCached/lib/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="/MemCached/lib/commons-pool-1.5.6.jar"/>
+	<classpathentry kind="lib" path="/MemCached/lib/java_memcached-release_2.6.6.jar"/>
+	<classpathentry kind="lib" path="/MemCached/lib/slf4j-api-1.6.1.jar"/>
+	<classpathentry kind="lib" path="/MemCached/lib/slf4j-simple-1.6.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,20 @@
+
+public class TestGc {
+	public static TestGc save_hook = null;
+	
+	public void isAlive(){
+		System.out.println("still alive");
+	}
+
+	@Override
+	protected void finalize() throws Throwable {
+		super.finalize();
+		System.out.println("finalize execute");
+		save_hook=this;
+	}
+	
+	public static void main(String[] args) {
+		save_hook = new TestGc();
+	}
+	
+}
